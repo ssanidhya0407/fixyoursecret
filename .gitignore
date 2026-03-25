@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build/output artifacts
+secretlint.sarif
+secretlint-output/
+demo/secretlint-output/
+demo/secretlint-output-v2/
+dogfood/**/secretlint-output/
+dogfood/**/secretlint-output-v2/
+dogfood/**/secretlint-output-v3/
+dogfood/**/findings*.json
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# OS/editor noise
+.DS_Store
+*.log
+
+# npm pack output
+*.tgz

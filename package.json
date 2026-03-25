@@ -1,0 +1,58 @@
+{
+  "name": "secretlint",
+  "version": "0.2.1-developer-preview.1",
+  "description": "Developer Preview: CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
+  "type": "module",
+  "bin": {
+    "secretlint": "./bin/index.js"
+  },
+  "files": [
+    "bin/",
+    "commands/",
+    "detectors/",
+    "templates/",
+    "utils/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": "./bin/index.js"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js",
+    "scan": "node ./bin/index.js scan",
+    "fix": "node ./bin/index.js fix",
+    "rotate": "node ./bin/index.js rotate openai",
+    "ci": "node ./bin/index.js ci",
+    "test": "node --test"
+  },
+  "keywords": [
+    "security",
+    "cli",
+    "secrets",
+    "lint",
+    "devsecops",
+    "sast"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssanidhya0407/secretlint.git"
+  },
+  "homepage": "https://github.com/ssanidhya0407/secretlint#readme",
+  "bugs": {
+    "url": "https://github.com/ssanidhya0407/secretlint/issues"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^14.0.1",
+    "glob": "^11.0.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
