@@ -10,6 +10,7 @@ dogfood/**/secretlint-output/
 dogfood/**/secretlint-output-v2/
 dogfood/**/secretlint-output-v3/
 dogfood/**/findings*.json
+dogfood/
 
 # Environment secrets
 .env
