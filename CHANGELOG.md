@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0-developer-preview.1] - 2026-03-26
+
+### Added
+- New detectors:
+  - AWS access key IDs
+  - Stripe secret keys
+  - Slack tokens
+  - GitHub tokens
+  - Private key block detection
+- Optional verification mode (`--verify safe`) with `--verify-strict`
+- First-class `history` command for commit-history scanning
+- Improved false-positive controls:
+  - default suppressions for test/fixture contexts
+  - value hint ignores (`example`, `dummy`, `fake`, etc.)
+
+### Changed
+- Rebranded CLI to `fixyoursecret` (kept `secretlint` alias for compatibility)
+- Default config/baseline filenames now:
+  - `.fixyoursecretrc.json`
+  - `.fixyoursecret-baseline.json`
+- CI workflow renamed and SARIF output changed to `fixyoursecret.sarif`
+
 ## [0.2.1-developer-preview.1] - 2026-03-26
 
 ### Added

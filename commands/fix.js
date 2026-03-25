@@ -9,7 +9,7 @@ const EXPOSED_OPENAI_CALL_REGEX =
 
 export async function runFix(options = {}) {
   const projectPath = path.resolve(options.path || process.cwd());
-  const outputDir = path.resolve(options.output || "secretlint-output");
+  const outputDir = path.resolve(options.output || "fixyoursecret-output");
 
   const files = await collectProjectFiles(projectPath);
   const riskyFiles = [];
@@ -53,7 +53,7 @@ function buildFrontendPatch(riskyFiles) {
   const fileList = riskyFiles.length > 0 ? riskyFiles.map((f) => `// - ${f}`).join("\n") : "// No risky files auto-detected";
 
   return `/**
- * Secretlint generated frontend patch helper.
+ * fixyoursecret generated frontend patch helper.
  * Replace direct provider calls with this internal API call.
  *\n${fileList}
  */

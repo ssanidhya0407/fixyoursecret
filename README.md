@@ -1,109 +1,100 @@
 <div align="center">
 
-# Secretlint
+# FixYourSecret
 
 **Developer Preview**
 
-ESLint-style secret scanning for modern codebases.
-Detect leaks early, flag frontend exposure, generate backend-safe fixes, and guide key rotation.
+An ESLint-style CLI that finds leaked credentials, flags frontend exposure, suggests fixes, and helps rotate keys safely.
 
 [![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-2ea44f)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![CI](https://img.shields.io/badge/ci-github%20actions-2088ff)](https://github.com/ssanidhya0407/secretlint/actions)
+[![CI](https://img.shields.io/badge/ci-github%20actions-2088ff)](https://github.com/ssanidhya0407/fixyoursecret/actions)
 
 </div>
 
 ---
 
-## Why Secretlint
-Secret leaks are one of the most common and expensive developer mistakes.
+## What Problem This Solves
+Developers accidentally commit API keys, tokens, or private keys. That leads to abuse, unexpected costs, and incident response fire drills.
 
-Secretlint helps teams:
-
-- Catch exposed keys before merge
-- Identify high-risk frontend leaks quickly
-- Generate practical migration templates
-- Rotate leaked keys safely and consistently
+FixYourSecret helps teams catch these mistakes early and fix them with clear next steps.
 
 ---
 
-## What It Is / Is Not
-### What it is
-- A fast CLI guardrail for local dev, pre-commit, and CI
-- An actionable scanner with file/line/snippet/fix guidance
-- A practical helper for incident response and key rotation
-
-### What it is not
-- Not a full security audit platform
-- Not a replacement for secret managers, IAM, or runtime controls
-- Not a guarantee for every credential format in existence
-
----
-
-## Core Features
-- ESLint-style colored terminal output
+## What You Get
+- Fast secret scanning with file/line/snippet output
+- Frontend exposure risk highlighting
 - Built-in detectors:
-  - OpenAI API keys
-  - Google API keys
+  - OpenAI keys
+  - Google keys
+  - AWS access key IDs
+  - Stripe secret keys
+  - Slack tokens
+  - GitHub tokens
+  - Private key blocks
   - Generic high-entropy tokens
-- Frontend exposure analysis (`src`, `components`, `pages`, `public`, `app`)
-- Git-aware scan modes (`--staged`, `--tracked`, `--history <n>`)
-- Config + suppressions (`.secretlintrc.json`)
-- Baseline support (`.secretlint-baseline.json`) for gradual adoption
-- CI-friendly output: `json` and `sarif`
-- Fix generation templates (`secretlint fix`)
-- Safe key rotation flow (`secretlint rotate`)
-- One-command pre-commit hook install
+- Optional safe verification mode (`--verify safe`)
+- First-class history scanning command (`history`)
+- Better false-positive controls (hints + suppressions + defaults)
+- Baseline support for gradual rollout
+- SARIF output for CI/security platforms
+- Template-based fix generation (`fix`)
+- Guided key rotation (`rotate`)
 
 ---
 
-## Installation
+## Install
 ```bash
 npm install
 npm test
 npm link
 ```
 
----
+You can run either command name (compatibility included):
 
-## 30-Second Quick Start
 ```bash
-secretlint init
-secretlint scan
-secretlint fix
-secretlint rotate openai --dry-run
-secretlint hook install
+fixyoursecret --help
+secretlint --help
 ```
 
-Detailed transcript:
-- [docs/quickstart-transcript.md](./docs/quickstart-transcript.md)
+---
 
-Dogfooding notes:
-- [docs/dogfooding-report.md](./docs/dogfooding-report.md)
+## Quick Start
+```bash
+fixyoursecret init
+fixyoursecret scan
+fixyoursecret history 30
+fixyoursecret fix
+fixyoursecret rotate openai --dry-run
+fixyoursecret hook install
+```
 
 ---
 
-## Command Reference
+## Command Cheat Sheet
 | Command | Purpose | Example |
 |---|---|---|
-| `secretlint init` | Create default config + baseline files | `secretlint init --force` |
-| `secretlint scan` | Scan files for leaks and risk | `secretlint scan --staged --fail-on high` |
-| `secretlint ci` | CI-focused SARIF scan | `secretlint ci --output-file secretlint.sarif` |
-| `secretlint fix` | Generate backend proxy + frontend patch helper | `secretlint fix --output secretlint-output` |
-| `secretlint rotate <provider>` | Rotate key and update env safely | `secretlint rotate openai --dry-run` |
-| `secretlint hook install` | Install pre-commit protection | `secretlint hook install` |
+| `fixyoursecret init` | Create default config and baseline files | `fixyoursecret init --force` |
+| `fixyoursecret scan` | Scan current working tree | `fixyoursecret scan --verify safe` |
+| `fixyoursecret history <n>` | Scan files touched in last `n` commits | `fixyoursecret history 50 --verify safe` |
+| `fixyoursecret ci` | CI-focused SARIF scan | `fixyoursecret ci --output-file fixyoursecret.sarif` |
+| `fixyoursecret fix` | Generate backend proxy + frontend patch helper | `fixyoursecret fix --output fixyoursecret-output` |
+| `fixyoursecret rotate <provider>` | Rotate and update env safely | `fixyoursecret rotate openai --dry-run` |
+| `fixyoursecret hook install` | Install pre-commit secret scan hook | `fixyoursecret hook install` |
 
 ---
 
 ## Scan Options
 ```bash
-secretlint scan [options]
+fixyoursecret scan [options]
 ```
 
 - `--format text|json|sarif`
 - `--output-file <path>`
 - `--fail-on low|medium|high`
 - `--config <path>`
+- `--verify none|safe`
+- `--verify-strict`
 - `--staged`
 - `--tracked`
 - `--history <n>`
@@ -113,72 +104,46 @@ secretlint scan [options]
 
 ---
 
-## Generated Fix Artifacts
-Running:
+## Verification Mode (Optional)
+`--verify safe` performs local structure checks for supported detectors (no external API calls).
 
-```bash
-secretlint fix --output secretlint-output
-```
-
-Creates:
-
-- `secretlint-output/backend.js`
-- `secretlint-output/frontend.patch.js`
-
-`backend.js` exposes `/api/ai` and uses `process.env.OPENAI_API_KEY`.
+Use `--verify-strict` to drop findings that fail verification.
 
 ---
 
-## Safe Rotation Flow
-```bash
-secretlint rotate openai [--dry-run] [--env-file .env] [--key <value>]
-```
-
-Behavior:
-
-- Hidden key input in interactive terminals
-- Dry-run preview mode
-- Automatic backup (`.env.bak.<timestamp>`) before write
-- Replace-or-append env key update strategy
-
----
-
-## Configuration (`.secretlintrc.json`)
+## Config (`.fixyoursecretrc.json`)
 ```json
 {
-  "ignorePaths": ["node_modules/**", ".git/**", "dist/**", "build/**"],
+  "ignorePaths": ["node_modules/**", ".git/**", "dist/**", "build/**", ".next/**", "coverage/**"],
   "allowedExtensions": [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"],
   "maxFileSizeKB": 256,
   "entropyThreshold": 3.8,
   "failOn": "high",
+  "verifyMode": "none",
   "ignoreDetectors": [],
+  "ignoreValueHints": ["example", "dummy", "fake", "sample", "replace_in_runtime_only"],
   "suppressions": [
-    { "rule": "generic-high-entropy", "path": "src/safe-fixture.js", "line": 12 }
+    { "rule": "generic-high-entropy", "path": "test/" },
+    { "rule": "generic-high-entropy", "path": "fixtures/" }
   ]
 }
 ```
 
-Inline suppression:
+Inline suppression comments supported:
 
 ```js
-// secretlint-disable-next-line
-const token = "known_fake_test_token_1234567890";
+// fixyoursecret-disable-next-line
+const token = "fake_token_for_docs_only";
 ```
 
 ---
 
-## CI Integration (GitHub Actions)
-This repo includes:
+## CI Integration
+Workflow file included:
 
-- [.github/workflows/secretlint-ci.yml](./.github/workflows/secretlint-ci.yml)
+- [./.github/workflows/fixyoursecret-ci.yml](./.github/workflows/fixyoursecret-ci.yml)
 
-Workflow steps:
-
-1. Install dependencies
-2. Run tests
-3. Run Secretlint CI scan and emit `secretlint.sarif`
-4. Upload SARIF to GitHub Code Scanning
-5. Upload SARIF artifact
+It runs tests, performs scan, and uploads SARIF.
 
 ---
 
@@ -190,9 +155,11 @@ npm pack --dry-run
 npm publish --access public
 ```
 
-Release docs:
-- [RELEASING.md](./RELEASING.md)
-- [CHANGELOG.md](./CHANGELOG.md)
+---
+
+## Notes
+- Existing users of `secretlint` command are still supported via alias.
+- Brand name chosen to avoid collision with existing Secretlint ecosystem naming.
 
 ---
 

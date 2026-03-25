@@ -6,7 +6,7 @@ import path from "node:path";
 import { runRotate } from "../commands/rotate.js";
 
 async function mkProject() {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "secretlint-rotate-"));
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "fixyoursecret-rotate-"));
   return dir;
 }
 

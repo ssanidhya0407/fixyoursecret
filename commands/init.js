@@ -5,8 +5,8 @@ import { logger } from "../utils/logger.js";
 
 export async function runInit(options = {}) {
   const projectPath = path.resolve(options.path || process.cwd());
-  const configPath = path.join(projectPath, ".secretlintrc.json");
-  const baselinePath = path.join(projectPath, ".secretlint-baseline.json");
+  const configPath = path.join(projectPath, ".fixyoursecretrc.json");
+  const baselinePath = path.join(projectPath, ".fixyoursecret-baseline.json");
 
   await writeIfMissing(configPath, defaultConfigTemplate(), Boolean(options.force));
   await writeIfMissing(baselinePath, "[]\n", Boolean(options.force));

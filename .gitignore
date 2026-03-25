@@ -3,7 +3,9 @@ node_modules/
 
 # Build/output artifacts
 secretlint.sarif
+fixyoursecret.sarif
 secretlint-output/
+fixyoursecret-output/
 demo/secretlint-output/
 demo/secretlint-output-v2/
 dogfood/**/secretlint-output/

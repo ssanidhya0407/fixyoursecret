@@ -1,4 +1,4 @@
-export function findingsToSarif(findings, toolName = "secretlint") {
+export function findingsToSarif(findings, toolName = "fixyoursecret") {
   const rulesMap = new Map();
 
   for (const finding of findings) {
@@ -23,7 +23,7 @@ export function findingsToSarif(findings, toolName = "secretlint") {
         tool: {
           driver: {
             name: toolName,
-            version: "0.2.1-developer-preview.1",
+            version: "0.3.0-developer-preview.1",
             rules: Array.from(rulesMap.values()),
           },
         },

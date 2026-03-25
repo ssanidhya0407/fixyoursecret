@@ -10,7 +10,15 @@ export function analyzeRisk(relativePath, match, snippet) {
   const hasPublicEnvLeak = PUBLIC_ENV_HINTS.some((prefix) => snippet.includes(prefix));
   const inFrontend = !isBackendPath && (inFrontendPath || hasPublicEnvLeak) && !isEnvFile;
 
-  if (inFrontend && (match.type === "openai" || match.type === "google" || /bearer\s+sk-/i.test(snippet) || hasPublicEnvLeak)) {
+  if (match.type === "private-key") {
+    return {
+      severity: "HIGH",
+      fix: "Delete private key from source immediately, revoke/replace credentials, and move keys to a secure secret manager.",
+      reason: "Private key material should never be stored in source code",
+    };
+  }
+
+  if (inFrontend && match.type !== "generic") {
     return {
       severity: "HIGH",
       fix: "Move secret to backend proxy and call internal endpoint instead.",

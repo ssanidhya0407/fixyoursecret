@@ -1,11 +1,11 @@
-# Secretlint 30-Second Quickstart (Transcript)
+# FixYourSecret 30-Second Quickstart (Transcript)
 
 ```bash
-$ secretlint init
-Initialized .secretlintrc.json
-Initialized .secretlint-baseline.json
+$ fixyoursecret init
+Initialized .fixyoursecretrc.json
+Initialized .fixyoursecret-baseline.json
 
-$ secretlint scan
+$ fixyoursecret scan
 [HIGH]
 File: src/App.js:6:30
 Issue: OpenAI key exposed
@@ -17,11 +17,11 @@ Fix: Move secret to backend proxy and call internal endpoint instead.
 
 1 issues found (1 high risk, 0 medium, 0 low)
 
-$ secretlint fix
-Generated: secretlint-output/backend.js
-Generated: secretlint-output/frontend.patch.js
+$ fixyoursecret fix
+Generated: fixyoursecret-output/backend.js
+Generated: fixyoursecret-output/frontend.patch.js
 
-$ secretlint rotate openai --dry-run
+$ fixyoursecret rotate openai --dry-run
 [1] Open: https://platform.openai.com/api-keys
 [2] Create a new key with least privilege
 [3] Rotate without committing plaintext keys

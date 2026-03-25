@@ -9,13 +9,13 @@ import { runHookInstall } from "../commands/hook.js";
 const program = new Command();
 
 program
-  .name("secretlint")
-  .description("ESLint-style CLI for finding leaked secrets and preventing key exposure")
-  .version("0.2.0");
+  .name("fixyoursecret")
+  .description("Developer-first CLI for finding leaked secrets and safely fixing exposure")
+  .version("0.3.0-developer-preview.1");
 
 program
   .command("init")
-  .description("Initialize .secretlintrc.json and baseline file")
+  .description("Initialize .fixyoursecretrc.json and baseline file")
   .option("-p, --path <path>", "project path", process.cwd())
   .option("--force", "overwrite existing files", false)
   .action(async (options) => {
@@ -31,10 +31,12 @@ program
   .option("--output-file <path>", "write JSON/SARIF output to file")
   .option("--fail-on <severity>", "low|medium|high", "high")
   .option("--config <path>", "custom config file path")
+  .option("--verify <mode>", "verification mode: none|safe", "none")
+  .option("--verify-strict", "drop findings that fail selected verification mode", false)
   .option("--staged", "scan only staged git files", false)
   .option("--tracked", "scan tracked git files", false)
   .option("--history <n>", "scan files touched in last n commits")
-  .option("--baseline <path>", "baseline file path", ".secretlint-baseline.json")
+  .option("--baseline <path>", "baseline file path", ".fixyoursecret-baseline.json")
   .option("--update-baseline", "replace baseline with current findings", false)
   .option("--no-baseline", "ignore baseline filtering")
   .action(async (options) => {
@@ -42,10 +44,28 @@ program
   });
 
 program
+  .command("history")
+  .description("First-class history scan (defaults to last 20 commits)")
+  .argument("[commits]", "number of commits to inspect", "20")
+  .option("-p, --path <path>", "project path to scan", process.cwd())
+  .option("--format <format>", "output format: text|json|sarif", "text")
+  .option("--output-file <path>", "write JSON/SARIF output to file")
+  .option("--fail-on <severity>", "low|medium|high", "high")
+  .option("--config <path>", "custom config file path")
+  .option("--verify <mode>", "verification mode: none|safe", "none")
+  .option("--verify-strict", "drop findings that fail selected verification mode", false)
+  .action(async (commits, options) => {
+    process.exitCode = await runScan({
+      ...options,
+      history: commits,
+    });
+  });
+
+program
   .command("fix")
   .description("Generate backend proxy + frontend patch template for exposed API calls")
   .option("-p, --path <path>", "project path to inspect", process.cwd())
-  .option("-o, --output <path>", "output folder", "secretlint-output")
+  .option("-o, --output <path>", "output folder", "fixyoursecret-output")
   .action(async (options) => {
     process.exitCode = await runFix(options);
   });
@@ -54,9 +74,11 @@ program
   .command("ci")
   .description("CI-focused scan (SARIF output + fail on medium by default)")
   .option("-p, --path <path>", "project path to scan", process.cwd())
-  .option("--output-file <path>", "sarif output path", "secretlint.sarif")
+  .option("--output-file <path>", "sarif output path", "fixyoursecret.sarif")
   .option("--fail-on <severity>", "low|medium|high", "medium")
   .option("--config <path>", "custom config file path")
+  .option("--verify <mode>", "verification mode: none|safe", "safe")
+  .option("--verify-strict", "drop findings that fail selected verification mode", false)
   .action(async (options) => {
     process.exitCode = await runScan({
       path: options.path,
@@ -64,6 +86,8 @@ program
       outputFile: options.outputFile,
       failOn: options.failOn,
       config: options.config,
+      verify: options.verify,
+      verifyStrict: options.verifyStrict,
       tracked: true,
     });
   });

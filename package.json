@@ -1,9 +1,10 @@
 {
-  "name": "secretlint",
-  "version": "0.2.1-developer-preview.1",
+  "name": "fixyoursecret",
+  "version": "0.3.0-developer-preview.1",
   "description": "Developer Preview: CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
   "type": "module",
   "bin": {
+    "fixyoursecret": "./bin/index.js",
     "secretlint": "./bin/index.js"
   },
   "files": [
@@ -24,6 +25,7 @@
     "scan": "node ./bin/index.js scan",
     "fix": "node ./bin/index.js fix",
     "rotate": "node ./bin/index.js rotate openai",
+    "history": "node ./bin/index.js history 20",
     "ci": "node ./bin/index.js ci",
     "test": "node --test"
   },
@@ -37,11 +39,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ssanidhya0407/secretlint.git"
+    "url": "https://github.com/ssanidhya0407/fixyoursecret.git"
   },
-  "homepage": "https://github.com/ssanidhya0407/secretlint#readme",
+  "homepage": "https://github.com/ssanidhya0407/fixyoursecret#readme",
   "bugs": {
-    "url": "https://github.com/ssanidhya0407/secretlint/issues"
+    "url": "https://github.com/ssanidhya0407/fixyoursecret/issues"
   },
   "license": "MIT",
   "publishConfig": {

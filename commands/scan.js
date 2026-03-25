@@ -3,12 +3,18 @@ import path from "node:path";
 import { detectOpenAI } from "../detectors/openai.js";
 import { detectGoogle } from "../detectors/google.js";
 import { detectGenericSecrets } from "../detectors/generic.js";
+import { detectAWS } from "../detectors/aws.js";
+import { detectStripe } from "../detectors/stripe.js";
+import { detectSlack } from "../detectors/slack.js";
+import { detectGitHub } from "../detectors/github.js";
+import { detectPrivateKey } from "../detectors/privateKey.js";
 import { collectProjectFiles, lineColFromIndex } from "../utils/fileScanner.js";
 import { analyzeRisk } from "../utils/riskAnalyzer.js";
 import { printFinding, printSummary, logger } from "../utils/logger.js";
 import { findingsToSarif } from "../utils/sarif.js";
 import { getRecentChangedFiles, getStagedFiles, getTrackedFiles } from "../utils/gitScanner.js";
-import { isSuppressed, loadConfig } from "../utils/config.js";
+import { isSuppressed, loadConfig, resolveBaselinePath } from "../utils/config.js";
+import { normalizeVerifyMode, shouldSkipAsNonSecret, verifyFinding } from "../utils/verifier.js";
 
 const SCORE = { LOW: 1, MEDIUM: 2, HIGH: 3 };
 
@@ -16,6 +22,9 @@ export async function runScan(options = {}) {
   const projectPath = path.resolve(options.path || process.cwd());
   const cfgLoad = await loadConfig(projectPath, options.config);
   const config = cfgLoad.config;
+
+  const verifyMode = normalizeVerifyMode(options.verify || config.verifyMode || "none");
+  const verifyStrict = Boolean(options.verifyStrict);
 
   const includeOnly = await resolveScanScope(projectPath, options);
 
@@ -30,34 +39,44 @@ export async function runScan(options = {}) {
 
   for (const file of files) {
     const detectorRuns = [
-      !config.ignoreDetectors.includes("openai") ? detectOpenAI(file.content) : [],
-      !config.ignoreDetectors.includes("google") ? detectGoogle(file.content) : [],
-      !config.ignoreDetectors.includes("generic")
-        ? detectGenericSecrets(file.content, { entropyThreshold: config.entropyThreshold })
-        : [],
+      ...runIfEnabled(config, "openai", detectOpenAI(file.content)),
+      ...runIfEnabled(config, "google", detectGoogle(file.content)),
+      ...runIfEnabled(config, "aws", detectAWS(file.content)),
+      ...runIfEnabled(config, "stripe", detectStripe(file.content)),
+      ...runIfEnabled(config, "slack", detectSlack(file.content)),
+      ...runIfEnabled(config, "github", detectGitHub(file.content)),
+      ...runIfEnabled(config, "private-key", detectPrivateKey(file.content)),
+      ...runIfEnabled(config, "generic", detectGenericSecrets(file.content, { entropyThreshold: config.entropyThreshold })),
     ];
 
-    for (const matches of detectorRuns) {
-      for (const match of matches) {
-        const { line, column } = lineColFromIndex(file.content, match.index);
-        const snippet = file.lines[line - 1]?.trim() || "";
-        const risk = analyzeRisk(file.relativePath, match, snippet);
+    for (const match of detectorRuns) {
+      const { line, column } = lineColFromIndex(file.content, match.index);
+      const snippet = file.lines[line - 1]?.trim() || "";
 
-        const finding = {
-          file: file.relativePath,
-          line,
-          column,
-          issue: match.issue,
-          rule: match.rule,
-          severity: risk.severity,
-          reason: risk.reason,
-          snippet: snippet.slice(0, 180),
-          recommendation: risk.fix,
-        };
+      if (shouldSkipAsNonSecret(match, snippet, file.relativePath, config.ignoreValueHints)) continue;
 
-        if (isSuppressed(finding, config.suppressions, file.lines)) continue;
-        findings.push(finding);
+      const risk = analyzeRisk(file.relativePath, match, snippet);
+      const finding = {
+        file: file.relativePath,
+        line,
+        column,
+        issue: match.issue,
+        rule: match.rule,
+        severity: risk.severity,
+        reason: risk.reason,
+        snippet: snippet.slice(0, 180),
+        recommendation: risk.fix,
+      };
+
+      if (verifyMode !== "none") {
+        const verification = verifyFinding(match, file.content, snippet);
+        finding.verified = verification.verified;
+        finding.verificationMethod = verification.verificationMethod;
+        if (verifyStrict && !verification.verified) continue;
       }
+
+      if (isSuppressed(finding, config.suppressions, file.lines)) continue;
+      findings.push(finding);
     }
   }
 
@@ -77,9 +96,14 @@ export async function runScan(options = {}) {
       printSummary(filtered);
     }
     if (cfgLoad.loaded) logger.log(`Config: ${cfgLoad.path}`);
+    if (verifyMode !== "none") logger.log(`Verification mode: ${verifyMode}${verifyStrict ? " (strict)" : ""}`);
   }
 
   return shouldFail(filtered, options.failOn || config.failOn || "high") ? 1 : 0;
+}
+
+function runIfEnabled(config, detectorKey, matches) {
+  return config.ignoreDetectors.includes(detectorKey) ? [] : matches;
 }
 
 async function resolveScanScope(projectPath, options) {
@@ -105,18 +129,24 @@ function dedupeFindings(findings) {
 }
 
 async function applyBaselineFilter(projectPath, findings, options) {
-  const baselinePath = path.resolve(projectPath, options.baseline || ".secretlint-baseline.json");
+  const candidates = [
+    resolveBaselinePath(projectPath, options.baseline),
+    path.resolve(projectPath, ".secretlint-baseline.json"),
+  ];
   if (options.noBaseline) return findings;
 
   let baselineSet = null;
-  try {
-    const raw = await fs.readFile(baselinePath, "utf8");
-    const list = JSON.parse(raw);
-    if (Array.isArray(list)) {
-      baselineSet = new Set(list.filter((v) => typeof v === "string"));
+  for (const baselinePath of candidates) {
+    try {
+      const raw = await fs.readFile(baselinePath, "utf8");
+      const list = JSON.parse(raw);
+      if (Array.isArray(list)) {
+        baselineSet = new Set(list.filter((v) => typeof v === "string"));
+        break;
+      }
+    } catch {
+      // keep checking fallback baseline
     }
-  } catch {
-    baselineSet = null;
   }
 
   if (!baselineSet) return findings;
@@ -125,7 +155,7 @@ async function applyBaselineFilter(projectPath, findings, options) {
 
 async function maybeUpdateBaseline(projectPath, findings, options) {
   if (!options.updateBaseline) return;
-  const baselinePath = path.resolve(projectPath, options.baseline || ".secretlint-baseline.json");
+  const baselinePath = resolveBaselinePath(projectPath, options.baseline);
   const entries = findings.map((f) => fingerprint(f)).sort();
   await fs.writeFile(baselinePath, JSON.stringify(entries, null, 2) + "\n", "utf8");
 }
@@ -137,7 +167,7 @@ async function emitOutput(findings, format, outputFile) {
   }
 
   if (format === "sarif") {
-    const payload = JSON.stringify(findingsToSarif(findings), null, 2);
+    const payload = JSON.stringify(findingsToSarif(findings, "fixyoursecret"), null, 2);
     return writeOrPrint(payload, outputFile);
   }
 }

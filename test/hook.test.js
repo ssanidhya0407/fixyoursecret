@@ -6,7 +6,7 @@ import path from "node:path";
 import { runHookInstall } from "../commands/hook.js";
 
 async function mkRepo() {
-  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "secretlint-hook-"));
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "fixyoursecret-hook-"));
   await fs.mkdir(path.join(dir, ".git", "hooks"), { recursive: true });
   return dir;
 }
@@ -18,5 +18,5 @@ test("hook install writes pre-commit file", async () => {
   const content = await fs.readFile(hookPath, "utf8");
 
   assert.equal(code, 0);
-  assert.match(content, /secretlint scan --staged --fail-on high/);
+  assert.match(content, /scan --staged --fail-on high --verify safe/);
 });

@@ -1,36 +1,60 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+export const CONFIG_FILENAMES = [".fixyoursecretrc.json", ".secretlintrc.json"];
+export const BASELINE_FILENAMES = [".fixyoursecret-baseline.json", ".secretlint-baseline.json"];
+
 export const DEFAULT_CONFIG = {
-  ignorePaths: ["node_modules/**", ".git/**", "dist/**", "build/**"],
+  ignorePaths: ["node_modules/**", ".git/**", "dist/**", "build/**", ".next/**", "coverage/**"],
   allowedExtensions: [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"],
   maxFileSizeKB: 256,
   entropyThreshold: 3.8,
   failOn: "high",
-  suppressions: [],
+  verifyMode: "none",
+  suppressions: [
+    { path: "test/" },
+    { path: "tests/" },
+    { path: "__tests__/" },
+    { path: "fixtures/" }
+  ],
   ignoreDetectors: [],
+  ignoreValueHints: ["example", "dummy", "fake", "sample", "replace_in_runtime_only"],
 };
 
 export async function loadConfig(projectPath, configPath) {
-  const resolved = configPath ? path.resolve(configPath) : path.join(projectPath, ".secretlintrc.json");
-  try {
-    const raw = await fs.readFile(resolved, "utf8");
-    const parsed = JSON.parse(raw);
-    const config = {
-      ...DEFAULT_CONFIG,
-      ...parsed,
-      ignorePaths: normalizeStringArray(parsed.ignorePaths, DEFAULT_CONFIG.ignorePaths),
-      allowedExtensions: normalizeStringArray(parsed.allowedExtensions, DEFAULT_CONFIG.allowedExtensions),
-      suppressions: normalizeSuppressions(parsed.suppressions),
-      ignoreDetectors: normalizeStringArray(parsed.ignoreDetectors, DEFAULT_CONFIG.ignoreDetectors),
-      maxFileSizeKB: toPositiveInt(parsed.maxFileSizeKB, DEFAULT_CONFIG.maxFileSizeKB),
-      entropyThreshold: toPositiveNumber(parsed.entropyThreshold, DEFAULT_CONFIG.entropyThreshold),
-      failOn: normalizeFailOn(parsed.failOn, DEFAULT_CONFIG.failOn),
-    };
-    return { config, path: resolved, loaded: true };
-  } catch {
-    return { config: { ...DEFAULT_CONFIG }, path: resolved, loaded: false };
+  const candidates = configPath
+    ? [path.resolve(configPath)]
+    : CONFIG_FILENAMES.map((name) => path.join(projectPath, name));
+
+  for (const candidate of candidates) {
+    try {
+      const raw = await fs.readFile(candidate, "utf8");
+      const parsed = JSON.parse(raw);
+      const config = {
+        ...DEFAULT_CONFIG,
+        ...parsed,
+        ignorePaths: normalizeStringArray(parsed.ignorePaths, DEFAULT_CONFIG.ignorePaths),
+        allowedExtensions: normalizeStringArray(parsed.allowedExtensions, DEFAULT_CONFIG.allowedExtensions),
+        suppressions: normalizeSuppressions(parsed.suppressions),
+        ignoreDetectors: normalizeStringArray(parsed.ignoreDetectors, DEFAULT_CONFIG.ignoreDetectors),
+        ignoreValueHints: normalizeStringArray(parsed.ignoreValueHints, DEFAULT_CONFIG.ignoreValueHints),
+        maxFileSizeKB: toPositiveInt(parsed.maxFileSizeKB, DEFAULT_CONFIG.maxFileSizeKB),
+        entropyThreshold: toPositiveNumber(parsed.entropyThreshold, DEFAULT_CONFIG.entropyThreshold),
+        failOn: normalizeFailOn(parsed.failOn, DEFAULT_CONFIG.failOn),
+        verifyMode: normalizeVerifyMode(parsed.verifyMode, DEFAULT_CONFIG.verifyMode),
+      };
+      return { config, path: candidate, loaded: true };
+    } catch {
+      // try next config candidate
+    }
   }
+
+  return { config: { ...DEFAULT_CONFIG }, path: candidates[0], loaded: false };
+}
+
+export function resolveBaselinePath(projectPath, explicitBaselinePath) {
+  if (explicitBaselinePath) return path.resolve(projectPath, explicitBaselinePath);
+  return path.resolve(projectPath, BASELINE_FILENAMES[0]);
 }
 
 export function isSuppressed(finding, suppressions = [], fileLines = []) {
@@ -47,11 +71,14 @@ export function isSuppressed(finding, suppressions = [], fileLines = []) {
 function hasInlineDisable(lines, currentLine) {
   const previous = lines[currentLine - 2] || "";
   const current = lines[currentLine - 1] || "";
-  return /secretlint-disable-next-line/.test(previous) || /secretlint-disable-line/.test(current);
+  return (
+    /secretlint-disable-next-line|fixyoursecret-disable-next-line/.test(previous) ||
+    /secretlint-disable-line|fixyoursecret-disable-line/.test(current)
+  );
 }
 
 function normalizeSuppressions(value) {
-  if (!Array.isArray(value)) return [];
+  if (!Array.isArray(value)) return DEFAULT_CONFIG.suppressions;
   return value.filter((item) => item && typeof item === "object");
 }
 
@@ -70,6 +97,11 @@ function toPositiveNumber(value, fallback) {
 function normalizeFailOn(value, fallback) {
   const safe = String(value || "").toLowerCase();
   return ["low", "medium", "high"].includes(safe) ? safe : fallback;
+}
+
+function normalizeVerifyMode(value, fallback) {
+  const safe = String(value || "").toLowerCase();
+  return ["none", "safe"].includes(safe) ? safe : fallback;
 }
 
 export function defaultConfigTemplate() {

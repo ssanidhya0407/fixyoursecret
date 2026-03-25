@@ -75,7 +75,7 @@ export async function runRotate(provider, options = {}) {
 
   logger.safe(`Updated ${envPath} with ${cfg.keyName}`);
   logger.warn("Restart backend workers and redeploy to activate the new key.");
-  logger.log("Run `secretlint scan` to verify no hardcoded keys remain.");
+  logger.log("Run `fixyoursecret scan` (or `secretlint scan`) to verify no hardcoded keys remain.");
   return 0;
 }
 
