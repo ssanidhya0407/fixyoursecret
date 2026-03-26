@@ -75,8 +75,14 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   const lowerPath = filePath.toLowerCase();
   const value = String(match.value || "");
   const isNonProdPath = (
-    ["/test/", "/tests/", "/__tests__/", "/fixtures/", "/docs/", "/examples/", "/spec/"]
-      .some((segment) => lowerPath.includes(segment)) ||
+    hasPathSegment(lowerPath, "test") ||
+    hasPathSegment(lowerPath, "tests") ||
+    hasPathSegment(lowerPath, "__tests__") ||
+    hasPathSegment(lowerPath, "fixtures") ||
+    hasPathSegment(lowerPath, "docs") ||
+    hasPathSegment(lowerPath, "examples") ||
+    hasPathSegment(lowerPath, "spec") ||
+    hasPathSegment(lowerPath, "specs") ||
     /\.test\.[a-z0-9]+$/i.test(lowerPath) ||
     /\.spec\.[a-z0-9]+$/i.test(lowerPath)
   );
@@ -98,21 +104,22 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   if (
     match.rule === "generic-high-entropy" &&
     [
-      "/test/",
-      "/tests/",
-      "/__tests__/",
-      "/fixtures/",
-      "/docs/",
-      "/spec/",
-      "/bench/",
-      "/benchmark/",
-      "/examples/",
-      "/migrations/",
-      "/generated/",
-      "/api-client/",
-      "/fonts/",
-      "/vendor/"
-    ].some((segment) => lowerPath.includes(segment))
+      "test",
+      "tests",
+      "__tests__",
+      "fixtures",
+      "docs",
+      "spec",
+      "specs",
+      "bench",
+      "benchmark",
+      "examples",
+      "migrations",
+      "generated",
+      "api-client",
+      "fonts",
+      "vendor"
+    ].some((segment) => hasPathSegment(lowerPath, segment))
   ) {
     return true;
   }
@@ -145,7 +152,11 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
       "apps.googleusercontent.com",
       "downloaded-logs-",
       "webkiformboundary",
-      "gpt-4o-realtime-preview"
+      "gpt-4o-realtime-preview",
+      "audio-16khz-32kbitrate",
+      "toolchain-profile.zip",
+      "gocspx-",
+      "useandom-"
     ];
     if (genericNoiseHints.some((hint) => lowerSnippet.includes(hint))) return true;
   }
@@ -181,4 +192,10 @@ function hasDiversityScore(value, minClasses) {
     /[_-]/.test(value),
   ].filter(Boolean).length;
   return classes >= minClasses;
+}
+
+function hasPathSegment(filePath, segment) {
+  const escaped = segment.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(`(?:^|/)${escaped}(?:/|$)`);
+  return re.test(filePath);
 }

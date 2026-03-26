@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.3] - 2026-03-26
+
+### Improved
+- Further reduced residual generic noise on 500 quick corpus runs.
+  - Better path-segment detection for `test/spec/examples/docs` style locations.
+  - Added targeted generic suppressions for tutorial/audio/base64 and known non-secret artifacts.
+  - Strengthened placeholder suppression in non-production contexts.
+- 500 quick tuning snapshot improved from 51 findings to 38 findings.
+
+### CI/Release
+- Release workflow now publishes a quality summary in job summary and uploads release-quality artifacts.
+- Added release artifact bundle:
+  - `docs/tuning/report-500.json`
+  - `docs/tuning/false-positive-review-500.md`
+  - `docs/tuning/release-quality-summary.json`
+
 ## [0.4.2] - 2026-03-26
 
 ### Fixed

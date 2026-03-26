@@ -45,6 +45,33 @@ jobs:
       - name: Run 500 quick regression gate
         run: npm run tune:500:quick && npm run regression:check
 
+      - name: Build release quality summary
+        run: |
+          node -e '
+          const fs = require("fs");
+          const report = JSON.parse(fs.readFileSync("docs/tuning/report-500.json", "utf8"));
+          const s = report.summary || {};
+          const top = (s.topRules || []).slice(0, 5).map((r) => `- ${r.rule}: ${r.count}`).join("\n");
+          const lines = [
+            "## Release Quality Summary",
+            "",
+            `- Repos scanned: ${s.reposScanned ?? "n/a"} / ${s.reposTotal ?? "n/a"}`,
+            `- Findings total: ${s.findingsTotal ?? "n/a"}`,
+            `- High: ${s.high ?? "n/a"}`,
+            `- Medium: ${s.medium ?? "n/a"}`,
+            `- Unique rules hit: ${s.uniqueRules ?? "n/a"}`,
+            "",
+            "### Top rules",
+            top || "- n/a",
+            ""
+          ];
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n"));
+          fs.writeFileSync("docs/tuning/release-quality-summary.json", JSON.stringify({
+            generatedAt: new Date().toISOString(),
+            summary: s
+          }, null, 2) + "\n");
+          '
+
       - name: Pack dry run
         run: npm pack --dry-run
 
@@ -58,3 +85,13 @@ jobs:
           else
             npm publish --access public --provenance
           fi
+
+      - name: Upload release quality artifacts
+        uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: fixyoursecret-release-quality
+          path: |
+            docs/tuning/report-500.json
+            docs/tuning/false-positive-review-500.md
+            docs/tuning/release-quality-summary.json
