@@ -13,6 +13,9 @@ This process helps FixYourSecret tune detectors against large, real-world reposi
 - Quick large-scale smoke run:
 `npm run tune:large:quick`
 
+- Weekly 500 regression gate run:
+`npm run tune:500:quick && npm run regression:check`
+
 ## Large-scale cycle
 
 1. Run benchmark gate first.

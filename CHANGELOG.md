@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0] - 2026-03-26
+
+### Added
+- Verification v2 provider-safe checks for:
+  - OpenAI
+  - GitHub
+  - Slack
+  - Stripe
+- 500-repo regression quality gate script:
+  - `scripts/check-tuning-regression.js`
+  - `fixtures/tuning/regression-thresholds.json`
+- Weekly CI now runs:
+  - `tune:500:quick`
+  - regression gate fail-on-quality-drop
+
+### Improved
+- Stronger suppression for obvious fake/placeholder secrets in tests/docs.
+- Reduced large-corpus noise while preserving high-risk detections.
+- Stable release channel metadata for npm publish.
+
 ## [0.3.1-developer-preview.1] - 2026-03-26
 
 ### Added

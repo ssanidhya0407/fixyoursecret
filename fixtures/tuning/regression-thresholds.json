@@ -1,0 +1,7 @@
+{
+  "maxFindingsTotal": 800,
+  "maxHigh": 45,
+  "maxGenericHighEntropy": 700,
+  "maxGithubToken": 25,
+  "maxSlackToken": 8
+}

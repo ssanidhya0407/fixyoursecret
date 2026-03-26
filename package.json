@@ -1,11 +1,11 @@
 {
   "name": "fixyoursecret",
-  "version": "0.3.1-developer-preview.1",
-  "description": "Developer Preview: CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
+  "version": "0.4.0",
+  "description": "CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
   "type": "module",
   "bin": {
-    "fixyoursecret": "./bin/index.js",
-    "secretlint": "./bin/index.js"
+    "fixyoursecret": "bin/index.js",
+    "secretlint": "bin/index.js"
   },
   "files": [
     "bin/",
@@ -30,6 +30,7 @@
     "history": "node ./bin/index.js history 20",
     "ci": "node ./bin/index.js ci",
     "benchmark": "node ./scripts/benchmark.js",
+    "regression:check": "node ./scripts/check-tuning-regression.js --report ./docs/tuning/report-500.json --thresholds ./fixtures/tuning/regression-thresholds.json",
     "corpus:generate": "node ./scripts/generate-corpus.js --output ./fixtures/tuning/repos.500.json --count 500",
     "quality": "npm test && npm run benchmark",
     "test": "node --test",
@@ -38,7 +39,7 @@
     "tune:large:quick": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.large.json --output ./docs/tuning/large-report.json --fp-review ./docs/tuning/false-positive-review-large.md --verify safe --max-repos 25",
     "tune:500": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.500.json --output ./docs/tuning/report-500.json --fp-review ./docs/tuning/false-positive-review-500.md --verify safe --concurrency 12 --max-repos 500",
     "tune:500:quick": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.500.json --output ./docs/tuning/report-500.json --fp-review ./docs/tuning/false-positive-review-500.md --verify safe --concurrency 8 --max-repos 100",
-    "tune:weekly": "npm run benchmark && npm run tune:multi"
+    "tune:weekly": "npm run benchmark && npm run tune:500:quick && npm run regression:check"
   },
   "keywords": [
     "security",
@@ -58,8 +59,7 @@
   },
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "tag": "preview"
+    "access": "public"
   },
   "dependencies": {
     "chalk": "^5.4.1",

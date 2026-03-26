@@ -9,14 +9,14 @@ permissions:
   contents: read
 
 jobs:
-  tuning:
+  tuning-500-regression:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
           cache: npm
@@ -27,13 +27,16 @@ jobs:
       - name: Run benchmark
         run: npm run benchmark
 
-      - name: Run multi-repo tuning (default set)
-        run: npm run tune:multi
+      - name: Run 500 corpus quick tuning
+        run: npm run tune:500:quick
+
+      - name: Run regression quality gate
+        run: npm run regression:check
 
       - name: Upload tuning artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          name: fixyoursecret-weekly-tuning
+          name: fixyoursecret-weekly-500-regression
           path: |
-            docs/tuning/multi-repo-report.json
-            docs/tuning/false-positive-review.md
+            docs/tuning/report-500.json
+            docs/tuning/false-positive-review-500.md

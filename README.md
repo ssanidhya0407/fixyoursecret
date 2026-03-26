@@ -2,8 +2,6 @@
 
 # FixYourSecret
 
-**Developer Preview**
-
 An ESLint-style CLI that finds leaked credentials, flags frontend exposure, suggests fixes, and helps rotate keys safely.
 
 [![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-2ea44f)](https://nodejs.org/)
@@ -25,7 +23,8 @@ FixYourSecret helps teams catch these mistakes early and fix them with clear nex
 - Expanded provider detector coverage significantly.
 - Added benchmark-driven quality gates (`npm run benchmark`) so quality is measured every release.
 - Added CI threshold enforcement for recall/precision.
-- Added optional local verification mode for higher-confidence findings.
+- Added Verification v2 provider-safe checks for higher-confidence findings.
+- Added weekly 500-repo regression quality gate.
 
 ---
 
@@ -131,6 +130,13 @@ Quick large-scale pass:
 npm run tune:large:quick
 ```
 
+Weekly regression check sequence (same as CI):
+
+```bash
+npm run tune:500:quick
+npm run regression:check
+```
+
 CI quality gate thresholds (defaults):
 - Recall >= 0.95
 - Precision >= 0.95
@@ -179,7 +185,7 @@ fixyoursecret scan [options]
 ---
 
 ## Verification Mode (Optional)
-`--verify safe` performs local structure checks for supported detectors (no external API calls).
+`--verify safe` performs provider-safe local structure checks for supported detectors (no external API calls), including tighter checks for OpenAI, GitHub, Slack, and Stripe.
 
 Use `--verify-strict` to drop findings that fail verification.
 
