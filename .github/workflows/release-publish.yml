@@ -49,4 +49,12 @@ jobs:
         run: npm pack --dry-run
 
       - name: Publish to npm (latest)
-        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "${NODE_AUTH_TOKEN}" ]; then
+            npm whoami
+            npm publish --access public
+          else
+            npm publish --access public --provenance
+          fi
