@@ -1,0 +1,2998 @@
+[
+  {
+    "name": "fixyoursecret-core",
+    "path": "."
+  },
+  {
+    "name": "demo-app",
+    "path": "./demo"
+  },
+  {
+    "name": "codecrafters-io-build-your-own-x",
+    "url": "https://github.com/codecrafters-io/build-your-own-x.git",
+    "stars": 483451,
+    "language": "Markdown"
+  },
+  {
+    "name": "sindresorhus-awesome",
+    "url": "https://github.com/sindresorhus/awesome.git",
+    "stars": 448838,
+    "language": "unknown"
+  },
+  {
+    "name": "public-apis-public-apis",
+    "url": "https://github.com/public-apis/public-apis.git",
+    "stars": 416102,
+    "language": "Python"
+  },
+  {
+    "name": "EbookFoundation-free-programming-books",
+    "url": "https://github.com/EbookFoundation/free-programming-books.git",
+    "stars": 384581,
+    "language": "Python"
+  },
+  {
+    "name": "donnemartin-system-design-primer",
+    "url": "https://github.com/donnemartin/system-design-primer.git",
+    "stars": 340218,
+    "language": "Python"
+  },
+  {
+    "name": "jwasham-coding-interview-university",
+    "url": "https://github.com/jwasham/coding-interview-university.git",
+    "stars": 338246,
+    "language": "unknown"
+  },
+  {
+    "name": "vinta-awesome-python",
+    "url": "https://github.com/vinta/awesome-python.git",
+    "stars": 288996,
+    "language": "Python"
+  },
+  {
+    "name": "awesome-selfhosted-awesome-selfhosted",
+    "url": "https://github.com/awesome-selfhosted/awesome-selfhosted.git",
+    "stars": 282085,
+    "language": "unknown"
+  },
+  {
+    "name": "996icu-996.ICU",
+    "url": "https://github.com/996icu/996.ICU.git",
+    "stars": 275804,
+    "language": "unknown"
+  },
+  {
+    "name": "practical-tutorials-project-based-learning",
+    "url": "https://github.com/practical-tutorials/project-based-learning.git",
+    "stars": 261690,
+    "language": "unknown"
+  },
+  {
+    "name": "TheAlgorithms-Python",
+    "url": "https://github.com/TheAlgorithms/Python.git",
+    "stars": 219053,
+    "language": "Python"
+  },
+  {
+    "name": "trimstray-the-book-of-secret-knowledge",
+    "url": "https://github.com/trimstray/the-book-of-secret-knowledge.git",
+    "stars": 211656,
+    "language": "unknown"
+  },
+  {
+    "name": "vuejs-vue",
+    "url": "https://github.com/vuejs/vue.git",
+    "stars": 209959,
+    "language": "TypeScript"
+  },
+  {
+    "name": "ossu-computer-science",
+    "url": "https://github.com/ossu/computer-science.git",
+    "stars": 202726,
+    "language": "HTML"
+  },
+  {
+    "name": "trekhleb-javascript-algorithms",
+    "url": "https://github.com/trekhleb/javascript-algorithms.git",
+    "stars": 195785,
+    "language": "JavaScript"
+  },
+  {
+    "name": "ohmyzsh-ohmyzsh",
+    "url": "https://github.com/ohmyzsh/ohmyzsh.git",
+    "stars": 185627,
+    "language": "Shell"
+  },
+  {
+    "name": "getify-You-Dont-Know-JS",
+    "url": "https://github.com/getify/You-Dont-Know-JS.git",
+    "stars": 184534,
+    "language": "unknown"
+  },
+  {
+    "name": "CyC2018-CS-Notes",
+    "url": "https://github.com/CyC2018/CS-Notes.git",
+    "stars": 184036,
+    "language": "unknown"
+  },
+  {
+    "name": "github-gitignore",
+    "url": "https://github.com/github/gitignore.git",
+    "stars": 173186,
+    "language": "unknown"
+  },
+  {
+    "name": "massgravel-Microsoft-Activation-Scripts",
+    "url": "https://github.com/massgravel/Microsoft-Activation-Scripts.git",
+    "stars": 169965,
+    "language": "Batchfile"
+  },
+  {
+    "name": "avelino-awesome-go",
+    "url": "https://github.com/avelino/awesome-go.git",
+    "stars": 168258,
+    "language": "Go"
+  },
+  {
+    "name": "ollama-ollama",
+    "url": "https://github.com/ollama/ollama.git",
+    "stars": 166157,
+    "language": "Go"
+  },
+  {
+    "name": "AUTOMATIC1111-stable-diffusion-webui",
+    "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui.git",
+    "stars": 161999,
+    "language": "Python"
+  },
+  {
+    "name": "jlevy-the-art-of-command-line",
+    "url": "https://github.com/jlevy/the-art-of-command-line.git",
+    "stars": 160490,
+    "language": "unknown"
+  },
+  {
+    "name": "Snailclimb-JavaGuide",
+    "url": "https://github.com/Snailclimb/JavaGuide.git",
+    "stars": 154475,
+    "language": "Java"
+  },
+  {
+    "name": "DigitalPlatDev-FreeDomain",
+    "url": "https://github.com/DigitalPlatDev/FreeDomain.git",
+    "stars": 154202,
+    "language": "HTML"
+  },
+  {
+    "name": "yt-dlp-yt-dlp",
+    "url": "https://github.com/yt-dlp/yt-dlp.git",
+    "stars": 153272,
+    "language": "Python"
+  },
+  {
+    "name": "airbnb-javascript",
+    "url": "https://github.com/airbnb/javascript.git",
+    "stars": 148108,
+    "language": "JavaScript"
+  },
+  {
+    "name": "521xueweihan-HelloGitHub",
+    "url": "https://github.com/521xueweihan/HelloGitHub.git",
+    "stars": 147437,
+    "language": "Python"
+  },
+  {
+    "name": "ytdl-org-youtube-dl",
+    "url": "https://github.com/ytdl-org/youtube-dl.git",
+    "stars": 139943,
+    "language": "Python"
+  },
+  {
+    "name": "yangshun-tech-interview-handbook",
+    "url": "https://github.com/yangshun/tech-interview-handbook.git",
+    "stars": 138363,
+    "language": "TypeScript"
+  },
+  {
+    "name": "Genymobile-scrcpy",
+    "url": "https://github.com/Genymobile/scrcpy.git",
+    "stars": 137525,
+    "language": "C"
+  },
+  {
+    "name": "x1xhlol-system-prompts-and-models-of-ai-tools",
+    "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools.git",
+    "stars": 133245,
+    "language": "unknown"
+  },
+  {
+    "name": "labuladong-fucking-algorithm",
+    "url": "https://github.com/labuladong/fucking-algorithm.git",
+    "stars": 133137,
+    "language": "Markdown"
+  },
+  {
+    "name": "electron-electron",
+    "url": "https://github.com/electron/electron.git",
+    "stars": 120620,
+    "language": "C++"
+  },
+  {
+    "name": "ripienaar-free-for-dev",
+    "url": "https://github.com/ripienaar/free-for-dev.git",
+    "stars": 120328,
+    "language": "HTML"
+  },
+  {
+    "name": "excalidraw-excalidraw",
+    "url": "https://github.com/excalidraw/excalidraw.git",
+    "stars": 119566,
+    "language": "TypeScript"
+  },
+  {
+    "name": "justjavac-free-programming-books-zh_CN",
+    "url": "https://github.com/justjavac/free-programming-books-zh_CN.git",
+    "stars": 116508,
+    "language": "unknown"
+  },
+  {
+    "name": "obra-superpowers",
+    "url": "https://github.com/obra/superpowers.git",
+    "stars": 112675,
+    "language": "Shell"
+  },
+  {
+    "name": "d3-d3",
+    "url": "https://github.com/d3/d3.git",
+    "stars": 112616,
+    "language": "Shell"
+  },
+  {
+    "name": "shadcn-ui-ui",
+    "url": "https://github.com/shadcn-ui/ui.git",
+    "stars": 110726,
+    "language": "TypeScript"
+  },
+  {
+    "name": "rustdesk-rustdesk",
+    "url": "https://github.com/rustdesk/rustdesk.git",
+    "stars": 110007,
+    "language": "Rust"
+  },
+  {
+    "name": "Hack-with-Github-Awesome-Hacking",
+    "url": "https://github.com/Hack-with-Github/Awesome-Hacking.git",
+    "stars": 109056,
+    "language": "unknown"
+  },
+  {
+    "name": "axios-axios",
+    "url": "https://github.com/axios/axios.git",
+    "stars": 108648,
+    "language": "JavaScript"
+  },
+  {
+    "name": "affaan-m-everything-claude-code",
+    "url": "https://github.com/affaan-m/everything-claude-code.git",
+    "stars": 108035,
+    "language": "JavaScript"
+  },
+  {
+    "name": "GrowingGit-GitHub-Chinese-Top-Charts",
+    "url": "https://github.com/GrowingGit/GitHub-Chinese-Top-Charts.git",
+    "stars": 107087,
+    "language": "Java"
+  },
+  {
+    "name": "Comfy-Org-ComfyUI",
+    "url": "https://github.com/Comfy-Org/ComfyUI.git",
+    "stars": 106951,
+    "language": "Python"
+  },
+  {
+    "name": "fatedier-frp",
+    "url": "https://github.com/fatedier/frp.git",
+    "stars": 105596,
+    "language": "Go"
+  },
+  {
+    "name": "clash-verge-rev-clash-verge-rev",
+    "url": "https://github.com/clash-verge-rev/clash-verge-rev.git",
+    "stars": 105380,
+    "language": "TypeScript"
+  },
+  {
+    "name": "goldbergyoni-nodebestpractices",
+    "url": "https://github.com/goldbergyoni/nodebestpractices.git",
+    "stars": 105179,
+    "language": "Dockerfile"
+  },
+  {
+    "name": "tauri-apps-tauri",
+    "url": "https://github.com/tauri-apps/tauri.git",
+    "stars": 104610,
+    "language": "Rust"
+  },
+  {
+    "name": "facebook-create-react-app",
+    "url": "https://github.com/facebook/create-react-app.git",
+    "stars": 103804,
+    "language": "JavaScript"
+  },
+  {
+    "name": "anthropics-skills",
+    "url": "https://github.com/anthropics/skills.git",
+    "stars": 102890,
+    "language": "Python"
+  },
+  {
+    "name": "deepseek-ai-DeepSeek-V3",
+    "url": "https://github.com/deepseek-ai/DeepSeek-V3.git",
+    "stars": 102379,
+    "language": "Python"
+  },
+  {
+    "name": "microsoft-terminal",
+    "url": "https://github.com/microsoft/terminal.git",
+    "stars": 102365,
+    "language": "C++"
+  },
+  {
+    "name": "jaywcjlove-awesome-mac",
+    "url": "https://github.com/jaywcjlove/awesome-mac.git",
+    "stars": 100896,
+    "language": "JavaScript"
+  },
+  {
+    "name": "2dust-v2rayN",
+    "url": "https://github.com/2dust/v2rayN.git",
+    "stars": 99760,
+    "language": "C#"
+  },
+  {
+    "name": "google-gemini-gemini-cli",
+    "url": "https://github.com/google-gemini/gemini-cli.git",
+    "stars": 99092,
+    "language": "TypeScript"
+  },
+  {
+    "name": "mtdvio-every-programmer-should-know",
+    "url": "https://github.com/mtdvio/every-programmer-should-know.git",
+    "stars": 98354,
+    "language": "unknown"
+  },
+  {
+    "name": "firecrawl-firecrawl",
+    "url": "https://github.com/firecrawl/firecrawl.git",
+    "stars": 98287,
+    "language": "TypeScript"
+  },
+  {
+    "name": "openai-whisper",
+    "url": "https://github.com/openai/whisper.git",
+    "stars": 96615,
+    "language": "Python"
+  },
+  {
+    "name": "fastapi-fastapi",
+    "url": "https://github.com/fastapi/fastapi.git",
+    "stars": 96566,
+    "language": "Python"
+  },
+  {
+    "name": "nvbn-thefuck",
+    "url": "https://github.com/nvbn/thefuck.git",
+    "stars": 95756,
+    "language": "Python"
+  },
+  {
+    "name": "ryanmcdermott-clean-code-javascript",
+    "url": "https://github.com/ryanmcdermott/clean-code-javascript.git",
+    "stars": 94334,
+    "language": "JavaScript"
+  },
+  {
+    "name": "tailwindlabs-tailwindcss",
+    "url": "https://github.com/tailwindlabs/tailwindcss.git",
+    "stars": 94188,
+    "language": "TypeScript"
+  },
+  {
+    "name": "iluwatar-java-design-patterns",
+    "url": "https://github.com/iluwatar/java-design-patterns.git",
+    "stars": 93835,
+    "language": "Java"
+  },
+  {
+    "name": "nvm-sh-nvm",
+    "url": "https://github.com/nvm-sh/nvm.git",
+    "stars": 92532,
+    "language": "Shell"
+  },
+  {
+    "name": "microsoft-markitdown",
+    "url": "https://github.com/microsoft/markitdown.git",
+    "stars": 92393,
+    "language": "Python"
+  },
+  {
+    "name": "deepseek-ai-DeepSeek-R1",
+    "url": "https://github.com/deepseek-ai/DeepSeek-R1.git",
+    "stars": 91987,
+    "language": "unknown"
+  },
+  {
+    "name": "florinpop17-app-ideas",
+    "url": "https://github.com/florinpop17/app-ideas.git",
+    "stars": 91800,
+    "language": "unknown"
+  },
+  {
+    "name": "PanJiaChen-vue-element-admin",
+    "url": "https://github.com/PanJiaChen/vue-element-admin.git",
+    "stars": 90304,
+    "language": "Vue"
+  },
+  {
+    "name": "rasbt-LLMs-from-scratch",
+    "url": "https://github.com/rasbt/LLMs-from-scratch.git",
+    "stars": 89242,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "gin-gonic-gin",
+    "url": "https://github.com/gin-gonic/gin.git",
+    "stars": 88313,
+    "language": "Go"
+  },
+  {
+    "name": "ChatGPTNextWeb-NextChat",
+    "url": "https://github.com/ChatGPTNextWeb/NextChat.git",
+    "stars": 87581,
+    "language": "TypeScript"
+  },
+  {
+    "name": "gohugoio-hugo",
+    "url": "https://github.com/gohugoio/hugo.git",
+    "stars": 87278,
+    "language": "Go"
+  },
+  {
+    "name": "ruanyf-weekly",
+    "url": "https://github.com/ruanyf/weekly.git",
+    "stars": 86722,
+    "language": "unknown"
+  },
+  {
+    "name": "sveltejs-svelte",
+    "url": "https://github.com/sveltejs/svelte.git",
+    "stars": 86137,
+    "language": "JavaScript"
+  },
+  {
+    "name": "3b1b-manim",
+    "url": "https://github.com/3b1b/manim.git",
+    "stars": 85535,
+    "language": "Python"
+  },
+  {
+    "name": "louislam-uptime-kuma",
+    "url": "https://github.com/louislam/uptime-kuma.git",
+    "stars": 84493,
+    "language": "JavaScript"
+  },
+  {
+    "name": "browser-use-browser-use",
+    "url": "https://github.com/browser-use/browser-use.git",
+    "stars": 84435,
+    "language": "Python"
+  },
+  {
+    "name": "laravel-laravel",
+    "url": "https://github.com/laravel/laravel.git",
+    "stars": 84046,
+    "language": "Blade"
+  },
+  {
+    "name": "MunGell-awesome-for-beginners",
+    "url": "https://github.com/MunGell/awesome-for-beginners.git",
+    "stars": 83865,
+    "language": "unknown"
+  },
+  {
+    "name": "macrozheng-mall",
+    "url": "https://github.com/macrozheng/mall.git",
+    "stars": 83238,
+    "language": "Java"
+  },
+  {
+    "name": "realworld-apps-realworld",
+    "url": "https://github.com/realworld-apps/realworld.git",
+    "stars": 83036,
+    "language": "TypeScript"
+  },
+  {
+    "name": "anthropics-claude-code",
+    "url": "https://github.com/anthropics/claude-code.git",
+    "stars": 82727,
+    "language": "Shell"
+  },
+  {
+    "name": "animate-css-animate.css",
+    "url": "https://github.com/animate-css/animate.css.git",
+    "stars": 82636,
+    "language": "CSS"
+  },
+  {
+    "name": "github-spec-kit",
+    "url": "https://github.com/github/spec-kit.git",
+    "stars": 82265,
+    "language": "Python"
+  },
+  {
+    "name": "modelcontextprotocol-servers",
+    "url": "https://github.com/modelcontextprotocol/servers.git",
+    "stars": 82082,
+    "language": "TypeScript"
+  },
+  {
+    "name": "astral-sh-uv",
+    "url": "https://github.com/astral-sh/uv.git",
+    "stars": 82037,
+    "language": "Rust"
+  },
+  {
+    "name": "bregman-arie-devops-exercises",
+    "url": "https://github.com/bregman-arie/devops-exercises.git",
+    "stars": 81762,
+    "language": "Python"
+  },
+  {
+    "name": "ByteByteGoHq-system-design-101",
+    "url": "https://github.com/ByteByteGoHq/system-design-101.git",
+    "stars": 81377,
+    "language": "unknown"
+  },
+  {
+    "name": "tonsky-FiraCode",
+    "url": "https://github.com/tonsky/FiraCode.git",
+    "stars": 81342,
+    "language": "Clojure"
+  },
+  {
+    "name": "syncthing-syncthing",
+    "url": "https://github.com/syncthing/syncthing.git",
+    "stars": 81114,
+    "language": "Go"
+  },
+  {
+    "name": "hacksider-Deep-Live-Cam",
+    "url": "https://github.com/hacksider/Deep-Live-Cam.git",
+    "stars": 80333,
+    "language": "Python"
+  },
+  {
+    "name": "fighting41love-funNLP",
+    "url": "https://github.com/fighting41love/funNLP.git",
+    "stars": 79608,
+    "language": "Python"
+  },
+  {
+    "name": "vitejs-vite",
+    "url": "https://github.com/vitejs/vite.git",
+    "stars": 79359,
+    "language": "TypeScript"
+  },
+  {
+    "name": "junegunn-fzf",
+    "url": "https://github.com/junegunn/fzf.git",
+    "stars": 78986,
+    "language": "Go"
+  },
+  {
+    "name": "doocs-advanced-java",
+    "url": "https://github.com/doocs/advanced-java.git",
+    "stars": 78916,
+    "language": "Java"
+  },
+  {
+    "name": "anuraghazra-github-readme-stats",
+    "url": "https://github.com/anuraghazra/github-readme-stats.git",
+    "stars": 78871,
+    "language": "JavaScript"
+  },
+  {
+    "name": "hoppscotch-hoppscotch",
+    "url": "https://github.com/hoppscotch/hoppscotch.git",
+    "stars": 78612,
+    "language": "TypeScript"
+  },
+  {
+    "name": "Developer-Y-cs-video-courses",
+    "url": "https://github.com/Developer-Y/cs-video-courses.git",
+    "stars": 77475,
+    "language": "unknown"
+  },
+  {
+    "name": "mlabonne-llm-course",
+    "url": "https://github.com/mlabonne/llm-course.git",
+    "stars": 77354,
+    "language": "unknown"
+  },
+  {
+    "name": "nomic-ai-gpt4all",
+    "url": "https://github.com/nomic-ai/gpt4all.git",
+    "stars": 77237,
+    "language": "C++"
+  },
+  {
+    "name": "localsend-localsend",
+    "url": "https://github.com/localsend/localsend.git",
+    "stars": 77135,
+    "language": "Dart"
+  },
+  {
+    "name": "coder-code-server",
+    "url": "https://github.com/coder/code-server.git",
+    "stars": 76833,
+    "language": "TypeScript"
+  },
+  {
+    "name": "FortAwesome-Font-Awesome",
+    "url": "https://github.com/FortAwesome/Font-Awesome.git",
+    "stars": 76453,
+    "language": "JavaScript"
+  },
+  {
+    "name": "swisskyrepo-PayloadsAllTheThings",
+    "url": "https://github.com/swisskyrepo/PayloadsAllTheThings.git",
+    "stars": 76349,
+    "language": "Python"
+  },
+  {
+    "name": "infiniflow-ragflow",
+    "url": "https://github.com/infiniflow/ragflow.git",
+    "stars": 76130,
+    "language": "Python"
+  },
+  {
+    "name": "typicode-json-server",
+    "url": "https://github.com/typicode/json-server.git",
+    "stars": 75676,
+    "language": "JavaScript"
+  },
+  {
+    "name": "jesseduffield-lazygit",
+    "url": "https://github.com/jesseduffield/lazygit.git",
+    "stars": 75040,
+    "language": "Go"
+  },
+  {
+    "name": "vllm-project-vllm",
+    "url": "https://github.com/vllm-project/vllm.git",
+    "stars": 74329,
+    "language": "Python"
+  },
+  {
+    "name": "sherlock-project-sherlock",
+    "url": "https://github.com/sherlock-project/sherlock.git",
+    "stars": 74081,
+    "language": "Python"
+  },
+  {
+    "name": "vuejs-awesome-vue",
+    "url": "https://github.com/vuejs/awesome-vue.git",
+    "stars": 73616,
+    "language": "unknown"
+  },
+  {
+    "name": "awesomedata-awesome-public-datasets",
+    "url": "https://github.com/awesomedata/awesome-public-datasets.git",
+    "stars": 73601,
+    "language": "unknown"
+  },
+  {
+    "name": "tesseract-ocr-tesseract",
+    "url": "https://github.com/tesseract-ocr/tesseract.git",
+    "stars": 73115,
+    "language": "C++"
+  },
+  {
+    "name": "twitter-the-algorithm",
+    "url": "https://github.com/twitter/the-algorithm.git",
+    "stars": 72922,
+    "language": "Scala"
+  },
+  {
+    "name": "CompVis-stable-diffusion",
+    "url": "https://github.com/CompVis/stable-diffusion.git",
+    "stars": 72765,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "enaqx-awesome-react",
+    "url": "https://github.com/enaqx/awesome-react.git",
+    "stars": 72514,
+    "language": "unknown"
+  },
+  {
+    "name": "thedaviddias-Front-End-Checklist",
+    "url": "https://github.com/thedaviddias/Front-End-Checklist.git",
+    "stars": 72394,
+    "language": "unknown"
+  },
+  {
+    "name": "dair-ai-Prompt-Engineering-Guide",
+    "url": "https://github.com/dair-ai/Prompt-Engineering-Guide.git",
+    "stars": 72261,
+    "language": "MDX"
+  },
+  {
+    "name": "ocornut-imgui",
+    "url": "https://github.com/ocornut/imgui.git",
+    "stars": 72182,
+    "language": "C++"
+  },
+  {
+    "name": "josephmisiti-awesome-machine-learning",
+    "url": "https://github.com/josephmisiti/awesome-machine-learning.git",
+    "stars": 72086,
+    "language": "Python"
+  },
+  {
+    "name": "abi-screenshot-to-code",
+    "url": "https://github.com/abi/screenshot-to-code.git",
+    "stars": 72061,
+    "language": "TypeScript"
+  },
+  {
+    "name": "PKUFlyingPig-cs-self-learning",
+    "url": "https://github.com/PKUFlyingPig/cs-self-learning.git",
+    "stars": 72009,
+    "language": "HTML"
+  },
+  {
+    "name": "pallets-flask",
+    "url": "https://github.com/pallets/flask.git",
+    "stars": 71379,
+    "language": "Python"
+  },
+  {
+    "name": "obsproject-obs-studio",
+    "url": "https://github.com/obsproject/obs-studio.git",
+    "stars": 71171,
+    "language": "C"
+  },
+  {
+    "name": "caddyserver-caddy",
+    "url": "https://github.com/caddyserver/caddy.git",
+    "stars": 71101,
+    "language": "Go"
+  },
+  {
+    "name": "hakimel-reveal.js",
+    "url": "https://github.com/hakimel/reveal.js.git",
+    "stars": 70854,
+    "language": "JavaScript"
+  },
+  {
+    "name": "fffaraz-awesome-cpp",
+    "url": "https://github.com/fffaraz/awesome-cpp.git",
+    "stars": 70455,
+    "language": "unknown"
+  },
+  {
+    "name": "daytonaio-daytona",
+    "url": "https://github.com/daytonaio/daytona.git",
+    "stars": 70450,
+    "language": "TypeScript"
+  },
+  {
+    "name": "binary-husky-gpt_academic",
+    "url": "https://github.com/binary-husky/gpt_academic.git",
+    "stars": 70305,
+    "language": "Python"
+  },
+  {
+    "name": "Eugeny-tabby",
+    "url": "https://github.com/Eugeny/tabby.git",
+    "stars": 69809,
+    "language": "TypeScript"
+  },
+  {
+    "name": "binhnguyennus-awesome-scalability",
+    "url": "https://github.com/binhnguyennus/awesome-scalability.git",
+    "stars": 69796,
+    "language": "unknown"
+  },
+  {
+    "name": "nektos-act",
+    "url": "https://github.com/nektos/act.git",
+    "stars": 69520,
+    "language": "Go"
+  },
+  {
+    "name": "hiyouga-LlamaFactory",
+    "url": "https://github.com/hiyouga/LlamaFactory.git",
+    "stars": 69059,
+    "language": "Python"
+  },
+  {
+    "name": "expressjs-express",
+    "url": "https://github.com/expressjs/express.git",
+    "stars": 68887,
+    "language": "JavaScript"
+  },
+  {
+    "name": "AppFlowy-IO-AppFlowy",
+    "url": "https://github.com/AppFlowy-IO/AppFlowy.git",
+    "stars": 68797,
+    "language": "Dart"
+  },
+  {
+    "name": "base-node",
+    "url": "https://github.com/base/node.git",
+    "stars": 68665,
+    "language": "Go"
+  },
+  {
+    "name": "chartjs-Chart.js",
+    "url": "https://github.com/chartjs/Chart.js.git",
+    "stars": 67307,
+    "language": "JavaScript"
+  },
+  {
+    "name": "prakhar1989-awesome-courses",
+    "url": "https://github.com/prakhar1989/awesome-courses.git",
+    "stars": 67256,
+    "language": "unknown"
+  },
+  {
+    "name": "juliangarnier-anime",
+    "url": "https://github.com/juliangarnier/anime.git",
+    "stars": 66946,
+    "language": "JavaScript"
+  },
+  {
+    "name": "leonardomso-33-js-concepts",
+    "url": "https://github.com/leonardomso/33-js-concepts.git",
+    "stars": 66291,
+    "language": "JavaScript"
+  },
+  {
+    "name": "FoundationAgents-MetaGPT",
+    "url": "https://github.com/FoundationAgents/MetaGPT.git",
+    "stars": 66153,
+    "language": "Python"
+  },
+  {
+    "name": "labmlai-annotated_deep_learning_paper_implementations",
+    "url": "https://github.com/labmlai/annotated_deep_learning_paper_implementations.git",
+    "stars": 66141,
+    "language": "Python"
+  },
+  {
+    "name": "webpack-webpack",
+    "url": "https://github.com/webpack/webpack.git",
+    "stars": 66011,
+    "language": "JavaScript"
+  },
+  {
+    "name": "xtekky-gpt4free",
+    "url": "https://github.com/xtekky/gpt4free.git",
+    "stars": 65922,
+    "language": "Python"
+  },
+  {
+    "name": "scikit-learn-scikit-learn",
+    "url": "https://github.com/scikit-learn/scikit-learn.git",
+    "stars": 65524,
+    "language": "Python"
+  },
+  {
+    "name": "sindresorhus-awesome-nodejs",
+    "url": "https://github.com/sindresorhus/awesome-nodejs.git",
+    "stars": 65411,
+    "language": "unknown"
+  },
+  {
+    "name": "lydiahallie-javascript-questions",
+    "url": "https://github.com/lydiahallie/javascript-questions.git",
+    "stars": 65313,
+    "language": "unknown"
+  },
+  {
+    "name": "TheAlgorithms-Java",
+    "url": "https://github.com/TheAlgorithms/Java.git",
+    "stars": 65280,
+    "language": "Java"
+  },
+  {
+    "name": "bradtraversy-design-resources-for-developers",
+    "url": "https://github.com/bradtraversy/design-resources-for-developers.git",
+    "stars": 65101,
+    "language": "unknown"
+  },
+  {
+    "name": "kelseyhightower-nocode",
+    "url": "https://github.com/kelseyhightower/nocode.git",
+    "stars": 65053,
+    "language": "Dockerfile"
+  },
+  {
+    "name": "kdn251-interviews",
+    "url": "https://github.com/kdn251/interviews.git",
+    "stars": 64935,
+    "language": "Java"
+  },
+  {
+    "name": "chrislgarry-Apollo-11",
+    "url": "https://github.com/chrislgarry/Apollo-11.git",
+    "stars": 64708,
+    "language": "Assembly"
+  },
+  {
+    "name": "keras-team-keras",
+    "url": "https://github.com/keras-team/keras.git",
+    "stars": 63928,
+    "language": "Python"
+  },
+  {
+    "name": "alacritty-alacritty",
+    "url": "https://github.com/alacritty/alacritty.git",
+    "stars": 63124,
+    "language": "Rust"
+  },
+  {
+    "name": "socketio-socket.io",
+    "url": "https://github.com/socketio/socket.io.git",
+    "stars": 62976,
+    "language": "TypeScript"
+  },
+  {
+    "name": "openinterpreter-open-interpreter",
+    "url": "https://github.com/openinterpreter/open-interpreter.git",
+    "stars": 62858,
+    "language": "Python"
+  },
+  {
+    "name": "resume-resume.github.com",
+    "url": "https://github.com/resume/resume.github.com.git",
+    "stars": 62817,
+    "language": "JavaScript"
+  },
+  {
+    "name": "pathwaycom-pathway",
+    "url": "https://github.com/pathwaycom/pathway.git",
+    "stars": 62613,
+    "language": "Python"
+  },
+  {
+    "name": "unclecode-crawl4ai",
+    "url": "https://github.com/unclecode/crawl4ai.git",
+    "stars": 62573,
+    "language": "Python"
+  },
+  {
+    "name": "msitarzewski-agency-agents",
+    "url": "https://github.com/msitarzewski/agency-agents.git",
+    "stars": 62421,
+    "language": "Shell"
+  },
+  {
+    "name": "traefik-traefik",
+    "url": "https://github.com/traefik/traefik.git",
+    "stars": 62369,
+    "language": "Go"
+  },
+  {
+    "name": "gorhill-uBlock",
+    "url": "https://github.com/gorhill/uBlock.git",
+    "stars": 62311,
+    "language": "JavaScript"
+  },
+  {
+    "name": "rust-lang-rustlings",
+    "url": "https://github.com/rust-lang/rustlings.git",
+    "stars": 62296,
+    "language": "Rust"
+  },
+  {
+    "name": "FuelLabs-sway",
+    "url": "https://github.com/FuelLabs/sway.git",
+    "stars": 61856,
+    "language": "Rust"
+  },
+  {
+    "name": "tldr-pages-tldr",
+    "url": "https://github.com/tldr-pages/tldr.git",
+    "stars": 61795,
+    "language": "Markdown"
+  },
+  {
+    "name": "lodash-lodash",
+    "url": "https://github.com/lodash/lodash.git",
+    "stars": 61574,
+    "language": "JavaScript"
+  },
+  {
+    "name": "reduxjs-redux",
+    "url": "https://github.com/reduxjs/redux.git",
+    "stars": 61454,
+    "language": "TypeScript"
+  },
+  {
+    "name": "BurntSushi-ripgrep",
+    "url": "https://github.com/BurntSushi/ripgrep.git",
+    "stars": 61399,
+    "language": "Rust"
+  },
+  {
+    "name": "scrapy-scrapy",
+    "url": "https://github.com/scrapy/scrapy.git",
+    "stars": 60960,
+    "language": "Python"
+  },
+  {
+    "name": "youngyangyang04-leetcode-master",
+    "url": "https://github.com/youngyangyang04/leetcode-master.git",
+    "stars": 60878,
+    "language": "Shell"
+  },
+  {
+    "name": "xingshaocheng-architect-awesome",
+    "url": "https://github.com/xingshaocheng/architect-awesome.git",
+    "stars": 60841,
+    "language": "unknown"
+  },
+  {
+    "name": "h5bp-Front-end-Developer-Interview-Questions",
+    "url": "https://github.com/h5bp/Front-end-Developer-Interview-Questions.git",
+    "stars": 60815,
+    "language": "Nunjucks"
+  },
+  {
+    "name": "adam-p-markdown-here",
+    "url": "https://github.com/adam-p/markdown-here.git",
+    "stars": 60173,
+    "language": "JavaScript"
+  },
+  {
+    "name": "jgraph-drawio-desktop",
+    "url": "https://github.com/jgraph/drawio-desktop.git",
+    "stars": 60037,
+    "language": "JavaScript"
+  },
+  {
+    "name": "Asabeneh-30-Days-Of-Python",
+    "url": "https://github.com/Asabeneh/30-Days-Of-Python.git",
+    "stars": 60025,
+    "language": "Python"
+  },
+  {
+    "name": "nuxt-nuxt",
+    "url": "https://github.com/nuxt/nuxt.git",
+    "stars": 59929,
+    "language": "TypeScript"
+  },
+  {
+    "name": "jquery-jquery",
+    "url": "https://github.com/jquery/jquery.git",
+    "stars": 59868,
+    "language": "JavaScript"
+  },
+  {
+    "name": "topjohnwu-Magisk",
+    "url": "https://github.com/topjohnwu/Magisk.git",
+    "stars": 59517,
+    "language": "Kotlin"
+  },
+  {
+    "name": "Solido-awesome-flutter",
+    "url": "https://github.com/Solido/awesome-flutter.git",
+    "stars": 59395,
+    "language": "Dart"
+  },
+  {
+    "name": "shadowsocks-shadowsocks-windows",
+    "url": "https://github.com/shadowsocks/shadowsocks-windows.git",
+    "stars": 59283,
+    "language": "C#"
+  },
+  {
+    "name": "meta-llama-llama",
+    "url": "https://github.com/meta-llama/llama.git",
+    "stars": 59257,
+    "language": "Python"
+  },
+  {
+    "name": "pathwaycom-llm-app",
+    "url": "https://github.com/pathwaycom/llm-app.git",
+    "stars": 59195,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "PlexPt-awesome-chatgpt-prompts-zh",
+    "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh.git",
+    "stars": 58820,
+    "language": "unknown"
+  },
+  {
+    "name": "FiloSottile-mkcert",
+    "url": "https://github.com/FiloSottile/mkcert.git",
+    "stars": 58364,
+    "language": "Go"
+  },
+  {
+    "name": "unslothai-unsloth",
+    "url": "https://github.com/unslothai/unsloth.git",
+    "stars": 58201,
+    "language": "Python"
+  },
+  {
+    "name": "usememos-memos",
+    "url": "https://github.com/usememos/memos.git",
+    "stars": 58200,
+    "language": "Go"
+  },
+  {
+    "name": "sharkdp-bat",
+    "url": "https://github.com/sharkdp/bat.git",
+    "stars": 57818,
+    "language": "Rust"
+  },
+  {
+    "name": "pmndrs-zustand",
+    "url": "https://github.com/pmndrs/zustand.git",
+    "stars": 57525,
+    "language": "TypeScript"
+  },
+  {
+    "name": "h5bp-html5-boilerplate",
+    "url": "https://github.com/h5bp/html5-boilerplate.git",
+    "stars": 57410,
+    "language": "JavaScript"
+  },
+  {
+    "name": "dani-garcia-vaultwarden",
+    "url": "https://github.com/dani-garcia/vaultwarden.git",
+    "stars": 57318,
+    "language": "Rust"
+  },
+  {
+    "name": "opendatalab-MinerU",
+    "url": "https://github.com/opendatalab/MinerU.git",
+    "stars": 57205,
+    "language": "Python"
+  },
+  {
+    "name": "zylon-ai-private-gpt",
+    "url": "https://github.com/zylon-ai/private-gpt.git",
+    "stars": 57190,
+    "language": "Python"
+  },
+  {
+    "name": "pocketbase-pocketbase",
+    "url": "https://github.com/pocketbase/pocketbase.git",
+    "stars": 57123,
+    "language": "Go"
+  },
+  {
+    "name": "ultralytics-yolov5",
+    "url": "https://github.com/ultralytics/yolov5.git",
+    "stars": 57085,
+    "language": "Python"
+  },
+  {
+    "name": "soimort-you-get",
+    "url": "https://github.com/soimort/you-get.git",
+    "stars": 56835,
+    "language": "Python"
+  },
+  {
+    "name": "meilisearch-meilisearch",
+    "url": "https://github.com/meilisearch/meilisearch.git",
+    "stars": 56739,
+    "language": "Rust"
+  },
+  {
+    "name": "Mintplex-Labs-anything-llm",
+    "url": "https://github.com/Mintplex-Labs/anything-llm.git",
+    "stars": 56727,
+    "language": "JavaScript"
+  },
+  {
+    "name": "rust-unofficial-awesome-rust",
+    "url": "https://github.com/rust-unofficial/awesome-rust.git",
+    "stars": 56361,
+    "language": "Rust"
+  },
+  {
+    "name": "remix-run-react-router",
+    "url": "https://github.com/remix-run/react-router.git",
+    "stars": 56333,
+    "language": "TypeScript"
+  },
+  {
+    "name": "pi-hole-pi-hole",
+    "url": "https://github.com/pi-hole/pi-hole.git",
+    "stars": 56274,
+    "language": "Shell"
+  },
+  {
+    "name": "ageitgey-face_recognition",
+    "url": "https://github.com/ageitgey/face_recognition.git",
+    "stars": 56230,
+    "language": "Python"
+  },
+  {
+    "name": "microsoft-autogen",
+    "url": "https://github.com/microsoft/autogen.git",
+    "stars": 56198,
+    "language": "Python"
+  },
+  {
+    "name": "RVC-Boss-GPT-SoVITS",
+    "url": "https://github.com/RVC-Boss/GPT-SoVITS.git",
+    "stars": 56120,
+    "language": "Python"
+  },
+  {
+    "name": "karpathy-autoresearch",
+    "url": "https://github.com/karpathy/autoresearch.git",
+    "stars": 56011,
+    "language": "Python"
+  },
+  {
+    "name": "Textualize-rich",
+    "url": "https://github.com/Textualize/rich.git",
+    "stars": 55881,
+    "language": "Python"
+  },
+  {
+    "name": "tiimgreen-github-cheat-sheet",
+    "url": "https://github.com/tiimgreen/github-cheat-sheet.git",
+    "stars": 55856,
+    "language": "unknown"
+  },
+  {
+    "name": "azl397985856-leetcode",
+    "url": "https://github.com/azl397985856/leetcode.git",
+    "stars": 55814,
+    "language": "JavaScript"
+  },
+  {
+    "name": "golang-standards-project-layout",
+    "url": "https://github.com/golang-standards/project-layout.git",
+    "stars": 55634,
+    "language": "Makefile"
+  },
+  {
+    "name": "karpathy-nanoGPT",
+    "url": "https://github.com/karpathy/nanoGPT.git",
+    "stars": 55585,
+    "language": "Python"
+  },
+  {
+    "name": "FoundationAgents-OpenManus",
+    "url": "https://github.com/FoundationAgents/OpenManus.git",
+    "stars": 55473,
+    "language": "Python"
+  },
+  {
+    "name": "Z4nzu-hackingtool",
+    "url": "https://github.com/Z4nzu/hackingtool.git",
+    "stars": 55307,
+    "language": "Python"
+  },
+  {
+    "name": "starship-starship",
+    "url": "https://github.com/starship/starship.git",
+    "stars": 55288,
+    "language": "Rust"
+  },
+  {
+    "name": "AntonOsika-gpt-engineer",
+    "url": "https://github.com/AntonOsika/gpt-engineer.git",
+    "stars": 55227,
+    "language": "Python"
+  },
+  {
+    "name": "ultralytics-ultralytics",
+    "url": "https://github.com/ultralytics/ultralytics.git",
+    "stars": 54990,
+    "language": "Python"
+  },
+  {
+    "name": "marktext-marktext",
+    "url": "https://github.com/marktext/marktext.git",
+    "stars": 54704,
+    "language": "JavaScript"
+  },
+  {
+    "name": "lencx-ChatGPT",
+    "url": "https://github.com/lencx/ChatGPT.git",
+    "stars": 54366,
+    "language": "Rust"
+  },
+  {
+    "name": "ElemeFE-element",
+    "url": "https://github.com/ElemeFE/element.git",
+    "stars": 54189,
+    "language": "Vue"
+  },
+  {
+    "name": "psf-requests",
+    "url": "https://github.com/psf/requests.git",
+    "stars": 53872,
+    "language": "Python"
+  },
+  {
+    "name": "facebookresearch-segment-anything",
+    "url": "https://github.com/facebookresearch/segment-anything.git",
+    "stars": 53781,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "necolas-normalize.css",
+    "url": "https://github.com/necolas/normalize.css.git",
+    "stars": 53765,
+    "language": "CSS"
+  },
+  {
+    "name": "wagoodman-dive",
+    "url": "https://github.com/wagoodman/dive.git",
+    "stars": 53648,
+    "language": "Go"
+  },
+  {
+    "name": "romkatv-powerlevel10k",
+    "url": "https://github.com/romkatv/powerlevel10k.git",
+    "stars": 53486,
+    "language": "Shell"
+  },
+  {
+    "name": "vuejs-core",
+    "url": "https://github.com/vuejs/core.git",
+    "stars": 53317,
+    "language": "TypeScript"
+  },
+  {
+    "name": "ngosang-trackerslist",
+    "url": "https://github.com/ngosang/trackerslist.git",
+    "stars": 53297,
+    "language": "unknown"
+  },
+  {
+    "name": "Zie619-n8n-workflows",
+    "url": "https://github.com/Zie619/n8n-workflows.git",
+    "stars": 53196,
+    "language": "Python"
+  },
+  {
+    "name": "firstcontributions-first-contributions",
+    "url": "https://github.com/firstcontributions/first-contributions.git",
+    "stars": 53173,
+    "language": "unknown"
+  },
+  {
+    "name": "cloudcommunity-Free-Certifications",
+    "url": "https://github.com/cloudcommunity/Free-Certifications.git",
+    "stars": 53111,
+    "language": "unknown"
+  },
+  {
+    "name": "mozilla-pdf.js",
+    "url": "https://github.com/mozilla/pdf.js.git",
+    "stars": 53028,
+    "language": "JavaScript"
+  },
+  {
+    "name": "WerWolv-ImHex",
+    "url": "https://github.com/WerWolv/ImHex.git",
+    "stars": 52979,
+    "language": "C++"
+  },
+  {
+    "name": "termux-termux-app",
+    "url": "https://github.com/termux/termux-app.git",
+    "stars": 52479,
+    "language": "Java"
+  },
+  {
+    "name": "sickcodes-Docker-OSX",
+    "url": "https://github.com/sickcodes/Docker-OSX.git",
+    "stars": 52348,
+    "language": "Shell"
+  },
+  {
+    "name": "typst-typst",
+    "url": "https://github.com/typst/typst.git",
+    "stars": 52277,
+    "language": "Rust"
+  },
+  {
+    "name": "PowerShell-PowerShell",
+    "url": "https://github.com/PowerShell/PowerShell.git",
+    "stars": 52130,
+    "language": "C#"
+  },
+  {
+    "name": "coollabsio-coolify",
+    "url": "https://github.com/coollabsio/coolify.git",
+    "stars": 52097,
+    "language": "PHP"
+  },
+  {
+    "name": "prettier-prettier",
+    "url": "https://github.com/prettier/prettier.git",
+    "stars": 51755,
+    "language": "JavaScript"
+  },
+  {
+    "name": "etcd-io-etcd",
+    "url": "https://github.com/etcd-io/etcd.git",
+    "stars": 51702,
+    "language": "Go"
+  },
+  {
+    "name": "vsouza-awesome-ios",
+    "url": "https://github.com/vsouza/awesome-ios.git",
+    "stars": 51614,
+    "language": "Swift"
+  },
+  {
+    "name": "xai-org-grok-1",
+    "url": "https://github.com/xai-org/grok-1.git",
+    "stars": 51524,
+    "language": "Python"
+  },
+  {
+    "name": "jekyll-jekyll",
+    "url": "https://github.com/jekyll/jekyll.git",
+    "stars": 51491,
+    "language": "Ruby"
+  },
+  {
+    "name": "agalwood-Motrix",
+    "url": "https://github.com/agalwood/Motrix.git",
+    "stars": 51129,
+    "language": "JavaScript"
+  },
+  {
+    "name": "Semantic-Org-Semantic-UI",
+    "url": "https://github.com/Semantic-Org/Semantic-UI.git",
+    "stars": 51120,
+    "language": "JavaScript"
+  },
+  {
+    "name": "FlowiseAI-Flowise",
+    "url": "https://github.com/FlowiseAI/Flowise.git",
+    "stars": 51081,
+    "language": "TypeScript"
+  },
+  {
+    "name": "mem0ai-mem0",
+    "url": "https://github.com/mem0ai/mem0.git",
+    "stars": 51055,
+    "language": "Python"
+  },
+  {
+    "name": "nextlevelbuilder-ui-ux-pro-max-skill",
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+    "stars": 50781,
+    "language": "Python"
+  },
+  {
+    "name": "dockur-windows",
+    "url": "https://github.com/dockur/windows.git",
+    "stars": 50729,
+    "language": "Shell"
+  },
+  {
+    "name": "charlax-professional-programming",
+    "url": "https://github.com/charlax/professional-programming.git",
+    "stars": 50691,
+    "language": "Python"
+  },
+  {
+    "name": "justjavac-awesome-wechat-weapp",
+    "url": "https://github.com/justjavac/awesome-wechat-weapp.git",
+    "stars": 50677,
+    "language": "unknown"
+  },
+  {
+    "name": "upstash-context7",
+    "url": "https://github.com/upstash/context7.git",
+    "stars": 50580,
+    "language": "TypeScript"
+  },
+  {
+    "name": "poteto-hiring-without-whiteboards",
+    "url": "https://github.com/poteto/hiring-without-whiteboards.git",
+    "stars": 50523,
+    "language": "JavaScript"
+  },
+  {
+    "name": "jesseduffield-lazydocker",
+    "url": "https://github.com/jesseduffield/lazydocker.git",
+    "stars": 50375,
+    "language": "Go"
+  },
+  {
+    "name": "karpathy-nanochat",
+    "url": "https://github.com/karpathy/nanochat.git",
+    "stars": 50306,
+    "language": "Python"
+  },
+  {
+    "name": "ChrisTitusTech-winutil",
+    "url": "https://github.com/ChrisTitusTech/winutil.git",
+    "stars": 50260,
+    "language": "PowerShell"
+  },
+  {
+    "name": "Avik-Jain-100-Days-Of-ML-Code",
+    "url": "https://github.com/Avik-Jain/100-Days-Of-ML-Code.git",
+    "stars": 50071,
+    "language": "unknown"
+  },
+  {
+    "name": "jgthms-bulma",
+    "url": "https://github.com/jgthms/bulma.git",
+    "stars": 50065,
+    "language": "CSS"
+  },
+  {
+    "name": "jellyfin-jellyfin",
+    "url": "https://github.com/jellyfin/jellyfin.git",
+    "stars": 49643,
+    "language": "C#"
+  },
+  {
+    "name": "virattt-ai-hedge-fund",
+    "url": "https://github.com/virattt/ai-hedge-fund.git",
+    "stars": 49563,
+    "language": "Python"
+  },
+  {
+    "name": "lyswhut-lx-music-desktop",
+    "url": "https://github.com/lyswhut/lx-music-desktop.git",
+    "stars": 49553,
+    "language": "TypeScript"
+  },
+  {
+    "name": "NARKOZ-hacker-scripts",
+    "url": "https://github.com/NARKOZ/hacker-scripts.git",
+    "stars": 49447,
+    "language": "JavaScript"
+  },
+  {
+    "name": "dkhamsing-open-source-ios-apps",
+    "url": "https://github.com/dkhamsing/open-source-ios-apps.git",
+    "stars": 49372,
+    "language": "unknown"
+  },
+  {
+    "name": "AlistGo-alist",
+    "url": "https://github.com/AlistGo/alist.git",
+    "stars": 49220,
+    "language": "Go"
+  },
+  {
+    "name": "huginn-huginn",
+    "url": "https://github.com/huginn/huginn.git",
+    "stars": 48971,
+    "language": "Ruby"
+  },
+  {
+    "name": "TanStack-query",
+    "url": "https://github.com/TanStack/query.git",
+    "stars": 48911,
+    "language": "TypeScript"
+  },
+  {
+    "name": "ghostty-org-ghostty",
+    "url": "https://github.com/ghostty-org/ghostty.git",
+    "stars": 48641,
+    "language": "Zig"
+  },
+  {
+    "name": "iamkun-dayjs",
+    "url": "https://github.com/iamkun/dayjs.git",
+    "stars": 48615,
+    "language": "JavaScript"
+  },
+  {
+    "name": "ReactiveX-RxJava",
+    "url": "https://github.com/ReactiveX/RxJava.git",
+    "stars": 48469,
+    "language": "Java"
+  },
+  {
+    "name": "algorithm-visualizer-algorithm-visualizer",
+    "url": "https://github.com/algorithm-visualizer/algorithm-visualizer.git",
+    "stars": 48456,
+    "language": "JavaScript"
+  },
+  {
+    "name": "moment-moment",
+    "url": "https://github.com/moment/moment.git",
+    "stars": 48034,
+    "language": "JavaScript"
+  },
+  {
+    "name": "serhii-londar-open-source-mac-os-apps",
+    "url": "https://github.com/serhii-londar/open-source-mac-os-apps.git",
+    "stars": 47977,
+    "language": "unknown"
+  },
+  {
+    "name": "x64dbg-x64dbg",
+    "url": "https://github.com/x64dbg/x64dbg.git",
+    "stars": 47960,
+    "language": "C++"
+  },
+  {
+    "name": "ggml-org-whisper.cpp",
+    "url": "https://github.com/ggml-org/whisper.cpp.git",
+    "stars": 47952,
+    "language": "C++"
+  },
+  {
+    "name": "lllyasviel-Fooocus",
+    "url": "https://github.com/lllyasviel/Fooocus.git",
+    "stars": 47913,
+    "language": "Python"
+  },
+  {
+    "name": "type-challenges-type-challenges",
+    "url": "https://github.com/type-challenges/type-challenges.git",
+    "stars": 47872,
+    "language": "TypeScript"
+  },
+  {
+    "name": "ComposioHQ-awesome-claude-skills",
+    "url": "https://github.com/ComposioHQ/awesome-claude-skills.git",
+    "stars": 47871,
+    "language": "Python"
+  },
+  {
+    "name": "kelseyhightower-kubernetes-the-hard-way",
+    "url": "https://github.com/kelseyhightower/kubernetes-the-hard-way.git",
+    "stars": 47831,
+    "language": "unknown"
+  },
+  {
+    "name": "skylot-jadx",
+    "url": "https://github.com/skylot/jadx.git",
+    "stars": 47787,
+    "language": "Java"
+  },
+  {
+    "name": "kamranahmedse-design-patterns-for-humans",
+    "url": "https://github.com/kamranahmedse/design-patterns-for-humans.git",
+    "stars": 47652,
+    "language": "unknown"
+  },
+  {
+    "name": "minimaxir-big-list-of-naughty-strings",
+    "url": "https://github.com/minimaxir/big-list-of-naughty-strings.git",
+    "stars": 47617,
+    "language": "Python"
+  },
+  {
+    "name": "karan-Projects",
+    "url": "https://github.com/karan/Projects.git",
+    "stars": 47533,
+    "language": "unknown"
+  },
+  {
+    "name": "garrytan-gstack",
+    "url": "https://github.com/garrytan/gstack.git",
+    "stars": 47498,
+    "language": "TypeScript"
+  },
+  {
+    "name": "akullpp-awesome-java",
+    "url": "https://github.com/akullpp/awesome-java.git",
+    "stars": 47397,
+    "language": "unknown"
+  },
+  {
+    "name": "1c7-chinese-independent-developer",
+    "url": "https://github.com/1c7/chinese-independent-developer.git",
+    "stars": 47365,
+    "language": "unknown"
+  },
+  {
+    "name": "OpenCut-app-OpenCut",
+    "url": "https://github.com/OpenCut-app/OpenCut.git",
+    "stars": 47343,
+    "language": "TypeScript"
+  },
+  {
+    "name": "Homebrew-brew",
+    "url": "https://github.com/Homebrew/brew.git",
+    "stars": 47219,
+    "language": "Ruby"
+  },
+  {
+    "name": "brillout-awesome-react-components",
+    "url": "https://github.com/brillout/awesome-react-components.git",
+    "stars": 47134,
+    "language": "unknown"
+  },
+  {
+    "name": "jakevdp-PythonDataScienceHandbook",
+    "url": "https://github.com/jakevdp/PythonDataScienceHandbook.git",
+    "stars": 47122,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "typescript-cheatsheets-react",
+    "url": "https://github.com/typescript-cheatsheets/react.git",
+    "stars": 47016,
+    "language": "JavaScript"
+  },
+  {
+    "name": "tw93-Pake",
+    "url": "https://github.com/tw93/Pake.git",
+    "stars": 47003,
+    "language": "Rust"
+  },
+  {
+    "name": "slab-quill",
+    "url": "https://github.com/slab/quill.git",
+    "stars": 46993,
+    "language": "TypeScript"
+  },
+  {
+    "name": "v2ray-v2ray-core",
+    "url": "https://github.com/v2ray/v2ray-core.git",
+    "stars": 46972,
+    "language": "Go"
+  },
+  {
+    "name": "GokuMohandas-Made-With-ML",
+    "url": "https://github.com/GokuMohandas/Made-With-ML.git",
+    "stars": 46954,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "serverless-serverless",
+    "url": "https://github.com/serverless/serverless.git",
+    "stars": 46946,
+    "language": "JavaScript"
+  },
+  {
+    "name": "square-okhttp",
+    "url": "https://github.com/square/okhttp.git",
+    "stars": 46920,
+    "language": "Kotlin"
+  },
+  {
+    "name": "pixijs-pixijs",
+    "url": "https://github.com/pixijs/pixijs.git",
+    "stars": 46814,
+    "language": "TypeScript"
+  },
+  {
+    "name": "astral-sh-ruff",
+    "url": "https://github.com/astral-sh/ruff.git",
+    "stars": 46692,
+    "language": "Rust"
+  },
+  {
+    "name": "NanmiCoder-MediaCrawler",
+    "url": "https://github.com/NanmiCoder/MediaCrawler.git",
+    "stars": 46625,
+    "language": "Python"
+  },
+  {
+    "name": "DovAmir-awesome-design-patterns",
+    "url": "https://github.com/DovAmir/awesome-design-patterns.git",
+    "stars": 46571,
+    "language": "unknown"
+  },
+  {
+    "name": "oobabooga-text-generation-webui",
+    "url": "https://github.com/oobabooga/text-generation-webui.git",
+    "stars": 46361,
+    "language": "Python"
+  },
+  {
+    "name": "dypsilon-frontend-dev-bookmarks",
+    "url": "https://github.com/dypsilon/frontend-dev-bookmarks.git",
+    "stars": 46271,
+    "language": "unknown"
+  },
+  {
+    "name": "bytedance-deer-flow",
+    "url": "https://github.com/bytedance/deer-flow.git",
+    "stars": 46217,
+    "language": "Python"
+  },
+  {
+    "name": "Asabeneh-30-Days-Of-JavaScript",
+    "url": "https://github.com/Asabeneh/30-Days-Of-JavaScript.git",
+    "stars": 46202,
+    "language": "JavaScript"
+  },
+  {
+    "name": "ziishaned-learn-regex",
+    "url": "https://github.com/ziishaned/learn-regex.git",
+    "stars": 46155,
+    "language": "unknown"
+  },
+  {
+    "name": "acmesh-official-acme.sh",
+    "url": "https://github.com/acmesh-official/acme.sh.git",
+    "stars": 46097,
+    "language": "Shell"
+  },
+  {
+    "name": "microsoft-monaco-editor",
+    "url": "https://github.com/microsoft/monaco-editor.git",
+    "stars": 45820,
+    "language": "JavaScript"
+  },
+  {
+    "name": "GitHubDaily-GitHubDaily",
+    "url": "https://github.com/GitHubDaily/GitHubDaily.git",
+    "stars": 45780,
+    "language": "unknown"
+  },
+  {
+    "name": "coreybutler-nvm-windows",
+    "url": "https://github.com/coreybutler/nvm-windows.git",
+    "stars": 45653,
+    "language": "Go"
+  },
+  {
+    "name": "android-architecture-samples",
+    "url": "https://github.com/android/architecture-samples.git",
+    "stars": 45614,
+    "language": "Kotlin"
+  },
+  {
+    "name": "prisma-prisma",
+    "url": "https://github.com/prisma/prisma.git",
+    "stars": 45593,
+    "language": "TypeScript"
+  },
+  {
+    "name": "jeecgboot-JeecgBoot",
+    "url": "https://github.com/jeecgboot/JeecgBoot.git",
+    "stars": 45567,
+    "language": "Java"
+  },
+  {
+    "name": "LeCoupa-awesome-cheatsheets",
+    "url": "https://github.com/LeCoupa/awesome-cheatsheets.git",
+    "stars": 45535,
+    "language": "JavaScript"
+  },
+  {
+    "name": "ColorlibHQ-AdminLTE",
+    "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+    "stars": 45320,
+    "language": "CSS"
+  },
+  {
+    "name": "google-zx",
+    "url": "https://github.com/google/zx.git",
+    "stars": 45303,
+    "language": "JavaScript"
+  },
+  {
+    "name": "bevyengine-bevy",
+    "url": "https://github.com/bevyengine/bevy.git",
+    "stars": 45285,
+    "language": "Rust"
+  },
+  {
+    "name": "KRTirtho-spotube",
+    "url": "https://github.com/KRTirtho/spotube.git",
+    "stars": 45204,
+    "language": "Dart"
+  },
+  {
+    "name": "slidevjs-slidev",
+    "url": "https://github.com/slidevjs/slidev.git",
+    "stars": 45134,
+    "language": "TypeScript"
+  },
+  {
+    "name": "gedoor-legado",
+    "url": "https://github.com/gedoor/legado.git",
+    "stars": 45121,
+    "language": "Kotlin"
+  },
+  {
+    "name": "coqui-ai-TTS",
+    "url": "https://github.com/coqui-ai/TTS.git",
+    "stars": 44919,
+    "language": "Python"
+  },
+  {
+    "name": "isocpp-CppCoreGuidelines",
+    "url": "https://github.com/isocpp/CppCoreGuidelines.git",
+    "stars": 44864,
+    "language": "CSS"
+  },
+  {
+    "name": "meteor-meteor",
+    "url": "https://github.com/meteor/meteor.git",
+    "stars": 44786,
+    "language": "JavaScript"
+  },
+  {
+    "name": "Leaflet-Leaflet",
+    "url": "https://github.com/Leaflet/Leaflet.git",
+    "stars": 44721,
+    "language": "JavaScript"
+  },
+  {
+    "name": "vercel-hyper",
+    "url": "https://github.com/vercel/hyper.git",
+    "stars": 44713,
+    "language": "TypeScript"
+  },
+  {
+    "name": "react-hook-form-react-hook-form",
+    "url": "https://github.com/react-hook-form/react-hook-form.git",
+    "stars": 44625,
+    "language": "TypeScript"
+  },
+  {
+    "name": "docker-awesome-compose",
+    "url": "https://github.com/docker/awesome-compose.git",
+    "stars": 44544,
+    "language": "HTML"
+  },
+  {
+    "name": "pyenv-pyenv",
+    "url": "https://github.com/pyenv/pyenv.git",
+    "stars": 44487,
+    "language": "Shell"
+  },
+  {
+    "name": "sudheerj-reactjs-interview-questions",
+    "url": "https://github.com/sudheerj/reactjs-interview-questions.git",
+    "stars": 44400,
+    "language": "JavaScript"
+  },
+  {
+    "name": "mudler-LocalAI",
+    "url": "https://github.com/mudler/LocalAI.git",
+    "stars": 44385,
+    "language": "Go"
+  },
+  {
+    "name": "lukasz-madon-awesome-remote-job",
+    "url": "https://github.com/lukasz-madon/awesome-remote-job.git",
+    "stars": 44249,
+    "language": "unknown"
+  },
+  {
+    "name": "astaxie-build-web-application-with-golang",
+    "url": "https://github.com/astaxie/build-web-application-with-golang.git",
+    "stars": 44156,
+    "language": "Go"
+  },
+  {
+    "name": "NaiboWang-EasySpider",
+    "url": "https://github.com/NaiboWang/EasySpider.git",
+    "stars": 44154,
+    "language": "JavaScript"
+  },
+  {
+    "name": "parcel-bundler-parcel",
+    "url": "https://github.com/parcel-bundler/parcel.git",
+    "stars": 44053,
+    "language": "JavaScript"
+  },
+  {
+    "name": "koala73-worldmonitor",
+    "url": "https://github.com/koala73/worldmonitor.git",
+    "stars": 44009,
+    "language": "TypeScript"
+  },
+  {
+    "name": "streamich-react-use",
+    "url": "https://github.com/streamich/react-use.git",
+    "stars": 43956,
+    "language": "TypeScript"
+  },
+  {
+    "name": "babel-babel",
+    "url": "https://github.com/babel/babel.git",
+    "stars": 43910,
+    "language": "TypeScript"
+  },
+  {
+    "name": "square-retrofit",
+    "url": "https://github.com/square/retrofit.git",
+    "stars": 43909,
+    "language": "HTML"
+  },
+  {
+    "name": "AykutSarac-jsoncrack.com",
+    "url": "https://github.com/AykutSarac/jsoncrack.com.git",
+    "stars": 43793,
+    "language": "TypeScript"
+  },
+  {
+    "name": "aymericdamien-TensorFlow-Examples",
+    "url": "https://github.com/aymericdamien/TensorFlow-Examples.git",
+    "stars": 43788,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "9001-copyparty",
+    "url": "https://github.com/9001/copyparty.git",
+    "stars": 43743,
+    "language": "Python"
+  },
+  {
+    "name": "jingyaogong-minimind",
+    "url": "https://github.com/jingyaogong/minimind.git",
+    "stars": 43721,
+    "language": "Python"
+  },
+  {
+    "name": "helix-editor-helix",
+    "url": "https://github.com/helix-editor/helix.git",
+    "stars": 43637,
+    "language": "Rust"
+  },
+  {
+    "name": "zhongyang219-TrafficMonitor",
+    "url": "https://github.com/zhongyang219/TrafficMonitor.git",
+    "stars": 43615,
+    "language": "C++"
+  },
+  {
+    "name": "tmux-tmux",
+    "url": "https://github.com/tmux/tmux.git",
+    "stars": 43547,
+    "language": "C"
+  },
+  {
+    "name": "spf13-cobra",
+    "url": "https://github.com/spf13/cobra.git",
+    "stars": 43532,
+    "language": "Go"
+  },
+  {
+    "name": "code-yeongyu-oh-my-openagent",
+    "url": "https://github.com/code-yeongyu/oh-my-openagent.git",
+    "stars": 43484,
+    "language": "TypeScript"
+  },
+  {
+    "name": "cli-cli",
+    "url": "https://github.com/cli/cli.git",
+    "stars": 43374,
+    "language": "Go"
+  },
+  {
+    "name": "FuelLabs-fuels-rs",
+    "url": "https://github.com/FuelLabs/fuels-rs.git",
+    "stars": 43344,
+    "language": "Rust"
+  },
+  {
+    "name": "FuelLabs-fuels-ts",
+    "url": "https://github.com/FuelLabs/fuels-ts.git",
+    "stars": 43300,
+    "language": "TypeScript"
+  },
+  {
+    "name": "Kong-kong",
+    "url": "https://github.com/Kong/kong.git",
+    "stars": 43038,
+    "language": "Lua"
+  },
+  {
+    "name": "Unitech-pm2",
+    "url": "https://github.com/Unitech/pm2.git",
+    "stars": 43010,
+    "language": "JavaScript"
+  },
+  {
+    "name": "Light-City-CPlusPlusThings",
+    "url": "https://github.com/Light-City/CPlusPlusThings.git",
+    "stars": 43008,
+    "language": "C++"
+  },
+  {
+    "name": "exo-explore-exo",
+    "url": "https://github.com/exo-explore/exo.git",
+    "stars": 42984,
+    "language": "Python"
+  },
+  {
+    "name": "alex-what-happens-when",
+    "url": "https://github.com/alex/what-happens-when.git",
+    "stars": 42926,
+    "language": "unknown"
+  },
+  {
+    "name": "jgm-pandoc",
+    "url": "https://github.com/jgm/pandoc.git",
+    "stars": 42874,
+    "language": "Haskell"
+  },
+  {
+    "name": "faif-python-patterns",
+    "url": "https://github.com/faif/python-patterns.git",
+    "stars": 42802,
+    "language": "Python"
+  },
+  {
+    "name": "mitmproxy-mitmproxy",
+    "url": "https://github.com/mitmproxy/mitmproxy.git",
+    "stars": 42799,
+    "language": "Python"
+  },
+  {
+    "name": "Raphire-Win11Debloat",
+    "url": "https://github.com/Raphire/Win11Debloat.git",
+    "stars": 42717,
+    "language": "PowerShell"
+  },
+  {
+    "name": "666ghj-MiroFish",
+    "url": "https://github.com/666ghj/MiroFish.git",
+    "stars": 42711,
+    "language": "Python"
+  },
+  {
+    "name": "zhayujie-chatgpt-on-wechat",
+    "url": "https://github.com/zhayujie/chatgpt-on-wechat.git",
+    "stars": 42515,
+    "language": "Python"
+  },
+  {
+    "name": "k88hudson-git-flight-rules",
+    "url": "https://github.com/k88hudson/git-flight-rules.git",
+    "stars": 42477,
+    "language": "unknown"
+  },
+  {
+    "name": "karanpratapsingh-system-design",
+    "url": "https://github.com/karanpratapsingh/system-design.git",
+    "stars": 42410,
+    "language": "unknown"
+  },
+  {
+    "name": "Aider-AI-aider",
+    "url": "https://github.com/Aider-AI/aider.git",
+    "stars": 42381,
+    "language": "Python"
+  },
+  {
+    "name": "Alamofire-Alamofire",
+    "url": "https://github.com/Alamofire/Alamofire.git",
+    "stars": 42366,
+    "language": "Swift"
+  },
+  {
+    "name": "ruvnet-RuView",
+    "url": "https://github.com/ruvnet/RuView.git",
+    "stars": 42303,
+    "language": "Rust"
+  },
+  {
+    "name": "fastapi-full-stack-fastapi-template",
+    "url": "https://github.com/fastapi/full-stack-fastapi-template.git",
+    "stars": 42276,
+    "language": "TypeScript"
+  },
+  {
+    "name": "bmad-code-org-BMAD-METHOD",
+    "url": "https://github.com/bmad-code-org/BMAD-METHOD.git",
+    "stars": 42262,
+    "language": "JavaScript"
+  },
+  {
+    "name": "colinhacks-zod",
+    "url": "https://github.com/colinhacks/zod.git",
+    "stars": 42215,
+    "language": "TypeScript"
+  },
+  {
+    "name": "usebruno-bruno",
+    "url": "https://github.com/usebruno/bruno.git",
+    "stars": 42194,
+    "language": "JavaScript"
+  },
+  {
+    "name": "sharkdp-fd",
+    "url": "https://github.com/sharkdp/fd.git",
+    "stars": 42187,
+    "language": "Rust"
+  },
+  {
+    "name": "apachecn-ailearning",
+    "url": "https://github.com/apachecn/ailearning.git",
+    "stars": 42150,
+    "language": "Python"
+  },
+  {
+    "name": "mingrammer-diagrams",
+    "url": "https://github.com/mingrammer/diagrams.git",
+    "stars": 42123,
+    "language": "Python"
+  },
+  {
+    "name": "VoltAgent-awesome-openclaw-skills",
+    "url": "https://github.com/VoltAgent/awesome-openclaw-skills.git",
+    "stars": 41928,
+    "language": "unknown"
+  },
+  {
+    "name": "byoungd-English-level-up-tips",
+    "url": "https://github.com/byoungd/English-level-up-tips.git",
+    "stars": 41836,
+    "language": "unknown"
+  },
+  {
+    "name": "nolimits4web-swiper",
+    "url": "https://github.com/nolimits4web/swiper.git",
+    "stars": 41821,
+    "language": "JavaScript"
+  },
+  {
+    "name": "TauricResearch-TradingAgents",
+    "url": "https://github.com/TauricResearch/TradingAgents.git",
+    "stars": 41816,
+    "language": "Python"
+  },
+  {
+    "name": "gsd-build-get-shit-done",
+    "url": "https://github.com/gsd-build/get-shit-done.git",
+    "stars": 41793,
+    "language": "JavaScript"
+  },
+  {
+    "name": "logseq-logseq",
+    "url": "https://github.com/logseq/logseq.git",
+    "stars": 41724,
+    "language": "Clojure"
+  },
+  {
+    "name": "apache-dubbo",
+    "url": "https://github.com/apache/dubbo.git",
+    "stars": 41711,
+    "language": "Java"
+  },
+  {
+    "name": "nwjs-nw.js",
+    "url": "https://github.com/nwjs/nw.js.git",
+    "stars": 41569,
+    "language": "JavaScript"
+  },
+  {
+    "name": "yarnpkg-yarn",
+    "url": "https://github.com/yarnpkg/yarn.git",
+    "stars": 41528,
+    "language": "JavaScript"
+  },
+  {
+    "name": "payloadcms-payload",
+    "url": "https://github.com/payloadcms/payload.git",
+    "stars": 41443,
+    "language": "TypeScript"
+  },
+  {
+    "name": "psf-black",
+    "url": "https://github.com/psf/black.git",
+    "stars": 41442,
+    "language": "Python"
+  },
+  {
+    "name": "hpcaitech-ColossalAI",
+    "url": "https://github.com/hpcaitech/ColossalAI.git",
+    "stars": 41378,
+    "language": "Python"
+  },
+  {
+    "name": "hexojs-hexo",
+    "url": "https://github.com/hexojs/hexo.git",
+    "stars": 41330,
+    "language": "TypeScript"
+  },
+  {
+    "name": "fastlane-fastlane",
+    "url": "https://github.com/fastlane/fastlane.git",
+    "stars": 41264,
+    "language": "Ruby"
+  },
+  {
+    "name": "zai-org-ChatGLM-6B",
+    "url": "https://github.com/zai-org/ChatGLM-6B.git",
+    "stars": 41209,
+    "language": "Python"
+  },
+  {
+    "name": "curl-curl",
+    "url": "https://github.com/curl/curl.git",
+    "stars": 41178,
+    "language": "C"
+  },
+  {
+    "name": "chubin-cheat.sh",
+    "url": "https://github.com/chubin/cheat.sh.git",
+    "stars": 41150,
+    "language": "Python"
+  },
+  {
+    "name": "bailicangdu-vue2-elm",
+    "url": "https://github.com/bailicangdu/vue2-elm.git",
+    "stars": 41146,
+    "language": "Vue"
+  },
+  {
+    "name": "styled-components-styled-components",
+    "url": "https://github.com/styled-components/styled-components.git",
+    "stars": 41025,
+    "language": "TypeScript"
+  },
+  {
+    "name": "vuetifyjs-vuetify",
+    "url": "https://github.com/vuetifyjs/vuetify.git",
+    "stars": 40985,
+    "language": "TypeScript"
+  },
+  {
+    "name": "charmbracelet-bubbletea",
+    "url": "https://github.com/charmbracelet/bubbletea.git",
+    "stars": 40965,
+    "language": "Go"
+  },
+  {
+    "name": "DataExpert-io-data-engineer-handbook",
+    "url": "https://github.com/DataExpert-io/data-engineer-handbook.git",
+    "stars": 40709,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "LC044-WeChatMsg",
+    "url": "https://github.com/LC044/WeChatMsg.git",
+    "stars": 40696,
+    "language": "unknown"
+  },
+  {
+    "name": "thedotmack-claude-mem",
+    "url": "https://github.com/thedotmack/claude-mem.git",
+    "stars": 40610,
+    "language": "TypeScript"
+  },
+  {
+    "name": "zbezj-HEU_KMS_Activator",
+    "url": "https://github.com/zbezj/HEU_KMS_Activator.git",
+    "stars": 40588,
+    "language": "unknown"
+  },
+  {
+    "name": "bradtraversy-50projects50days",
+    "url": "https://github.com/bradtraversy/50projects50days.git",
+    "stars": 40485,
+    "language": "CSS"
+  },
+  {
+    "name": "aria2-aria2",
+    "url": "https://github.com/aria2/aria2.git",
+    "stars": 40398,
+    "language": "C++"
+  },
+  {
+    "name": "danielmiessler-Fabric",
+    "url": "https://github.com/danielmiessler/Fabric.git",
+    "stars": 40177,
+    "language": "Go"
+  },
+  {
+    "name": "wg-wrk",
+    "url": "https://github.com/wg/wrk.git",
+    "stars": 40158,
+    "language": "C"
+  },
+  {
+    "name": "remoteintech-remote-jobs",
+    "url": "https://github.com/remoteintech/remote-jobs.git",
+    "stars": 40122,
+    "language": "Nunjucks"
+  },
+  {
+    "name": "HeyPuter-puter",
+    "url": "https://github.com/HeyPuter/puter.git",
+    "stars": 40058,
+    "language": "JavaScript"
+  },
+  {
+    "name": "666ghj-BettaFish",
+    "url": "https://github.com/666ghj/BettaFish.git",
+    "stars": 39868,
+    "language": "Python"
+  },
+  {
+    "name": "evanw-esbuild",
+    "url": "https://github.com/evanw/esbuild.git",
+    "stars": 39839,
+    "language": "Go"
+  },
+  {
+    "name": "freefq-free",
+    "url": "https://github.com/freefq/free.git",
+    "stars": 39824,
+    "language": "unknown"
+  },
+  {
+    "name": "trpc-trpc",
+    "url": "https://github.com/trpc/trpc.git",
+    "stars": 39820,
+    "language": "TypeScript"
+  },
+  {
+    "name": "go-gorm-gorm",
+    "url": "https://github.com/go-gorm/gorm.git",
+    "stars": 39651,
+    "language": "Go"
+  },
+  {
+    "name": "videojs-video.js",
+    "url": "https://github.com/videojs/video.js.git",
+    "stars": 39600,
+    "language": "JavaScript"
+  },
+  {
+    "name": "floodsung-Deep-Learning-Papers-Reading-Roadmap",
+    "url": "https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap.git",
+    "stars": 39487,
+    "language": "Python"
+  },
+  {
+    "name": "lm-sys-FastChat",
+    "url": "https://github.com/lm-sys/FastChat.git",
+    "stars": 39449,
+    "language": "Python"
+  },
+  {
+    "name": "gofiber-fiber",
+    "url": "https://github.com/gofiber/fiber.git",
+    "stars": 39446,
+    "language": "Go"
+  },
+  {
+    "name": "goabstract-Awesome-Design-Tools",
+    "url": "https://github.com/goabstract/Awesome-Design-Tools.git",
+    "stars": 39364,
+    "language": "JavaScript"
+  },
+  {
+    "name": "mifi-lossless-cut",
+    "url": "https://github.com/mifi/lossless-cut.git",
+    "stars": 39341,
+    "language": "TypeScript"
+  },
+  {
+    "name": "microsoft-qlib",
+    "url": "https://github.com/microsoft/qlib.git",
+    "stars": 39329,
+    "language": "Python"
+  },
+  {
+    "name": "DataTalksClub-data-engineering-zoomcamp",
+    "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp.git",
+    "stars": 39319,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "imputnet-cobalt",
+    "url": "https://github.com/imputnet/cobalt.git",
+    "stars": 39269,
+    "language": "Svelte"
+  },
+  {
+    "name": "koalaman-shellcheck",
+    "url": "https://github.com/koalaman/shellcheck.git",
+    "stars": 39176,
+    "language": "Haskell"
+  },
+  {
+    "name": "google-styleguide",
+    "url": "https://github.com/google/styleguide.git",
+    "stars": 39133,
+    "language": "HTML"
+  },
+  {
+    "name": "chatboxai-chatbox",
+    "url": "https://github.com/chatboxai/chatbox.git",
+    "stars": 39125,
+    "language": "TypeScript"
+  },
+  {
+    "name": "Dogfalo-materialize",
+    "url": "https://github.com/Dogfalo/materialize.git",
+    "stars": 39107,
+    "language": "JavaScript"
+  },
+  {
+    "name": "suno-ai-bark",
+    "url": "https://github.com/suno-ai/bark.git",
+    "stars": 39063,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "QuivrHQ-quivr",
+    "url": "https://github.com/QuivrHQ/quivr.git",
+    "stars": 39058,
+    "language": "Python"
+  },
+  {
+    "name": "2noise-ChatTTS",
+    "url": "https://github.com/2noise/ChatTTS.git",
+    "stars": 38986,
+    "language": "Python"
+  },
+  {
+    "name": "google-leveldb",
+    "url": "https://github.com/google/leveldb.git",
+    "stars": 38925,
+    "language": "C++"
+  },
+  {
+    "name": "nushell-nushell",
+    "url": "https://github.com/nushell/nushell.git",
+    "stars": 38851,
+    "language": "Rust"
+  },
+  {
+    "name": "shareAI-lab-learn-claude-code",
+    "url": "https://github.com/shareAI-lab/learn-claude-code.git",
+    "stars": 38776,
+    "language": "TypeScript"
+  },
+  {
+    "name": "PatrickJS-awesome-cursorrules",
+    "url": "https://github.com/PatrickJS/awesome-cursorrules.git",
+    "stars": 38682,
+    "language": "MDX"
+  },
+  {
+    "name": "freeCodeCamp-devdocs",
+    "url": "https://github.com/freeCodeCamp/devdocs.git",
+    "stars": 38640,
+    "language": "Ruby"
+  },
+  {
+    "name": "impress-impress.js",
+    "url": "https://github.com/impress/impress.js.git",
+    "stars": 38517,
+    "language": "JavaScript"
+  },
+  {
+    "name": "preactjs-preact",
+    "url": "https://github.com/preactjs/preact.git",
+    "stars": 38511,
+    "language": "JavaScript"
+  },
+  {
+    "name": "google-googletest",
+    "url": "https://github.com/google/googletest.git",
+    "stars": 38395,
+    "language": "C++"
+  },
+  {
+    "name": "gto76-python-cheatsheet",
+    "url": "https://github.com/gto76/python-cheatsheet.git",
+    "stars": 38308,
+    "language": "Python"
+  },
+  {
+    "name": "PhilJay-MPAndroidChart",
+    "url": "https://github.com/PhilJay/MPAndroidChart.git",
+    "stars": 38227,
+    "language": "Java"
+  },
+  {
+    "name": "Kong-insomnia",
+    "url": "https://github.com/Kong/insomnia.git",
+    "stars": 38185,
+    "language": "TypeScript"
+  },
+  {
+    "name": "lapce-lapce",
+    "url": "https://github.com/lapce/lapce.git",
+    "stars": 38182,
+    "language": "Rust"
+  },
+  {
+    "name": "halo-dev-halo",
+    "url": "https://github.com/halo-dev/halo.git",
+    "stars": 38146,
+    "language": "Java"
+  },
+  {
+    "name": "naptha-tesseract.js",
+    "url": "https://github.com/naptha/tesseract.js.git",
+    "stars": 37953,
+    "language": "JavaScript"
+  },
+  {
+    "name": "RSSNext-Folo",
+    "url": "https://github.com/RSSNext/Folo.git",
+    "stars": 37821,
+    "language": "TypeScript"
+  },
+  {
+    "name": "CorentinTh-it-tools",
+    "url": "https://github.com/CorentinTh/it-tools.git",
+    "stars": 37808,
+    "language": "Vue"
+  },
+  {
+    "name": "denysdovhan-wtfjs",
+    "url": "https://github.com/denysdovhan/wtfjs.git",
+    "stars": 37785,
+    "language": "JavaScript"
+  },
+  {
+    "name": "httpie-cli",
+    "url": "https://github.com/httpie/cli.git",
+    "stars": 37762,
+    "language": "Python"
+  },
+  {
+    "name": "huihut-interview",
+    "url": "https://github.com/huihut/interview.git",
+    "stars": 37655,
+    "language": "C++"
+  },
+  {
+    "name": "TeamNewPipe-NewPipe",
+    "url": "https://github.com/TeamNewPipe/NewPipe.git",
+    "stars": 37652,
+    "language": "Java"
+  },
+  {
+    "name": "chatchat-space-Langchain-Chatchat",
+    "url": "https://github.com/chatchat-space/Langchain-Chatchat.git",
+    "stars": 37638,
+    "language": "Python"
+  },
+  {
+    "name": "FreeCodeCampChina-freecodecamp.cn",
+    "url": "https://github.com/FreeCodeCampChina/freecodecamp.cn.git",
+    "stars": 37632,
+    "language": "CSS"
+  },
+  {
+    "name": "paperless-ngx-paperless-ngx",
+    "url": "https://github.com/paperless-ngx/paperless-ngx.git",
+    "stars": 37624,
+    "language": "Python"
+  },
+  {
+    "name": "kilimchoi-engineering-blogs",
+    "url": "https://github.com/kilimchoi/engineering-blogs.git",
+    "stars": 37621,
+    "language": "Ruby"
+  },
+  {
+    "name": "vlang-v",
+    "url": "https://github.com/vlang/v.git",
+    "stars": 37473,
+    "language": "V"
+  },
+  {
+    "name": "LAION-AI-Open-Assistant",
+    "url": "https://github.com/LAION-AI/Open-Assistant.git",
+    "stars": 37435,
+    "language": "Python"
+  },
+  {
+    "name": "TencentARC-GFPGAN",
+    "url": "https://github.com/TencentARC/GFPGAN.git",
+    "stars": 37406,
+    "language": "Python"
+  },
+  {
+    "name": "ManimCommunity-manim",
+    "url": "https://github.com/ManimCommunity/manim.git",
+    "stars": 37394,
+    "language": "Python"
+  },
+  {
+    "name": "eugenp-tutorials",
+    "url": "https://github.com/eugenp/tutorials.git",
+    "stars": 37349,
+    "language": "Java"
+  },
+  {
+    "name": "exelban-stats",
+    "url": "https://github.com/exelban/stats.git",
+    "stars": 37345,
+    "language": "Swift"
+  },
+  {
+    "name": "gkd-kit-gkd",
+    "url": "https://github.com/gkd-kit/gkd.git",
+    "stars": 37275,
+    "language": "Kotlin"
+  },
+  {
+    "name": "huiyadanli-RevokeMsgPatcher",
+    "url": "https://github.com/huiyadanli/RevokeMsgPatcher.git",
+    "stars": 37244,
+    "language": "C#"
+  },
+  {
+    "name": "exacity-deeplearningbook-chinese",
+    "url": "https://github.com/exacity/deeplearningbook-chinese.git",
+    "stars": 37225,
+    "language": "TeX"
+  },
+  {
+    "name": "0voice-interview_internal_reference",
+    "url": "https://github.com/0voice/interview_internal_reference.git",
+    "stars": 37219,
+    "language": "Python"
+  },
+  {
+    "name": "alibaba-arthas",
+    "url": "https://github.com/alibaba/arthas.git",
+    "stars": 37212,
+    "language": "Java"
+  },
+  {
+    "name": "docker-compose",
+    "url": "https://github.com/docker/compose.git",
+    "stars": 37203,
+    "language": "Go"
+  },
+  {
+    "name": "DavidHDev-react-bits",
+    "url": "https://github.com/DavidHDev/react-bits.git",
+    "stars": 37143,
+    "language": "JavaScript"
+  },
+  {
+    "name": "openai-gym",
+    "url": "https://github.com/openai/gym.git",
+    "stars": 37115,
+    "language": "Python"
+  },
+  {
+    "name": "drawdb-io-drawdb",
+    "url": "https://github.com/drawdb-io/drawdb.git",
+    "stars": 36974,
+    "language": "JavaScript"
+  },
+  {
+    "name": "portainer-portainer",
+    "url": "https://github.com/portainer/portainer.git",
+    "stars": 36951,
+    "language": "TypeScript"
+  },
+  {
+    "name": "AobingJava-JavaFamily",
+    "url": "https://github.com/AobingJava/JavaFamily.git",
+    "stars": 36926,
+    "language": "unknown"
+  },
+  {
+    "name": "sqlmapproject-sqlmap",
+    "url": "https://github.com/sqlmapproject/sqlmap.git",
+    "stars": 36925,
+    "language": "Python"
+  },
+  {
+    "name": "satwikkansal-wtfpython",
+    "url": "https://github.com/satwikkansal/wtfpython.git",
+    "stars": 36913,
+    "language": "Python"
+  },
+  {
+    "name": "chatanywhere-GPT_API_free",
+    "url": "https://github.com/chatanywhere/GPT_API_free.git",
+    "stars": 36904,
+    "language": "Python"
+  },
+  {
+    "name": "babysor-MockingBird",
+    "url": "https://github.com/babysor/MockingBird.git",
+    "stars": 36890,
+    "language": "Python"
+  },
+  {
+    "name": "juanfont-headscale",
+    "url": "https://github.com/juanfont/headscale.git",
+    "stars": 36829,
+    "language": "Go"
+  },
+  {
+    "name": "inkonchain-docs",
+    "url": "https://github.com/inkonchain/docs.git",
+    "stars": 36795,
+    "language": "MDX"
+  },
+  {
+    "name": "inkonchain-node",
+    "url": "https://github.com/inkonchain/node.git",
+    "stars": 36741,
+    "language": "Shell"
+  },
+  {
+    "name": "alebcay-awesome-shell",
+    "url": "https://github.com/alebcay/awesome-shell.git",
+    "stars": 36740,
+    "language": "unknown"
+  },
+  {
+    "name": "shadowsocks-shadowsocks-android",
+    "url": "https://github.com/shadowsocks/shadowsocks-android.git",
+    "stars": 36736,
+    "language": "Kotlin"
+  },
+  {
+    "name": "markedjs-marked",
+    "url": "https://github.com/markedjs/marked.git",
+    "stars": 36735,
+    "language": "JavaScript"
+  },
+  {
+    "name": "microsoft-BitNet",
+    "url": "https://github.com/microsoft/BitNet.git",
+    "stars": 36620,
+    "language": "Python"
+  },
+  {
+    "name": "open-guides-og-aws",
+    "url": "https://github.com/open-guides/og-aws.git",
+    "stars": 36593,
+    "language": "Shell"
+  },
+  {
+    "name": "huggingface-pytorch-image-models",
+    "url": "https://github.com/huggingface/pytorch-image-models.git",
+    "stars": 36551,
+    "language": "Python"
+  },
+  {
+    "name": "date-fns-date-fns",
+    "url": "https://github.com/date-fns/date-fns.git",
+    "stars": 36535,
+    "language": "TypeScript"
+  },
+  {
+    "name": "typeorm-typeorm",
+    "url": "https://github.com/typeorm/typeorm.git",
+    "stars": 36406,
+    "language": "TypeScript"
+  },
+  {
+    "name": "HKUDS-nanobot",
+    "url": "https://github.com/HKUDS/nanobot.git",
+    "stars": 36258,
+    "language": "Python"
+  },
+  {
+    "name": "aseprite-aseprite",
+    "url": "https://github.com/aseprite/aseprite.git",
+    "stars": 36245,
+    "language": "C++"
+  },
+  {
+    "name": "XTLS-Xray-core",
+    "url": "https://github.com/XTLS/Xray-core.git",
+    "stars": 36228,
+    "language": "Go"
+  },
+  {
+    "name": "SheetJS-sheetjs",
+    "url": "https://github.com/SheetJS/sheetjs.git",
+    "stars": 36221,
+    "language": "unknown"
+  },
+  {
+    "name": "hankcs-HanLP",
+    "url": "https://github.com/hankcs/HanLP.git",
+    "stars": 36221,
+    "language": "Python"
+  },
+  {
+    "name": "anthropics-claude-cookbooks",
+    "url": "https://github.com/anthropics/claude-cookbooks.git",
+    "stars": 36180,
+    "language": "Jupyter Notebook"
+  },
+  {
+    "name": "formulahendry-955.WLB",
+    "url": "https://github.com/formulahendry/955.WLB.git",
+    "stars": 36173,
+    "language": "unknown"
+  },
+  {
+    "name": "myshell-ai-OpenVoice",
+    "url": "https://github.com/myshell-ai/OpenVoice.git",
+    "stars": 36153,
+    "language": "Python"
+  },
+  {
+    "name": "lerna-lerna",
+    "url": "https://github.com/lerna/lerna.git",
+    "stars": 36088,
+    "language": "TypeScript"
+  },
+  {
+    "name": "deepseek-ai-awesome-deepseek-integration",
+    "url": "https://github.com/deepseek-ai/awesome-deepseek-integration.git",
+    "stars": 36038,
+    "language": "unknown"
+  },
+  {
+    "name": "YunaiV-ruoyi-vue-pro",
+    "url": "https://github.com/YunaiV/ruoyi-vue-pro.git",
+    "stars": 36017,
+    "language": "Java"
+  },
+  {
+    "name": "carbon-app-carbon",
+    "url": "https://github.com/carbon-app/carbon.git",
+    "stars": 36003,
+    "language": "JavaScript"
+  },
+  {
+    "name": "ShareX-ShareX",
+    "url": "https://github.com/ShareX/ShareX.git",
+    "stars": 35991,
+    "language": "C#"
+  },
+  {
+    "name": "amruthpillai-reactive-resume",
+    "url": "https://github.com/amruthpillai/reactive-resume.git",
+    "stars": 35972,
+    "language": "TypeScript"
+  },
+  {
+    "name": "XingangPan-DragGAN",
+    "url": "https://github.com/XingangPan/DragGAN.git",
+    "stars": 35954,
+    "language": "Python"
+  },
+  {
+    "name": "fastify-fastify",
+    "url": "https://github.com/fastify/fastify.git",
+    "stars": 35909,
+    "language": "JavaScript"
+  },
+  {
+    "name": "opentofu-manifesto",
+    "url": "https://github.com/opentofu/manifesto.git",
+    "stars": 35867,
+    "language": "HTML"
+  },
+  {
+    "name": "ueberdosis-tiptap",
+    "url": "https://github.com/ueberdosis/tiptap.git",
+    "stars": 35863,
+    "language": "TypeScript"
+  },
+  {
+    "name": "xyflow-xyflow",
+    "url": "https://github.com/xyflow/xyflow.git",
+    "stars": 35841,
+    "language": "TypeScript"
+  },
+  {
+    "name": "umami-software-umami",
+    "url": "https://github.com/umami-software/umami.git",
+    "stars": 35838,
+    "language": "TypeScript"
+  }
+]

@@ -118,6 +118,13 @@ Run large-scale corpus tuning (parallel clone + scan):
 npm run tune:large
 ```
 
+Generate and run 500-repo corpus:
+
+```bash
+npm run corpus:generate
+npm run tune:500
+```
+
 Quick large-scale pass:
 
 ```bash

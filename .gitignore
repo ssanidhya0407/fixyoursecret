@@ -17,6 +17,7 @@ dogfood/
 # Generated tuning artifacts
 docs/tuning/multi-repo-report*.json
 docs/tuning/large-report*.json
+docs/tuning/report-*.json
 docs/tuning/false-positive-review*.md
 .cache/
 

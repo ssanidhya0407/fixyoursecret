@@ -30,11 +30,14 @@
     "history": "node ./bin/index.js history 20",
     "ci": "node ./bin/index.js ci",
     "benchmark": "node ./scripts/benchmark.js",
+    "corpus:generate": "node ./scripts/generate-corpus.js --output ./fixtures/tuning/repos.500.json --count 500",
     "quality": "npm test && npm run benchmark",
     "test": "node --test",
     "tune:multi": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.default.json --output ./docs/tuning/multi-repo-report.json --fp-review ./docs/tuning/false-positive-review.md",
     "tune:large": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.large.json --output ./docs/tuning/large-report.json --fp-review ./docs/tuning/false-positive-review-large.md --verify safe",
     "tune:large:quick": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.large.json --output ./docs/tuning/large-report.json --fp-review ./docs/tuning/false-positive-review-large.md --verify safe --max-repos 25",
+    "tune:500": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.500.json --output ./docs/tuning/report-500.json --fp-review ./docs/tuning/false-positive-review-500.md --verify safe --concurrency 12 --max-repos 500",
+    "tune:500:quick": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.500.json --output ./docs/tuning/report-500.json --fp-review ./docs/tuning/false-positive-review-500.md --verify safe --concurrency 8 --max-repos 100",
     "tune:weekly": "npm run benchmark && npm run tune:multi"
   },
   "keywords": [
