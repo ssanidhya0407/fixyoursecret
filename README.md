@@ -21,20 +21,42 @@ FixYourSecret helps teams catch these mistakes early and fix them with clear nex
 
 ---
 
+## Why This Is Stronger Now
+- Expanded provider detector coverage significantly.
+- Added benchmark-driven quality gates (`npm run benchmark`) so quality is measured every release.
+- Added CI threshold enforcement for recall/precision.
+- Added optional local verification mode for higher-confidence findings.
+
+---
+
+## Detector Coverage
+FixYourSecret currently includes detector coverage for:
+
+- OpenAI
+- Google
+- AWS Access Key IDs
+- Stripe Secret Keys
+- Slack Tokens
+- GitHub Tokens
+- GitLab Tokens
+- Twilio API Keys
+- SendGrid API Keys
+- Mailgun API Keys
+- Anthropic API Keys
+- Cohere API Keys
+- Hugging Face Tokens
+- Telegram Bot Tokens
+- npm Tokens
+- Private Key Blocks
+- Generic High-Entropy Tokens
+
+---
+
 ## What You Get
 - Fast secret scanning with file/line/snippet output
 - Frontend exposure risk highlighting
-- Built-in detectors:
-  - OpenAI keys
-  - Google keys
-  - AWS access key IDs
-  - Stripe secret keys
-  - Slack tokens
-  - GitHub tokens
-  - Private key blocks
-  - Generic high-entropy tokens
 - Optional safe verification mode (`--verify safe`)
-- First-class history scanning command (`history`)
+- First-class history scanning (`history`)
 - Better false-positive controls (hints + suppressions + defaults)
 - Baseline support for gradual rollout
 - SARIF output for CI/security platforms
@@ -62,12 +84,35 @@ secretlint --help
 ## Quick Start
 ```bash
 fixyoursecret init
-fixyoursecret scan
+fixyoursecret scan --verify safe
 fixyoursecret history 30
 fixyoursecret fix
 fixyoursecret rotate openai --dry-run
 fixyoursecret hook install
 ```
+
+---
+
+## Quality and Benchmarks
+Run quality checks locally:
+
+```bash
+npm run quality
+```
+
+Run benchmark only:
+
+```bash
+npm run benchmark
+```
+
+CI quality gate thresholds (defaults):
+- Recall >= 0.95
+- Precision >= 0.95
+
+These can be tuned via env vars:
+- `BENCH_MIN_RECALL`
+- `BENCH_MIN_PRECISION`
 
 ---
 
@@ -123,8 +168,10 @@ Use `--verify-strict` to drop findings that fail verification.
   "ignoreDetectors": [],
   "ignoreValueHints": ["example", "dummy", "fake", "sample", "replace_in_runtime_only"],
   "suppressions": [
-    { "rule": "generic-high-entropy", "path": "test/" },
-    { "rule": "generic-high-entropy", "path": "fixtures/" }
+    { "path": "test/" },
+    { "path": "tests/" },
+    { "path": "__tests__/" },
+    { "path": "fixtures/" }
   ]
 }
 ```
@@ -143,14 +190,14 @@ Workflow file included:
 
 - [./.github/workflows/fixyoursecret-ci.yml](./.github/workflows/fixyoursecret-ci.yml)
 
-It runs tests, performs scan, and uploads SARIF.
+It runs tests, benchmark gate, scan, and uploads SARIF.
 
 ---
 
 ## Publish
 ```bash
 npm ci
-npm test
+npm run quality
 npm pack --dry-run
 npm publish --access public
 ```
@@ -159,7 +206,7 @@ npm publish --access public
 
 ## Notes
 - Existing users of `secretlint` command are still supported via alias.
-- Brand name chosen to avoid collision with existing Secretlint ecosystem naming.
+- Brand chosen to avoid naming collision with existing Secretlint ecosystem tooling.
 
 ---
 

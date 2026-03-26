@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1-developer-preview.1] - 2026-03-26
+
+### Added
+- Expanded detector coverage:
+  - Twilio, SendGrid, Mailgun
+  - Anthropic, Cohere, Hugging Face
+  - GitLab, Telegram, npm token detectors
+- Detector registry and shared detector runner
+- Benchmark corpus (`fixtures/benchmark/*`) for positive and negative samples
+- Benchmark quality gate script (`scripts/benchmark.js`)
+- CI benchmark threshold enforcement (recall/precision gate)
+- Benchmark unit test
+
+### Improved
+- Stronger, measurable provider-detection quality process
+- Release quality now validated by tests + benchmark gate
+
 ## [0.3.0-developer-preview.1] - 2026-03-26
 
 ### Added
@@ -23,29 +40,3 @@ All notable changes to this project will be documented in this file.
   - `.fixyoursecretrc.json`
   - `.fixyoursecret-baseline.json`
 - CI workflow renamed and SARIF output changed to `fixyoursecret.sarif`
-
-## [0.2.1-developer-preview.1] - 2026-03-26
-
-### Added
-- `.gitignore` defaults for secrets and scan artifacts
-- Quickstart terminal transcript (`docs/quickstart-transcript.md`)
-- Clear scope statement in README: what Secretlint is and is not
-
-### Changed
-- Package marked as Developer Preview
-- Removed placeholder repository metadata from `package.json`
-
-## [0.2.0] - 2026-03-26
-
-### Added
-- Configurable secret scanning with `.secretlintrc.json`
-- Baseline support with `.secretlint-baseline.json`
-- Git-aware scan modes: `--staged`, `--tracked`, `--history`
-- SARIF output and CI command (`secretlint ci`)
-- Pre-commit hook installer (`secretlint hook install`)
-- Safe key rotation features (`--dry-run`, backup, hidden input)
-- Automated test suite using Node test runner
-
-### Improved
-- Better false-positive control for generic entropy detector
-- Cleaner CLI output and severity handling

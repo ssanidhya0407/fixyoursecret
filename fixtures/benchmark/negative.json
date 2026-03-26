@@ -1,0 +1,12 @@
+[
+  "build_configuration_identifier_2026_release",
+  "component_configuration_identifier_for_docs",
+  "http://localhost:3000/api",
+  "NEXT_PUBLIC_ANALYTICS_ID=public_demo_id",
+  "pk_test_1234567890abcdefghijklmnopqrstuvwxyz",
+  "pk_live_1234567890abcdefghijklmnopqrstuvwxyz",
+  "const uuid = '550e8400-e29b-41d4-a716-446655440000'",
+  "const hash = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4'",
+  "github_pat_example_not_real",
+  "xoxb-example-not-real-token"
+]

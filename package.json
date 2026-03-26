@@ -1,6 +1,6 @@
 {
   "name": "fixyoursecret",
-  "version": "0.3.0-developer-preview.1",
+  "version": "0.3.1-developer-preview.1",
   "description": "Developer Preview: CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
   "type": "module",
   "bin": {
@@ -13,6 +13,8 @@
     "detectors/",
     "templates/",
     "utils/",
+    "fixtures/benchmark/",
+    "scripts/benchmark.js",
     "README.md",
     "LICENSE",
     "CHANGELOG.md"
@@ -27,6 +29,8 @@
     "rotate": "node ./bin/index.js rotate openai",
     "history": "node ./bin/index.js history 20",
     "ci": "node ./bin/index.js ci",
+    "benchmark": "node ./scripts/benchmark.js",
+    "quality": "npm test && npm run benchmark",
     "test": "node --test"
   },
   "keywords": [

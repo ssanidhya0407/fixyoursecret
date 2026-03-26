@@ -4,7 +4,7 @@
 
 ```bash
 npm ci
-npm test
+npm run quality
 npm run ci -- --output-file fixyoursecret.sarif --fail-on high --verify safe
 npm pack --dry-run
 ```

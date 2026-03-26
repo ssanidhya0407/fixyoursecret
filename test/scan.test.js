@@ -47,6 +47,21 @@ test("runScan detects newly added AWS detector", async () => {
   assert.equal(findings[0].rule, "aws-access-key-id");
 });
 
+test("runScan detects newly added Twilio detector", async () => {
+  const project = await mkProject();
+  const fakeTwilio = "SK" + "0123456789abcdef0123456789abcdef";
+  await fs.mkdir(path.join(project, "server"), { recursive: true });
+  await fs.writeFile(path.join(project, "server", "config.js"), `const twilio = "${fakeTwilio}";\n`, "utf8");
+
+  const output = path.join(project, "twilio-findings.json");
+  const code = await runScan({ path: project, format: "json", outputFile: output, noBaseline: true, verify: "safe" });
+  const findings = JSON.parse(await fs.readFile(output, "utf8"));
+
+  assert.equal(code, 1);
+  assert.equal(findings[0].rule, "twilio-api-key");
+  assert.equal(findings[0].verified, true);
+});
+
 test("verify strict removes non-verified matches", async () => {
   const project = await mkProject();
   await fs.mkdir(path.join(project, "src"), { recursive: true });

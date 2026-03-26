@@ -32,6 +32,8 @@ function looksSafeCommonWord(value) {
   return (
     value.startsWith("sk-") ||
     value.startsWith("AIza") ||
+    value.startsWith("pk_test_") ||
+    value.startsWith("pk_live_") ||
     value.startsWith("http") ||
     value.includes("localhost") ||
     value.toLowerCase().includes("component") ||

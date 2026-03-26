@@ -1,13 +1,5 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { detectOpenAI } from "../detectors/openai.js";
-import { detectGoogle } from "../detectors/google.js";
-import { detectGenericSecrets } from "../detectors/generic.js";
-import { detectAWS } from "../detectors/aws.js";
-import { detectStripe } from "../detectors/stripe.js";
-import { detectSlack } from "../detectors/slack.js";
-import { detectGitHub } from "../detectors/github.js";
-import { detectPrivateKey } from "../detectors/privateKey.js";
 import { collectProjectFiles, lineColFromIndex } from "../utils/fileScanner.js";
 import { analyzeRisk } from "../utils/riskAnalyzer.js";
 import { printFinding, printSummary, logger } from "../utils/logger.js";
@@ -15,6 +7,7 @@ import { findingsToSarif } from "../utils/sarif.js";
 import { getRecentChangedFiles, getStagedFiles, getTrackedFiles } from "../utils/gitScanner.js";
 import { isSuppressed, loadConfig, resolveBaselinePath } from "../utils/config.js";
 import { normalizeVerifyMode, shouldSkipAsNonSecret, verifyFinding } from "../utils/verifier.js";
+import { runDetectors } from "../utils/detectorRunner.js";
 
 const SCORE = { LOW: 1, MEDIUM: 2, HIGH: 3 };
 
@@ -38,18 +31,9 @@ export async function runScan(options = {}) {
   const findings = [];
 
   for (const file of files) {
-    const detectorRuns = [
-      ...runIfEnabled(config, "openai", detectOpenAI(file.content)),
-      ...runIfEnabled(config, "google", detectGoogle(file.content)),
-      ...runIfEnabled(config, "aws", detectAWS(file.content)),
-      ...runIfEnabled(config, "stripe", detectStripe(file.content)),
-      ...runIfEnabled(config, "slack", detectSlack(file.content)),
-      ...runIfEnabled(config, "github", detectGitHub(file.content)),
-      ...runIfEnabled(config, "private-key", detectPrivateKey(file.content)),
-      ...runIfEnabled(config, "generic", detectGenericSecrets(file.content, { entropyThreshold: config.entropyThreshold })),
-    ];
+    const matches = runDetectors(file.content, config);
 
-    for (const match of detectorRuns) {
+    for (const match of matches) {
       const { line, column } = lineColFromIndex(file.content, match.index);
       const snippet = file.lines[line - 1]?.trim() || "";
 
@@ -100,10 +84,6 @@ export async function runScan(options = {}) {
   }
 
   return shouldFail(filtered, options.failOn || config.failOn || "high") ? 1 : 0;
-}
-
-function runIfEnabled(config, detectorKey, matches) {
-  return config.ignoreDetectors.includes(detectorKey) ? [] : matches;
 }
 
 async function resolveScanScope(projectPath, options) {

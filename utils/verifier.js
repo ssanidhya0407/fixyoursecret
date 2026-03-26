@@ -12,6 +12,24 @@ export function verifyFinding(match, fileContent = "", snippet = "") {
       return formatResult(/^xox(?:b|p|a|r|s)-[0-9A-Za-z-]{10,}$/.test(match.value), "format");
     case "github-token":
       return formatResult(/^(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9]{20,}$|^github_pat_[A-Za-z0-9_]{20,}$/.test(match.value), "format");
+    case "gitlab-token":
+      return formatResult(/^glpat-[A-Za-z0-9_-]{20,}$/.test(match.value), "format");
+    case "twilio-api-key":
+      return formatResult(/^SK[0-9a-fA-F]{32}$/.test(match.value), "format");
+    case "sendgrid-api-key":
+      return formatResult(/^SG\.[A-Za-z0-9_-]{22}\.[A-Za-z0-9_-]{43}$/.test(match.value), "format");
+    case "mailgun-api-key":
+      return formatResult(/^key-[A-Za-z0-9]{32}$/.test(match.value), "format");
+    case "anthropic-api-key":
+      return formatResult(/^sk-ant-[A-Za-z0-9_-]{20,}$/.test(match.value), "format");
+    case "cohere-api-key":
+      return formatResult(/^co_[A-Za-z0-9]{30,}$/.test(match.value), "format");
+    case "huggingface-token":
+      return formatResult(/^hf_[A-Za-z0-9]{30,}$/.test(match.value), "format");
+    case "telegram-bot-token":
+      return formatResult(/^\d{8,10}:[A-Za-z0-9_-]{35}$/.test(match.value), "format");
+    case "npm-token":
+      return formatResult(/^npm_[A-Za-z0-9]{36}$/.test(match.value), "format");
     case "private-key-block": {
       const hasEnd = /-----END (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(fileContent.slice(match.index));
       return formatResult(hasEnd, "pem-structure");
@@ -39,7 +57,7 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   const lowerSnippet = snippet.toLowerCase();
   const lowerPath = filePath.toLowerCase();
 
-  const builtinHints = ["example", "dummy", "fake", "sample", "not_secret", "replace_in_runtime_only"];
+  const builtinHints = ["example", "dummy", "fake", "sample", "not_secret", "replace_in_runtime_only", "docs_only"];
   const allHints = [...builtinHints, ...hints.map((h) => String(h).toLowerCase())];
 
   if (allHints.some((hint) => lowerSnippet.includes(hint))) return true;
