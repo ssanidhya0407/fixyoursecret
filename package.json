@@ -4,8 +4,8 @@
   "description": "Developer Preview: CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
   "type": "module",
   "bin": {
-    "fixyoursecret": "bin/index.js",
-    "secretlint": "bin/index.js"
+    "fixyoursecret": "./bin/index.js",
+    "secretlint": "./bin/index.js"
   },
   "files": [
     "bin/",
@@ -33,6 +33,8 @@
     "quality": "npm test && npm run benchmark",
     "test": "node --test",
     "tune:multi": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.default.json --output ./docs/tuning/multi-repo-report.json --fp-review ./docs/tuning/false-positive-review.md",
+    "tune:large": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.large.json --output ./docs/tuning/large-report.json --fp-review ./docs/tuning/false-positive-review-large.md --verify safe",
+    "tune:large:quick": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.large.json --output ./docs/tuning/large-report.json --fp-review ./docs/tuning/false-positive-review-large.md --verify safe --max-repos 25",
     "tune:weekly": "npm run benchmark && npm run tune:multi"
   },
   "keywords": [

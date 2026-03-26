@@ -5,7 +5,7 @@ export const CONFIG_FILENAMES = [".fixyoursecretrc.json", ".secretlintrc.json"];
 export const BASELINE_FILENAMES = [".fixyoursecret-baseline.json", ".secretlint-baseline.json"];
 
 export const DEFAULT_CONFIG = {
-  ignorePaths: ["node_modules/**", ".git/**", "dist/**", "build/**", ".next/**", "coverage/**"],
+  ignorePaths: ["node_modules/**", ".git/**", ".cache/**", "dist/**", "build/**", ".next/**", "coverage/**", "vendor/**", "tmp/**"],
   allowedExtensions: [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"],
   maxFileSizeKB: 256,
   entropyThreshold: 3.8,

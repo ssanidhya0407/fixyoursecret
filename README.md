@@ -112,6 +112,18 @@ Run multi-repo tuning report:
 npm run tune:multi
 ```
 
+Run large-scale corpus tuning (parallel clone + scan):
+
+```bash
+npm run tune:large
+```
+
+Quick large-scale pass:
+
+```bash
+npm run tune:large:quick
+```
+
 CI quality gate thresholds (defaults):
 - Recall >= 0.95
 - Precision >= 0.95
@@ -122,6 +134,7 @@ These can be tuned via env vars:
 
 Tuning workflow docs:
 - [./docs/tuning/process.md](./docs/tuning/process.md)
+- Large corpus list: [./fixtures/tuning/repos.large.json](./fixtures/tuning/repos.large.json)
 
 ---
 
@@ -168,7 +181,7 @@ Use `--verify-strict` to drop findings that fail verification.
 ## Config (`.fixyoursecretrc.json`)
 ```json
 {
-  "ignorePaths": ["node_modules/**", ".git/**", "dist/**", "build/**", ".next/**", "coverage/**"],
+  "ignorePaths": ["node_modules/**", ".git/**", ".cache/**", "dist/**", "build/**", ".next/**", "coverage/**", "vendor/**", "tmp/**"],
   "allowedExtensions": [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"],
   "maxFileSizeKB": 256,
   "entropyThreshold": 3.8,

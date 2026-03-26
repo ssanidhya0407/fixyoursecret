@@ -1,5 +1,6 @@
 [
   { "name": "service-a", "path": "../service-a" },
   { "name": "service-b", "path": "../service-b" },
-  { "name": "frontend-monorepo", "path": "../frontend-monorepo" }
+  { "name": "frontend-monorepo", "path": "../frontend-monorepo" },
+  { "name": "public-framework", "url": "https://github.com/org/repo.git" }
 ]
