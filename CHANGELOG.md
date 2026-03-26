@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.2] - 2026-03-26
+
+### Fixed
+- Release automation now forces Trusted Publisher OIDC mode in GitHub Actions by unsetting token auth in publish step.
+- Prevents npm auth-token fallback issues (`E404`) when publishing from tag workflow.
+
 ## [0.4.1] - 2026-03-26
 
 ### Improved
