@@ -28,7 +28,8 @@ let tn = 0;
 const missingByRule = new Map();
 
 for (const sample of positives) {
-  const content = `const leaked = "${sample.value}";`;
+  const value = Array.isArray(sample.parts) ? sample.parts.join("") : String(sample.value || "");
+  const content = `const leaked = "${value}";`;
   const matches = runDetectors(content, cfg).filter((m) => !shouldSkipAsNonSecret(m, content, "src/app.js", cfg.ignoreValueHints));
   const matchedExpected = matches.some((m) => m.rule === sample.rule);
   if (matchedExpected) tp += 1;

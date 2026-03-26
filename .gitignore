@@ -14,10 +14,20 @@ dogfood/**/secretlint-output-v3/
 dogfood/**/findings*.json
 dogfood/
 
+# Generated tuning artifacts
+docs/tuning/multi-repo-report*.json
+docs/tuning/false-positive-review*.md
+
 # Environment secrets
 .env
 .env.*
 !.env.example
+
+# Local runtime config/baseline
+.fixyoursecretrc.json
+.fixyoursecret-baseline.json
+.secretlintrc.json
+.secretlint-baseline.json
 
 # OS/editor noise
 .DS_Store
