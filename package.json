@@ -4,8 +4,8 @@
   "description": "CLI tool to detect leaked secrets, frontend exposure, and generate safe fixes.",
   "type": "module",
   "bin": {
-    "fixyoursecret": "bin/index.js",
-    "secretlint": "bin/index.js"
+    "fixyoursecret": "./bin/index.js",
+    "secretlint": "./bin/index.js"
   },
   "files": [
     "bin/",

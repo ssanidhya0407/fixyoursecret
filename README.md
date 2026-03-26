@@ -227,6 +227,10 @@ Workflow file included:
 
 It runs tests, benchmark gate, scan, and uploads SARIF.
 
+Automated npm release workflow:
+- [./.github/workflows/release-publish.yml](./.github/workflows/release-publish.yml)
+- Triggered by pushing version tags like `v0.4.1`
+
 ---
 
 ## Publish
