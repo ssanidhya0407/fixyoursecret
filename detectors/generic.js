@@ -1,4 +1,4 @@
-const TOKEN_REGEX = /[A-Za-z0-9_\-+=]{24,}/g;
+const TOKEN_REGEX = /[A-Za-z0-9_\-+=]{28,}/g;
 
 export function detectGenericSecrets(content, options = {}) {
   const threshold = Number.isFinite(options.entropyThreshold) ? options.entropyThreshold : 3.8;
@@ -51,6 +51,7 @@ function looksLikeSecretToken(value) {
   if (/[/.:]/.test(value)) return false;
   if (value.includes("://")) return false;
   if (value.startsWith("www")) return false;
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value)) return false;
 
   const classes = [
     /[a-z]/.test(value),
@@ -61,16 +62,23 @@ function looksLikeSecretToken(value) {
 
   const digits = (value.match(/\d/g) || []).length;
   const hasLongHexOnly = /^[a-f0-9]{24,}$/i.test(value);
+  const hasOnlyAlphaNum = /^[A-Za-z0-9]+$/.test(value);
+  const symbolCount = (value.match(/[_\-+=]/g) || []).length;
 
   if (hasLongHexOnly && digits < 6) return false;
   if (classes < 3) return false;
   if (value.length >= 32 && digits < 2) return false;
+  if (hasOnlyAlphaNum && value.length < 36) return false;
+  if (value.length >= 36 && symbolCount === 0 && digits < 4) return false;
   return true;
 }
 
 function looksLikeCodeIdentifier(value) {
   if (/^[A-Za-z_][A-Za-z0-9_]{30,}$/.test(value)) return true;
+  if (/^[A-Z][A-Za-z0-9]{20,}$/.test(value)) return true;
   if (/^[_A-Za-z0-9-]+$/.test(value) && value.includes("__")) return true;
+  if (/^[A-Za-z]+(?:[A-Z][a-z0-9]+){2,}\d+$/.test(value)) return true;
+  if (/(Api|Context|Request|Response|Migration|Oauth2|OAuth2|V1alpha1|Agentflow)/.test(value)) return true;
 
   const parts = value.split(/[_-]/).filter(Boolean);
   if (parts.length >= 4) {

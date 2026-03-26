@@ -64,9 +64,48 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
 
   if (
     match.rule === "generic-high-entropy" &&
-    ["/test/", "/tests/", "/__tests__/", "/fixtures/", "/docs/"].some((segment) => lowerPath.includes(segment))
+    [
+      "/test/",
+      "/tests/",
+      "/__tests__/",
+      "/fixtures/",
+      "/docs/",
+      "/spec/",
+      "/bench/",
+      "/benchmark/",
+      "/examples/",
+      "/migrations/",
+      "/generated/",
+      "/api-client/",
+      "/fonts/",
+      "/vendor/"
+    ].some((segment) => lowerPath.includes(segment))
   ) {
     return true;
+  }
+
+  if (match.rule === "generic-high-entropy") {
+    const genericNoiseHints = [
+      "canvasrenderingcontext2d",
+      "axios parameter creator",
+      "sourcemappingurl=data:",
+      "base64,",
+      "images.unsplash.com",
+      ".woff2",
+      "oauth2",
+      "requestparameters",
+      "data-cy=",
+      "uuid",
+      "v1alpha1",
+      "openapi",
+      "migration",
+      "model:",
+      "anthropiccontext1m",
+      "bigint64arraybytes_per_element",
+      "claude-sonnet",
+      "gemini-"
+    ];
+    if (genericNoiseHints.some((hint) => lowerSnippet.includes(hint))) return true;
   }
 
   return false;
