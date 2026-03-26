@@ -5,6 +5,7 @@
 ```bash
 npm ci
 npm run quality
+npm run tune:multi
 npm run ci -- --output-file fixyoursecret.sarif --fail-on high --verify safe
 npm pack --dry-run
 ```

@@ -1,0 +1,39 @@
+name: Weekly Tuning
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tuning:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run benchmark
+        run: npm run benchmark
+
+      - name: Run multi-repo tuning (default set)
+        run: npm run tune:multi
+
+      - name: Upload tuning artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: fixyoursecret-weekly-tuning
+          path: |
+            docs/tuning/multi-repo-report.json
+            docs/tuning/false-positive-review.md

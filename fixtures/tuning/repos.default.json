@@ -1,0 +1,4 @@
+[
+  { "name": "fixyoursecret-core", "path": "." },
+  { "name": "demo-app", "path": "./demo" }
+]

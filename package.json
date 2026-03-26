@@ -31,7 +31,9 @@
     "ci": "node ./bin/index.js ci",
     "benchmark": "node ./scripts/benchmark.js",
     "quality": "npm test && npm run benchmark",
-    "test": "node --test"
+    "test": "node --test",
+    "tune:multi": "node ./scripts/multi-repo-tune.js --repos-file ./fixtures/tuning/repos.default.json --output ./docs/tuning/multi-repo-report.json --fp-review ./docs/tuning/false-positive-review.md",
+    "tune:weekly": "npm run benchmark && npm run tune:multi"
   },
   "keywords": [
     "security",

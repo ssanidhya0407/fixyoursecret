@@ -106,6 +106,12 @@ Run benchmark only:
 npm run benchmark
 ```
 
+Run multi-repo tuning report:
+
+```bash
+npm run tune:multi
+```
+
 CI quality gate thresholds (defaults):
 - Recall >= 0.95
 - Precision >= 0.95
@@ -113,6 +119,9 @@ CI quality gate thresholds (defaults):
 These can be tuned via env vars:
 - `BENCH_MIN_RECALL`
 - `BENCH_MIN_PRECISION`
+
+Tuning workflow docs:
+- [./docs/tuning/process.md](./docs/tuning/process.md)
 
 ---
 

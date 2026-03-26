@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-03-26T00:22:19.466Z",
+  "reposFile": "/Users/user11/Desktop/keyless/fixtures/tuning/repos.default.json",
+  "summary": {
+    "reposTotal": 2,
+    "reposScanned": 2,
+    "reposSkipped": 0,
+    "findingsTotal": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "uniqueRules": 0,
+    "topRules": []
+  },
+  "perRepo": [
+    {
+      "name": "fixyoursecret-core",
+      "path": ".",
+      "skipped": false,
+      "exitCode": 0,
+      "findings": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "topRules": []
+    },
+    {
+      "name": "demo-app",
+      "path": "./demo",
+      "skipped": false,
+      "exitCode": 0,
+      "findings": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "topRules": []
+    }
+  ]
+}

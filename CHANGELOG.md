@@ -14,6 +14,9 @@ All notable changes to this project will be documented in this file.
 - Benchmark quality gate script (`scripts/benchmark.js`)
 - CI benchmark threshold enforcement (recall/precision gate)
 - Benchmark unit test
+- Multi-repo tuning harness (`scripts/multi-repo-tune.js`)
+- Weekly tuning GitHub workflow (`.github/workflows/weekly-tuning.yml`)
+- False-positive review artifact generation (`docs/tuning/false-positive-review.md`)
 
 ### Improved
 - Stronger, measurable provider-detection quality process
