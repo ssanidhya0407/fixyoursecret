@@ -2,8 +2,10 @@
 
 ## 0) One-time GitHub setup
 
-1. Add repository secret:
-- `NPM_TOKEN` = npm automation token with publish access to `fixyoursecret`
+1. Configure npm Trusted Publisher (OIDC) for:
+- user: `ssanidhya0407`
+- repo: `fixyoursecret`
+- workflow filename: `release-publish.yml`
 
 2. Confirm workflow exists:
 - `.github/workflows/release-publish.yml`

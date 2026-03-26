@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2026-03-26
+
+### Improved
+- Tightened residual generic-noise filtering for large real-world corpora:
+  - better `.test/.spec` context detection
+  - stronger URL/base64/tutorial-data suppression for generic detector paths
+  - additional non-production placeholder filtering for provider fixtures
+- Reduced quick 500-corpus findings from 117 to 51 while preserving quality gates.
+
+### CI/Release
+- Switched release workflow to Trusted Publisher OIDC mode for npm publish.
+- Kept tag-based automated publish via `.github/workflows/release-publish.yml`.
+
 ## [0.4.0] - 2026-03-26
 
 ### Added

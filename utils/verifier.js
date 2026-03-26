@@ -74,8 +74,12 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   const lowerSnippet = snippet.toLowerCase();
   const lowerPath = filePath.toLowerCase();
   const value = String(match.value || "");
-  const isNonProdPath = ["/test/", "/tests/", "/__tests__/", "/fixtures/", "/docs/", "/examples/", "/spec/"]
-    .some((segment) => lowerPath.includes(segment));
+  const isNonProdPath = (
+    ["/test/", "/tests/", "/__tests__/", "/fixtures/", "/docs/", "/examples/", "/spec/"]
+      .some((segment) => lowerPath.includes(segment)) ||
+    /\.test\.[a-z0-9]+$/i.test(lowerPath) ||
+    /\.spec\.[a-z0-9]+$/i.test(lowerPath)
+  );
 
   const builtinHints = ["example", "dummy", "fake", "sample", "not_secret", "replace_in_runtime_only", "docs_only"];
   const allHints = [...builtinHints, ...hints.map((h) => String(h).toLowerCase())];
@@ -114,6 +118,7 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   }
 
   if (match.rule === "generic-high-entropy") {
+    if (/(?:https?:\/\/|url:|href=|source:|fileName:|filename:|data:image|base64)/.test(lowerSnippet)) return true;
     const genericNoiseHints = [
       "canvasrenderingcontext2d",
       "axios parameter creator",
@@ -132,9 +137,25 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
       "anthropiccontext1m",
       "bigint64arraybytes_per_element",
       "claude-sonnet",
-      "gemini-"
+      "gemini-",
+      "oauth/callback?code=",
+      "audio-16khz-16bit",
+      "i18next-browser-languagedetector",
+      "msapplication-square70x70logo",
+      "apps.googleusercontent.com",
+      "downloaded-logs-",
+      "webkiformboundary",
+      "gpt-4o-realtime-preview"
     ];
     if (genericNoiseHints.some((hint) => lowerSnippet.includes(hint))) return true;
+  }
+
+  if (
+    match.rule === "private-key-block" &&
+    isNonProdPath &&
+    /(?:example|dummy|placeholder|mock|do not share|xxxxx|\.{3})/.test(lowerSnippet)
+  ) {
+    return true;
   }
 
   return false;
