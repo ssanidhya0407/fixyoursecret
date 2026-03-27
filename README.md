@@ -152,4 +152,4 @@ Release notes and process live in:
 - [CHANGELOG.md](./CHANGELOG.md)
 
 ## License
-MIT © FixYourSecret contributors
+MIT © [Sanidhya Singh](https://github.com/ssanidhya0407)
