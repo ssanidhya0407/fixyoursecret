@@ -1,14 +1,6 @@
 # Releasing FixYourSecret
 
-## 0) One-time GitHub setup
-
-1. Configure npm Trusted Publisher (OIDC) for:
-- user: `ssanidhya0407`
-- repo: `fixyoursecret`
-- workflow filename: `release-publish.yml`
-
-2. Confirm workflow exists:
-- `.github/workflows/release-publish.yml`
+Publishing is manual only (from a maintainer machine).
 
 ## 1) Pre-release checks
 
@@ -21,29 +13,34 @@ npm run ci -- --output-file fixyoursecret.sarif --fail-on high --verify safe
 npm pack --dry-run
 ```
 
-## 2) Version bump
+## 2) Bump version
 
 ```bash
 npm version patch
 ```
 
-## 3) Push tag to trigger automated publish
+## 3) Push code and tag
 
 ```bash
 git push origin main --follow-tags
 ```
 
-This triggers GitHub Actions workflow:
-- `Release Publish`
-
-## 4) Optional manual fallback publish
+## 4) Publish from local machine
 
 ```bash
-npm publish --access public --provenance
+npm login
+npm publish --access public
 ```
 
-## 5) Post-publish smoke test
+If your npm account enforces OTP, run:
 
 ```bash
+npm publish --access public --otp <6_digit_code>
+```
+
+## 5) Verify publish
+
+```bash
+npm view fixyoursecret version
 npx fixyoursecret --help
 ```
