@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- **Official GitHub Action** (`action.yml`). Drop `uses:
+  ssanidhya0407/fixyoursecret@v1` into a workflow to scan, fail the build on
+  high-severity leaks, and publish SARIF to GitHub code scanning — configurable
+  via `path`, `fail-on`, `verify`, `sarif-file`, `upload-sarif`, `version`, and
+  `args`. SARIF still uploads even when findings fail the build.
+- **pre-commit.com hook** (`.pre-commit-hooks.yaml`). Add the repo to
+  `.pre-commit-config.yaml` with `id: fixyoursecret` to block staged secrets
+  before they are committed.
 - **Labeled-corpus benchmark** (`scripts/benchmark-corpus.js`, `npm run
   benchmark:corpus`). Unlike the multi-repo tuner, which only counts findings
   for manual review, this measures *true* precision/recall/F1 against ground

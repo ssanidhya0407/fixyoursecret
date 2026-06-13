@@ -140,6 +140,42 @@ Generate SARIF for GitHub code scanning or other platforms:
 fixyoursecret ci --output-file fixyoursecret.sarif
 ```
 
+### GitHub Action
+Add secret scanning to any repo in one step. Findings appear in the **Security → Code scanning** tab and the build fails on high-severity leaks:
+
+```yaml
+# .github/workflows/secrets.yml
+name: Secret Scan
+on: [push, pull_request]
+permissions:
+  contents: read
+  security-events: write
+jobs:
+  fixyoursecret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ssanidhya0407/fixyoursecret@v1
+        with:
+          fail-on: high      # low | medium | high
+          verify: safe       # none | safe
+```
+
+Inputs: `path`, `fail-on`, `verify`, `sarif-file`, `upload-sarif`, `version`, `args`.
+
+### Pre-commit hook (pre-commit.com)
+Block secrets before they are committed. Add to `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+  - repo: https://github.com/ssanidhya0407/fixyoursecret
+    rev: v0.6.0   # or the latest release
+    hooks:
+      - id: fixyoursecret
+```
+
+Then `pre-commit install`. The hook scans staged changes and blocks the commit on high-severity findings. (For a zero-dependency local hook instead, run `fixyoursecret hook install`.)
+
 ## Accuracy
 FixYourSecret ships a **labeled-corpus benchmark** that measures true precision and recall against ground truth — known secrets planted at known locations, alongside realistic hard negatives (hashes, UUIDs, data URIs, model names, example keys) that must stay clean.
 

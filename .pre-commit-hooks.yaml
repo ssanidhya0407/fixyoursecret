@@ -1,0 +1,7 @@
+- id: fixyoursecret
+  name: FixYourSecret
+  description: Detect leaked API keys and secrets in staged changes before they are committed.
+  entry: fixyoursecret scan --staged --fail-on high --verify safe
+  language: node
+  pass_filenames: false
+  require_serial: true
