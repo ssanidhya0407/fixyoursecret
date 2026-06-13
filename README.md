@@ -46,6 +46,7 @@ Built-in detectors currently include:
 |---|---|
 | `fixyoursecret scan` | Scans current codebase and reports risky findings |
 | `fixyoursecret history 20` | Scans files touched in last N commits |
+| `fixyoursecret history all` | Scans the **full git history** (all branches), catching secrets in deleted/old commits with commit attribution |
 | `fixyoursecret ci` | CI-focused SARIF scan with safer defaults |
 | `fixyoursecret fix` | Generates backend proxy + frontend patch helper |
 | `fixyoursecret rotate openai` | Guides secure key rotation and updates `.env` |

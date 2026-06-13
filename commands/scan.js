@@ -4,7 +4,7 @@ import { collectProjectFiles, lineColFromIndex } from "../utils/fileScanner.js";
 import { analyzeRisk } from "../utils/riskAnalyzer.js";
 import { printFinding, printSummary, logger } from "../utils/logger.js";
 import { findingsToSarif } from "../utils/sarif.js";
-import { getRecentChangedFiles, getStagedFiles, getTrackedFiles } from "../utils/gitScanner.js";
+import { collectHistoryBlobs, getRecentChangedFiles, getStagedFiles, getTrackedFiles } from "../utils/gitScanner.js";
 import { isSuppressed, loadConfig, resolveBaselinePath } from "../utils/config.js";
 import { normalizeVerifyMode, shouldSkipAsNonSecret, verifyFinding } from "../utils/verifier.js";
 import { runDetectors } from "../utils/detectorRunner.js";
@@ -19,14 +19,19 @@ export async function runScan(options = {}) {
   const verifyMode = normalizeVerifyMode(options.verify || config.verifyMode || "none");
   const verifyStrict = Boolean(options.verifyStrict);
 
-  const includeOnly = await resolveScanScope(projectPath, options);
+  const allHistory = Boolean(options.allHistory);
 
-  const files = await collectProjectFiles(projectPath, {
-    allowedExtensions: config.allowedExtensions,
-    ignorePaths: config.ignorePaths,
-    maxFileSizeKB: config.maxFileSizeKB,
-    includeOnly,
-  });
+  const files = allHistory
+    ? await collectHistoryBlobs(projectPath, {
+        allowedExtensions: config.allowedExtensions,
+        maxFileSizeKB: config.maxFileSizeKB,
+      })
+    : await collectProjectFiles(projectPath, {
+        allowedExtensions: config.allowedExtensions,
+        ignorePaths: config.ignorePaths,
+        maxFileSizeKB: config.maxFileSizeKB,
+        includeOnly: await resolveScanScope(projectPath, options),
+      });
 
   const findings = [];
 
@@ -51,6 +56,8 @@ export async function runScan(options = {}) {
         snippet: snippet.slice(0, 180),
         recommendation: risk.fix,
       };
+
+      if (file.commit) finding.commit = file.commit;
 
       if (verifyMode !== "none") {
         const verification = verifyFinding(match, file.content, snippet);

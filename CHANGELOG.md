@@ -5,14 +5,22 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- **Full git-history scanning.** `fixyoursecret history all` (or
+  `scan --all-history`) walks every commit on every branch and finds secrets
+  that were committed and later deleted — the most common real-world leak
+  vector, invisible to a working-tree scan. Each finding is attributed to the
+  commit (hash, author, date) so you know exactly what to rotate. Blob
+  contents are streamed via a single `git cat-file --batch` process and each
+  unique blob is scanned once.
 - Greatly expanded default file-type coverage beyond the JS/TS ecosystem.
   Scans now include Python, Go, Ruby, PHP, Java/Kotlin/Scala, Rust, C/C++/C#,
   shell scripts, and config/IaC formats (`.yml`, `.yaml`, `.json`, `.toml`,
   `.ini`, `.tf`, `.tfvars`, and more).
 
 ### Fixed
-- `--version` now reads from `package.json` instead of a stale hardcoded
-  string, so the CLI version can no longer drift from the published release.
+- `--version` and the SARIF report version now read from `package.json`
+  instead of stale hardcoded strings, so they can no longer drift from the
+  published release.
 - The scanner no longer flags its own baseline/SARIF artifacts, which echo
   back secret snippets. Lock files and minified bundles are also ignored by
   default to keep the new coverage from adding generic-token noise.

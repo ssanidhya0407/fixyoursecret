@@ -12,6 +12,11 @@ export function printFinding(f) {
 
   console.log(label);
   console.log(`File: ${f.file}:${f.line}:${f.column}`);
+  if (f.commit) {
+    const who = f.commit.author ? ` by ${f.commit.author}` : "";
+    const when = f.commit.date ? ` on ${f.commit.date}` : "";
+    console.log(`Commit: ${f.commit.short || f.commit.hash}${who}${when}`);
+  }
   console.log(`Issue: ${f.issue}`);
   if (f.rule) console.log(`Rule: ${f.rule}`);
   console.log(`Risk: ${f.severity}`);

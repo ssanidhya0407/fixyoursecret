@@ -42,6 +42,7 @@ program
   .option("--staged", "scan only staged git files", false)
   .option("--tracked", "scan tracked git files", false)
   .option("--history <n>", "scan files touched in last n commits")
+  .option("--all-history", "scan the FULL git history (all branches), including secrets in deleted/old commits", false)
   .option("--baseline <path>", "baseline file path", ".fixyoursecret-baseline.json")
   .option("--update-baseline", "replace baseline with current findings", false)
   .option("--no-baseline", "ignore baseline filtering")
@@ -51,8 +52,8 @@ program
 
 program
   .command("history")
-  .description("First-class history scan (defaults to last 20 commits)")
-  .argument("[commits]", "number of commits to inspect", "20")
+  .description("First-class history scan (defaults to last 20 commits; use 'all' for the full history)")
+  .argument("[commits]", "number of commits to inspect, or 'all' for the full history", "20")
   .option("-p, --path <path>", "project path to scan", process.cwd())
   .option("--format <format>", "output format: text|json|sarif", "text")
   .option("--output-file <path>", "write JSON/SARIF output to file")
@@ -61,9 +62,11 @@ program
   .option("--verify <mode>", "verification mode: none|safe", "none")
   .option("--verify-strict", "drop findings that fail selected verification mode", false)
   .action(async (commits, options) => {
+    const allHistory = String(commits).toLowerCase() === "all";
     process.exitCode = await runScan({
       ...options,
-      history: commits,
+      allHistory,
+      history: allHistory ? undefined : commits,
     });
   });
 

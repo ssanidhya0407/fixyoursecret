@@ -1,3 +1,10 @@
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+const TOOL_VERSION = JSON.parse(
+  readFileSync(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8")
+).version;
+
 export function findingsToSarif(findings, toolName = "fixyoursecret") {
   const rulesMap = new Map();
 
@@ -23,7 +30,7 @@ export function findingsToSarif(findings, toolName = "fixyoursecret") {
         tool: {
           driver: {
             name: toolName,
-            version: "0.3.0-developer-preview.1",
+            version: TOOL_VERSION,
             rules: Array.from(rulesMap.values()),
           },
         },

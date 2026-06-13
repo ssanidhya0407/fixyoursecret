@@ -128,3 +128,39 @@ test("history mode scans files from recent commits", async () => {
   assert.equal(code, 1);
   assert.ok(findings.some((f) => f.rule === "slack-token"));
 });
+
+test("all-history mode finds a secret that was committed then deleted", async () => {
+  const project = await mkProject();
+  await execFileAsync("git", ["init"], { cwd: project });
+  await execFileAsync("git", ["config", "user.email", "bot@example.com"], { cwd: project });
+  await execFileAsync("git", ["config", "user.name", "bot"], { cwd: project });
+
+  await fs.mkdir(path.join(project, "src"), { recursive: true });
+  const leakedKey = "sk-proj-" + "abcdefghijklmnopqrstuvwxyz123456";
+
+  // Commit 1: introduce the secret.
+  await fs.writeFile(path.join(project, "src", "App.js"), `const key = "${leakedKey}";\n`, "utf8");
+  await execFileAsync("git", ["add", "."], { cwd: project });
+  await execFileAsync("git", ["commit", "-m", "leak"], { cwd: project });
+
+  // Commit 2: scrub it from the working tree entirely.
+  await fs.writeFile(path.join(project, "src", "App.js"), "const key = process.env.OPENAI_KEY;\n", "utf8");
+  await execFileAsync("git", ["add", "."], { cwd: project });
+  await execFileAsync("git", ["commit", "-m", "scrub"], { cwd: project });
+
+  // A normal working-tree scan must NOT find it (it's gone from HEAD).
+  const cleanOut = path.join(project, "clean.json");
+  await runScan({ path: project, format: "json", outputFile: cleanOut, noBaseline: true });
+  const cleanFindings = JSON.parse(await fs.readFile(cleanOut, "utf8"));
+  assert.equal(cleanFindings.length, 0);
+
+  // Full-history scan MUST find it, attributed to the commit that introduced it.
+  const histOut = path.join(project, "all.json");
+  const code = await runScan({ path: project, allHistory: true, format: "json", outputFile: histOut, noBaseline: true });
+  const histFindings = JSON.parse(await fs.readFile(histOut, "utf8"));
+
+  assert.equal(code, 1);
+  const hit = histFindings.find((f) => f.rule === "openai-key");
+  assert.ok(hit, "expected the deleted OpenAI key to be found in history");
+  assert.ok(hit.commit && hit.commit.hash, "expected commit attribution on the finding");
+});
