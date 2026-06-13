@@ -8,5 +8,7 @@
   "const uuid = '550e8400-e29b-41d4-a716-446655440000'",
   "const hash = 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4'",
   "github_pat_example_not_real",
-  "xoxb-example-not-real-token"
+  "xoxb-example-not-real-token",
+  "getUserConfigurationFromRemoteServerCacheLayer",
+  "handleIncomingWebSocketConnectionRequestHandler"
 ]

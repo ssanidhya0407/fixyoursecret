@@ -14,5 +14,6 @@
   { "rule": "huggingface-token", "parts": ["hf_", "abcdefghijklmnopqrstuvwxyz123456"], "note": "HuggingFace" },
   { "rule": "telegram-bot-token", "parts": ["123456789", ":", "abcdefghijklmnopqrstuvwxyzABCDE1234"], "note": "Telegram" },
   { "rule": "npm-token", "parts": ["npm_", "abcdefghijklmnopqrstuvwxyz1234567890"], "note": "npm" },
-  { "rule": "private-key-block", "parts": ["-----BEGIN PRIVATE KEY-----", "\\n", "MIIB", "\\n", "-----END PRIVATE KEY-----"], "note": "Private key" }
+  { "rule": "private-key-block", "parts": ["-----BEGIN PRIVATE KEY-----", "\\n", "MIIB", "\\n", "-----END PRIVATE KEY-----"], "note": "Private key" },
+  { "rule": "generic-high-entropy", "parts": ["Zx9KmPq2RtVw8LnB4cDeFgHj6sUvWx0YpAbCdEf"], "note": "Pure-alphanumeric random key (no symbols)" }
 ]

@@ -74,8 +74,14 @@ function looksLikeSecretToken(value) {
 }
 
 function looksLikeCodeIdentifier(value) {
-  if (/^[A-Za-z_][A-Za-z0-9_]{30,}$/.test(value)) return true;
-  if (/^[A-Z][A-Za-z0-9]{20,}$/.test(value)) return true;
+  // Long alphanumeric tokens are ambiguous: they may be source identifiers
+  // (camelCase names, minified symbols) OR pure-random API keys of the same
+  // shape. Length alone cannot tell them apart, so only excuse the token as an
+  // identifier when its character distribution actually looks language-derived
+  // (vowel-rich, low per-character entropy). A vowel-poor, high-entropy token
+  // of any length falls through and stays eligible to be reported.
+  if (/^[A-Za-z_][A-Za-z0-9_]{30,}$/.test(value) && looksLikeWordIdentifier(value)) return true;
+  if (/^[A-Z][A-Za-z0-9]{20,}$/.test(value) && looksLikeWordIdentifier(value)) return true;
   if (/^[_A-Za-z0-9-]+$/.test(value) && value.includes("__")) return true;
   if (/^[A-Za-z]+(?:[A-Z][a-z0-9]+){2,}\d+$/.test(value)) return true;
   if (/(Api|Context|Request|Response|Migration|Oauth2|OAuth2|V1alpha1|Agentflow)/.test(value)) return true;
@@ -91,6 +97,24 @@ function looksLikeCodeIdentifier(value) {
   if (vowelRatio > 0.42 && !/[_\-+/=]/.test(value)) return true;
 
   return false;
+}
+
+// Distinguishes a natural-language-derived identifier from a random secret of
+// the same length and alphabet. Two independent signals, both required:
+//   - vowelRatio: letters drawn from English words carry ~38-43% vowels;
+//     random base62 tokens hover near the alphabet's 16% vowel share.
+//   - normalized entropy: per-character entropy relative to the maximum a token
+//     of this length could reach. Word structure is compressible (~0.70-0.80);
+//     random tokens sit near the 1.0 ceiling.
+// Requiring BOTH means a vowel-poor *or* high-entropy token is never excused as
+// an identifier, which is what restores recall for pure-alphanumeric keys.
+function looksLikeWordIdentifier(value) {
+  const letters = (value.match(/[A-Za-z]/g) || []).length;
+  if (letters === 0) return false;
+  const vowels = (value.match(/[aeiou]/gi) || []).length;
+  const vowelRatio = vowels / letters;
+  const normalizedEntropy = shannonEntropy(value) / Math.log2(Math.max(2, value.length));
+  return vowelRatio >= 0.3 && normalizedEntropy <= 0.85;
 }
 
 function shannonEntropy(value) {
