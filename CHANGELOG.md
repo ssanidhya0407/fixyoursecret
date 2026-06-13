@@ -17,6 +17,14 @@ All notable changes to this project will be documented in this file.
   shell scripts, and config/IaC formats (`.yml`, `.yaml`, `.json`, `.toml`,
   `.ini`, `.tf`, `.tfvars`, and more).
 
+### Changed
+- Replaced the brittle list of ~30 corpus-specific generic-noise strings with
+  five general structural heuristics (asset/URL context, hyphenated slug,
+  multipart boundary, schema/spec vocabulary). Suppression now generalizes to
+  repositories the tool was never tuned against instead of memorizing fixtures.
+  Benchmark precision/recall stay at 1.0. As a side effect, real `GOCSPX-`
+  Google OAuth secrets are no longer blanket-suppressed.
+
 ### Fixed
 - `--version` and the SARIF report version now read from `package.json`
   instead of stale hardcoded strings, so they can no longer drift from the

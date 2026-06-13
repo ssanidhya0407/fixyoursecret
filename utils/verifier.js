@@ -124,41 +124,8 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
     return true;
   }
 
-  if (match.rule === "generic-high-entropy") {
-    if (/(?:https?:\/\/|url:|href=|source:|fileName:|filename:|data:image|base64)/.test(lowerSnippet)) return true;
-    const genericNoiseHints = [
-      "canvasrenderingcontext2d",
-      "axios parameter creator",
-      "sourcemappingurl=data:",
-      "base64,",
-      "images.unsplash.com",
-      ".woff2",
-      "oauth2",
-      "requestparameters",
-      "data-cy=",
-      "uuid",
-      "v1alpha1",
-      "openapi",
-      "migration",
-      "model:",
-      "anthropiccontext1m",
-      "bigint64arraybytes_per_element",
-      "claude-sonnet",
-      "gemini-",
-      "oauth/callback?code=",
-      "audio-16khz-16bit",
-      "i18next-browser-languagedetector",
-      "msapplication-square70x70logo",
-      "apps.googleusercontent.com",
-      "downloaded-logs-",
-      "webkiformboundary",
-      "gpt-4o-realtime-preview",
-      "audio-16khz-32kbitrate",
-      "toolchain-profile.zip",
-      "gocspx-",
-      "useandom-"
-    ];
-    if (genericNoiseHints.some((hint) => lowerSnippet.includes(hint))) return true;
+  if (match.rule === "generic-high-entropy" && looksLikeGenericNoise(value, lowerSnippet)) {
+    return true;
   }
 
   if (
@@ -168,6 +135,33 @@ export function shouldSkipAsNonSecret(match, snippet = "", filePath = "", hints 
   ) {
     return true;
   }
+
+  return false;
+}
+
+// General structural reasons a high-entropy token is NOT a secret. This
+// replaces a brittle list of corpus-specific strings: each check captures the
+// *cause* of a false-positive class (asset reference, code identifier, schema
+// vocabulary) so it generalizes to repositories we never tuned against.
+function looksLikeGenericNoise(value, lowerSnippet = "") {
+  const lowerValue = String(value || "").toLowerCase();
+
+  // 1. Token sits inside a URL, data URI, import/require, or source map.
+  if (/(?::\/\/|url[(:]|href=|src=|srcset|source:|sourcemappingurl|import\s|require\(|from\s+["']|filename|data:|base64)/.test(lowerSnippet)) return true;
+
+  // 2. Snippet references an asset / binary / archive file by extension.
+  if (/\.(?:woff2?|ttf|eot|otf|png|jpe?g|gif|svg|webp|ico|map|zip|t?gz|tar|mp[34]|wav|pdf)\b/.test(lowerSnippet)) return true;
+
+  // 3. Token is a hyphenated lowercase slug — model/package names such as
+  //    gpt-4o-realtime-preview or i18next-browser-languagedetector.
+  if (/^[a-z0-9]+(?:-[a-z0-9]+){2,}$/.test(lowerValue)) return true;
+
+  // 4. MIME / multipart form boundary markers.
+  if (/boundary/.test(lowerSnippet) || /^-*[a-z]*formboundary/.test(lowerValue)) return true;
+
+  // 5. Schema / spec / versioning vocabulary that generated clients emit as
+  //    long tokens (OpenAPI clients, migrations, UUIDs) — not secrets.
+  if (/\b(?:uuid|oauth2?|openapi|swagger|migration)\b|v\d+(?:alpha|beta)\d+|model:/.test(lowerSnippet)) return true;
 
   return false;
 }
