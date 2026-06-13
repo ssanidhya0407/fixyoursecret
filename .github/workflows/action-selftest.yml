@@ -1,0 +1,72 @@
+name: Action Self-Test
+
+# Exercises action.yml end-to-end against the published package: it must fail
+# the build on a planted secret, pass on clean code, and emit SARIF. The test
+# token is assembled at runtime so this workflow file contains no literal
+# secret (which would trip GitHub push protection).
+
+on:
+  push:
+    paths:
+      - "action.yml"
+      - ".github/workflows/action-selftest.yml"
+  pull_request:
+    paths:
+      - "action.yml"
+      - ".github/workflows/action-selftest.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  detects-planted-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Plant a secret in a tracked file
+        run: |
+          mkdir -p selftest/src
+          printf 'const k = "%s%s";\n' "sk-proj-" "Ab3dEf7Hj9KmNpQrTu2Wx5Yz8Cv1Bn4" > selftest/src/app.js
+          git add selftest
+
+      - name: Run the action (expected to fail)
+        id: scan
+        continue-on-error: true
+        uses: ./
+        with:
+          path: selftest
+          fail-on: high
+          upload-sarif: false
+
+      - name: Assert the action flagged the secret and wrote SARIF
+        run: |
+          if [ "${{ steps.scan.outcome }}" != "failure" ]; then
+            echo "::error::Action did not fail on a planted secret"
+            exit 1
+          fi
+          if [ ! -s fixyoursecret.sarif ]; then
+            echo "::error::Action did not produce a SARIF report"
+            exit 1
+          fi
+          node -e "JSON.parse(require('fs').readFileSync('fixyoursecret.sarif','utf8'))"
+          echo "OK: planted secret detected, build failed, SARIF written."
+
+  passes-on-clean-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Add a clean tracked file
+        run: |
+          mkdir -p selftest/src
+          printf 'const k = process.env.OPENAI_KEY;\n' > selftest/src/app.js
+          git add selftest
+
+      - name: Run the action (expected to pass)
+        uses: ./
+        with:
+          path: selftest
+          fail-on: high
+          upload-sarif: false
