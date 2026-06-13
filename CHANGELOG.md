@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.5.0] - 2026-06-13
 
 ### Added
 - **Full git-history scanning.** `fixyoursecret history all` (or
@@ -16,6 +16,12 @@ All notable changes to this project will be documented in this file.
   Scans now include Python, Go, Ruby, PHP, Java/Kotlin/Scala, Rust, C/C++/C#,
   shell scripts, and config/IaC formats (`.yml`, `.yaml`, `.json`, `.toml`,
   `.ini`, `.tf`, `.tfvars`, and more).
+- Generic detection now finds pure-alphanumeric high-entropy secrets (base62
+  API keys with no symbols), which were previously excused as code
+  identifiers. Discrimination is by character distribution (vowel ratio +
+  normalized entropy) rather than length, so camelCase/snake identifiers and
+  hex hashes stay clean — verified across ~1,865 files in 9 public repos with
+  zero new false positives.
 
 ### Changed
 - Replaced the brittle list of ~30 corpus-specific generic-noise strings with
