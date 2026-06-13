@@ -3,7 +3,7 @@
 
 # FixYourSecret
 
-**The ESLint-style CLI that catches leaked secrets before they become incidents.**
+**Most scanners stop at _finding_ secrets. FixYourSecret ranks each leak by real exploitability, generates the backend fix, and walks you through rotation — then gates CI so it never comes back.**
 
 [![npm version](https://img.shields.io/npm/v/fixyoursecret?color=0B57D0)](https://www.npmjs.com/package/fixyoursecret)
 [![Node >= 20](https://img.shields.io/badge/node-%3E%3D20-2ea44f)](https://nodejs.org/)
@@ -11,15 +11,29 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/ssanidhya0407/fixyoursecret/fixyoursecret-ci.yml?label=ci)](https://github.com/ssanidhya0407/fixyoursecret/actions)
 </div>
 
-## Why FixYourSecret Exists
-Secrets leak in real projects all the time: copied examples, test files, frontend code, old commits, and rushed hotfixes.
+## Why FixYourSecret Is Different
+A long list of leaked strings isn't a fix — it's a to-do list. FixYourSecret closes the loop:
 
-FixYourSecret gives you a fast, practical workflow:
-1. **Find** exposed keys and tokens.
-2. **Prioritize** by risk (especially frontend exposure).
-3. **Fix** with generated backend proxy templates.
-4. **Rotate** keys safely.
-5. **Gate CI** so regressions do not slip back in.
+| | Find-only scanners | **FixYourSecret** |
+|---|:---:|:---:|
+| Detect leaked keys & tokens | ✅ | ✅ |
+| Scan full git history (deleted commits) | ✅ | ✅ |
+| **Rank by real exploitability** (frontend exposure → HIGH) | ❌ | ✅ |
+| **Generate the fix** (backend proxy + frontend patch) | ❌ | ✅ |
+| **Guide key rotation** + update `.env` | ❌ | ✅ |
+| CI gate + SARIF + custom rules | ✅ | ✅ |
+
+The difference is **prioritization and remediation**. A key in `src/components/` is shipping to every browser; the same key in a backend `.env` is far less urgent — FixYourSecret knows the difference, marks the exploitable one HIGH, hands you a generated proxy to move it server-side, and walks you through rotating it.
+
+### The workflow
+1. **Find** exposed keys and tokens — across the working tree _or_ full git history.
+2. **Prioritize** by risk — frontend exposure is escalated to HIGH automatically.
+3. **Fix** — generate a backend proxy + frontend patch so the secret leaves the client.
+4. **Rotate** — guided, safe key rotation that updates your `.env`.
+5. **Gate CI** — SARIF + a one-line GitHub Action so regressions never slip back in.
+
+### Accuracy you can verify
+Measured against a labeled corpus with ground truth (known secrets planted at known locations + realistic hard negatives): **precision 1.000 · recall 1.000 · F1 1.000**. Reproduce it yourself with `npm run benchmark:corpus` — details in [Accuracy](#accuracy).
 
 ## What It Detects
 Built-in detectors currently include:
