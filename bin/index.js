@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { Command } from "commander";
 import { runScan } from "../commands/scan.js";
 import { runFix } from "../commands/fix.js";
@@ -6,12 +8,16 @@ import { runRotate } from "../commands/rotate.js";
 import { runInit } from "../commands/init.js";
 import { runHookInstall } from "../commands/hook.js";
 
+const pkg = JSON.parse(
+  readFileSync(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8")
+);
+
 const program = new Command();
 
 program
   .name("fixyoursecret")
   .description("Developer-first CLI for finding leaked secrets and safely fixing exposure")
-  .version("0.3.0-developer-preview.1");
+  .version(pkg.version);
 
 program
   .command("init")
