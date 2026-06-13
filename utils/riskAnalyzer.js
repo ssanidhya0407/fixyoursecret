@@ -10,6 +10,15 @@ export function analyzeRisk(relativePath, match, snippet) {
   const hasPublicEnvLeak = PUBLIC_ENV_HINTS.some((prefix) => snippet.includes(prefix));
   const inFrontend = !isBackendPath && (inFrontendPath || hasPublicEnvLeak) && !isEnvFile;
 
+  if (match.isCustom) {
+    const declared = String(match.severity || "high").toUpperCase();
+    return {
+      severity: inFrontend ? "HIGH" : declared,
+      fix: "Review this match; if it is a real secret, move it to a secure secret store and rotate it.",
+      reason: `Matched custom rule "${match.rule}"`,
+    };
+  }
+
   if (match.type === "private-key") {
     return {
       severity: "HIGH",

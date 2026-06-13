@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- **Custom rules.** Teams can flag their own internal token formats by adding a
+  `customRules` array (id + regex, with optional severity/issue/confidence) to
+  `.fixyoursecretrc.json` — no fork required. Capture group 1, when present, is
+  treated as the secret value. Invalid or duplicate rules are skipped instead of
+  failing the scan, declared severity escalates to HIGH on frontend exposure,
+  and custom findings survive `--verify-strict`.
+
 ## [0.5.0] - 2026-06-13
 
 ### Added

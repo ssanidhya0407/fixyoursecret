@@ -43,6 +43,7 @@ export const DEFAULT_CONFIG = {
   ],
   ignoreDetectors: [],
   ignoreValueHints: ["example", "dummy", "fake", "sample", "replace_in_runtime_only"],
+  customRules: [],
 };
 
 export async function loadConfig(projectPath, configPath) {
@@ -66,6 +67,7 @@ export async function loadConfig(projectPath, configPath) {
         entropyThreshold: toPositiveNumber(parsed.entropyThreshold, DEFAULT_CONFIG.entropyThreshold),
         failOn: normalizeFailOn(parsed.failOn, DEFAULT_CONFIG.failOn),
         verifyMode: normalizeVerifyMode(parsed.verifyMode, DEFAULT_CONFIG.verifyMode),
+        customRules: normalizeCustomRules(parsed.customRules),
       };
       return { config, path: candidate, loaded: true };
     } catch {
@@ -108,6 +110,56 @@ function normalizeSuppressions(value) {
 
 function normalizeStringArray(value, fallback) {
   return Array.isArray(value) ? value.filter((v) => typeof v === "string") : fallback;
+}
+
+// Validates and normalizes user-defined detector rules. Each entry needs an
+// `id` and a `regex`; invalid or duplicate rules are dropped rather than
+// crashing the scan. `g` is always present so matchAll works.
+function normalizeCustomRules(value) {
+  if (!Array.isArray(value)) return [];
+
+  const out = [];
+  const seen = new Set();
+
+  for (const raw of value) {
+    if (!raw || typeof raw !== "object") continue;
+
+    const id = typeof raw.id === "string" && raw.id.trim() ? raw.id.trim() : null;
+    const pattern = typeof raw.regex === "string" && raw.regex
+      ? raw.regex
+      : (typeof raw.pattern === "string" && raw.pattern ? raw.pattern : null);
+    if (!id || !pattern || seen.has(id)) continue;
+
+    let flags = typeof raw.flags === "string" ? raw.flags : "g";
+    if (!flags.includes("g")) flags += "g";
+
+    try {
+      new RegExp(pattern, flags); // skip rules whose regex does not compile
+    } catch {
+      continue;
+    }
+
+    const confidence = ["low", "medium", "high"].includes(String(raw.confidence || "").toLowerCase())
+      ? String(raw.confidence).toLowerCase()
+      : "medium";
+
+    seen.add(id);
+    out.push({
+      id,
+      pattern,
+      flags,
+      issue: typeof raw.issue === "string" && raw.issue ? raw.issue : `Custom rule "${id}" matched`,
+      severity: normalizeSeverityLabel(raw.severity),
+      confidence,
+    });
+  }
+
+  return out;
+}
+
+function normalizeSeverityLabel(value) {
+  const safe = String(value || "").toLowerCase();
+  return ["low", "medium", "high"].includes(safe) ? safe : "high";
 }
 
 function toPositiveInt(value, fallback) {

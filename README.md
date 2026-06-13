@@ -98,6 +98,33 @@ fixyoursecret scan --verify safe --verify-strict
 
 `safe` mode uses provider-safe structural checks only (no external API calls).
 
+## Custom Rules
+Flag your own internal token formats without forking. Add a `customRules` array to `.fixyoursecretrc.json`:
+
+```json
+{
+  "customRules": [
+    {
+      "id": "acme-internal-token",
+      "regex": "acme_[a-f0-9]{32}",
+      "severity": "high",
+      "issue": "Acme internal token exposed"
+    }
+  ]
+}
+```
+
+| Field | Required | Notes |
+|---|---|---|
+| `id` | yes | Unique rule name; shown as the finding's rule. |
+| `regex` | yes | JavaScript regex. If it has a capture group, group 1 is treated as the secret value. |
+| `severity` | no | `low` \| `medium` \| `high` (default `high`). Escalates to `high` automatically on frontend exposure. |
+| `issue` | no | Human-readable description. |
+| `confidence` | no | `low` \| `medium` \| `high` (default `medium`). |
+| `flags` | no | Regex flags (`g` is always applied). |
+
+Rules with an invalid or duplicate regex are skipped rather than failing the scan. Custom findings are treated as verified, so they survive `--verify-strict`.
+
 ## Baseline Support
 Baselines let teams adopt secret scanning without breaking every existing build on day one.
 

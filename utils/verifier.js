@@ -2,6 +2,10 @@ export function verifyFinding(match, fileContent = "", snippet = "") {
   const value = String(match.value || "");
   const lowerSnippet = String(snippet || "").toLowerCase();
 
+  // A user-defined rule is its own verification contract: the regex matched, so
+  // we trust it rather than dropping it under --verify-strict.
+  if (match.isCustom) return formatResult(true, "custom-rule");
+
   switch (match.rule) {
     case "openai-key": {
       const formatOk = /^sk-(?:proj-)?[A-Za-z0-9_-]{24,}$/.test(value);
