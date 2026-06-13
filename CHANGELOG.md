@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 ### Added
+- **Labeled-corpus benchmark** (`scripts/benchmark-corpus.js`, `npm run
+  benchmark:corpus`). Unlike the multi-repo tuner, which only counts findings
+  for manual review, this measures *true* precision/recall/F1 against ground
+  truth: known secrets planted at known locations across 10+ file types, scored
+  alongside realistic hard negatives that must stay clean. Current corpus scores
+  1.000 / 1.000 / 1.000. `benchmark:corpus:real` extends the precision check by
+  cloning popular public repos and folding their findings into the FP count, and
+  the corpus gate is now part of `npm run quality`.
 - **Custom rules.** Teams can flag their own internal token formats by adding a
   `customRules` array (id + regex, with optional severity/issue/confidence) to
   `.fixyoursecretrc.json` — no fork required. Capture group 1, when present, is

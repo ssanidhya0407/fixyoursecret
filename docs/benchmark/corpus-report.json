@@ -1,0 +1,22 @@
+{
+  "generatedFrom": "scripts/benchmark-corpus.js",
+  "corpus": {
+    "planted": 15,
+    "negativeFiles": 10
+  },
+  "realRepos": null,
+  "counts": {
+    "truePositives": 15,
+    "falseNegatives": 0,
+    "falsePositives": 0,
+    "syntheticFp": 0,
+    "realFp": 0
+  },
+  "metrics": {
+    "precision": 1,
+    "recall": 1,
+    "f1": 1
+  },
+  "missed": [],
+  "falsePositiveSamples": []
+}

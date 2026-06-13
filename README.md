@@ -140,13 +140,27 @@ Generate SARIF for GitHub code scanning or other platforms:
 fixyoursecret ci --output-file fixyoursecret.sarif
 ```
 
+## Accuracy
+FixYourSecret ships a **labeled-corpus benchmark** that measures true precision and recall against ground truth — known secrets planted at known locations, alongside realistic hard negatives (hashes, UUIDs, data URIs, model names, example keys) that must stay clean.
+
+| Metric | Score |
+|---|---|
+| Precision | **1.000** |
+| Recall | **1.000** |
+| F1 | **1.000** |
+
+_15 planted secrets across 10+ file types and frontend/backend paths; 10 hard-negative files. Reproduce with `npm run benchmark:corpus`._
+
+For real-world false-positive validation, `npm run benchmark:corpus:real` additionally clones popular public repositories and folds their findings into the precision measurement.
+
 ## Quality Gates and Tuning
 This repo ships with benchmark and multi-repo tuning scripts:
 
 ```bash
-npm run quality
-npm run benchmark
-npm run tune:500:quick
+npm run quality            # tests + synthetic benchmark + labeled corpus
+npm run benchmark          # synthetic positive/negative gate
+npm run benchmark:corpus   # labeled corpus: true precision/recall/F1
+npm run tune:500:quick     # large-scale false-positive review
 npm run regression:check
 ```
 
