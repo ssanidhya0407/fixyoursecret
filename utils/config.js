@@ -5,8 +5,32 @@ export const CONFIG_FILENAMES = [".fixyoursecretrc.json", ".secretlintrc.json"];
 export const BASELINE_FILENAMES = [".fixyoursecret-baseline.json", ".secretlint-baseline.json"];
 
 export const DEFAULT_CONFIG = {
-  ignorePaths: ["node_modules/**", ".git/**", ".cache/**", "dist/**", "build/**", ".next/**", "coverage/**", "vendor/**", "tmp/**"],
-  allowedExtensions: [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"],
+  ignorePaths: [
+    "node_modules/**", ".git/**", ".cache/**", "dist/**", "build/**", ".next/**",
+    "coverage/**", "vendor/**", "tmp/**", "target/**", "out/**",
+    ".venv/**", "venv/**", "__pycache__/**", ".terraform/**",
+    // Lock files and generated bundles are high-entropy noise, not secret sources.
+    "**/*.min.js", "**/*.min.css", "**/*.map",
+    "**/package-lock.json", "**/pnpm-lock.yaml", "**/yarn.lock",
+    "**/composer.lock", "**/Gemfile.lock", "**/poetry.lock", "**/Cargo.lock",
+    // The tool's own artifacts echo back secret snippets — never scan them.
+    "**/.fixyoursecret-baseline.json", "**/.secretlint-baseline.json",
+    "**/*.sarif", "fixyoursecret-output/**",
+  ],
+  allowedExtensions: [
+    // JS/TS ecosystem
+    ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".vue", ".svelte",
+    // Other languages
+    ".py", ".rb", ".go", ".php", ".java", ".kt", ".scala", ".rs", ".cs",
+    ".c", ".cpp", ".swift", ".dart", ".ex", ".exs", ".groovy", ".gradle", ".pl", ".lua",
+    // Shell
+    ".sh", ".bash", ".zsh", ".ps1",
+    // Config / IaC / data
+    ".yml", ".yaml", ".json", ".toml", ".ini", ".cfg", ".conf", ".properties", ".xml",
+    ".tf", ".tfvars",
+    // Env files
+    ".env",
+  ],
   maxFileSizeKB: 256,
   entropyThreshold: 3.8,
   failOn: "high",

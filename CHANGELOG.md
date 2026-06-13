@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+
+### Added
+- Greatly expanded default file-type coverage beyond the JS/TS ecosystem.
+  Scans now include Python, Go, Ruby, PHP, Java/Kotlin/Scala, Rust, C/C++/C#,
+  shell scripts, and config/IaC formats (`.yml`, `.yaml`, `.json`, `.toml`,
+  `.ini`, `.tf`, `.tfvars`, and more).
+
+### Fixed
+- `--version` now reads from `package.json` instead of a stale hardcoded
+  string, so the CLI version can no longer drift from the published release.
+- The scanner no longer flags its own baseline/SARIF artifacts, which echo
+  back secret snippets. Lock files and minified bundles are also ignored by
+  default to keep the new coverage from adding generic-token noise.
+
+### Internal
+- `fileScanner` now derives its default extensions and ignore globs from
+  `DEFAULT_CONFIG`, removing a duplicated source of truth.
+
 ## [0.4.3] - 2026-03-26
 
 ### Improved

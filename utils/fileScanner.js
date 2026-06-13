@@ -1,15 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { glob } from "glob";
-
-const DEFAULT_EXTENSIONS = [".js", ".ts", ".jsx", ".tsx", ".env", ".swift"];
+import { DEFAULT_CONFIG } from "./config.js";
 
 export async function collectProjectFiles(projectPath, options = {}) {
   const extensions = Array.isArray(options.allowedExtensions) && options.allowedExtensions.length > 0
     ? options.allowedExtensions
-    : DEFAULT_EXTENSIONS;
+    : DEFAULT_CONFIG.allowedExtensions;
   const allowedExtensions = new Set(extensions.map((e) => String(e).toLowerCase()));
-  const ignore = options.ignorePaths || ["node_modules/**", ".git/**", "dist/**", "build/**"];
+  const ignore = options.ignorePaths || DEFAULT_CONFIG.ignorePaths;
   const includeOnly = normalizeSet(options.includeOnly);
   const maxFileSizeBytes = (options.maxFileSizeKB || 256) * 1024;
 
